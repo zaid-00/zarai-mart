@@ -14,9 +14,9 @@ export const useStyle = () => {
       container: {
         flex: 1,
         backgroundColor: theme.colors.background,
-        paddingTop: heightPercentageToDP(7),
       },
-      contentContainer: {paddingBottom: heightPercentageToDP(10)},
+      contentContainer: {paddingBottom: heightPercentageToDP(10),
+      marginTop:heightPercentageToDP(7)},
       Img: {
         height: heightPercentageToDP(30),
         width: widthPercentageToDP(60),

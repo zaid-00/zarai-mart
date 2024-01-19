@@ -22,43 +22,11 @@ const Login: React.FC = () => {
   const navigation = useNavigation<any>();
   const {control, handleSubmit, reset, trigger, formState, getValues} =
     useForm();
-    const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const login = async (data?: any) => {
-    console.log(data);
-    //   Keyboard.dismiss();
-
-    //   if (!ValidateEmail(data?.email)) {
-    //     dispatch(enableSnackbar("Please input the correct email address."));
-    //     return;
-    //   }
-    //   if (data?.password != data?.confirmPassword) {
-    //     dispatch(enableSnackbar("Passwords do not match"));
-    //     return;
-    //   }
-    //   try {
-    //     setIsLoading(true);
-    //     const response = await signUpUser(
-    //       data?.name,
-    //       data?.email,
-    //       data?.password,
-    //       data?.phone
-    //     );
-
-    //     if (response?.status == 200) {
-    //       dispatch(onLogin(response?.data));
-    //     } else {
-    //       dispatch(enableSnackbar("Something went wrong. Please try again."));
-    //     }
-    //     navigation.navigate("Explore");
-
-    //     dispatch(enableSnackbar("Successfully signed up."));
-    //   } catch (err) {
-    //     dispatch(enableSnackbar("Something went wrong. Please try again."));
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
+    navigation.navigate('Main');
   };
 
   return (
@@ -118,10 +86,10 @@ const Login: React.FC = () => {
           control={control}
           rules={{
             required: true,
-            minLength:{
-              value:8,
-              message:'Password must contain 8 characters'
-            }
+            minLength: {
+              value: 8,
+              message: 'Password must contain 8 characters',
+            },
           }}
           render={({field: {onChange, value}}) => (
             <InputBoxWithIcon
@@ -149,25 +117,26 @@ const Login: React.FC = () => {
               styles.error,
               {maxWidth: widthPercentageToDP(43), alignSelf: 'flex-end'},
             ]}>
-              {formState.errors.password.type=='required'?
-            "Password is required":'Password must contain 8 characters'}
+            {formState.errors.password.type == 'required'
+              ? 'Password is required'
+              : 'Password must contain 8 characters'}
           </Text>
         )}
       </View>
       <BouncyCheckbox
-            size={20}
-            unfillColor="transparent"
-            fillColor={theme.colors.primaryButton}
-            text="Remember me"
-            useNativeDriver
-            iconStyle={styles.iconStyle}
-            style={{ marginVertical:heightPercentageToDP(2) }}
-            textStyle={styles.checkBoxText}
-            isChecked={rememberMe}
-            onPress={(isChecked: boolean) => {
-              setRememberMe(isChecked);
-            }}
-          />
+        size={20}
+        unfillColor="transparent"
+        fillColor={theme.colors.primaryButton}
+        text="Remember me"
+        useNativeDriver
+        iconStyle={styles.iconStyle}
+        style={{marginVertical: heightPercentageToDP(2)}}
+        textStyle={styles.checkBoxText}
+        isChecked={rememberMe}
+        onPress={(isChecked: boolean) => {
+          setRememberMe(isChecked);
+        }}
+      />
       <PrimaryButton
         title="Sign in"
         // disabled={formState.isValid?false:true}
@@ -175,18 +144,18 @@ const Login: React.FC = () => {
         onPress={handleSubmit(login)}
         animating={isLoading}
       />
-      <TouchableOpacity onPress={()=>navigation.navigate("ForgotPassword")}>
-          <Text
-            style={[
-              {
-                marginVertical: heightPercentageToDP(3),
-                color: theme.colors.primaryButton,
-                fontFamily:theme.fonts.semiBoldFont,
-              },
-            ]}>
-            Forgot the Password?
-          </Text>
-        </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+        <Text
+          style={[
+            {
+              marginVertical: heightPercentageToDP(3),
+              color: theme.colors.primaryButton,
+              fontFamily: theme.fonts.semiBoldFont,
+            },
+          ]}>
+          Forgot the Password?
+        </Text>
+      </TouchableOpacity>
       <View style={{flexDirection: 'row'}}>
         <Text
           style={[
@@ -198,13 +167,13 @@ const Login: React.FC = () => {
           ]}>
           Don’t have an account?{' '}
         </Text>
-        <TouchableOpacity onPress={()=>navigation.navigate("Signup")}>
+        <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
           <Text
             style={[
               {
                 marginVertical: heightPercentageToDP(2),
                 color: theme.colors.primaryButton,
-                fontFamily:theme.fonts.semiBoldFont,
+                fontFamily: theme.fonts.semiBoldFont,
               },
             ]}>
             Sign up

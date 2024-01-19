@@ -11,7 +11,9 @@ declare global {
       grey700: string;
       textViewBackground:string;
       borderColor:string;
-      greyDot:string
+      greyDot:string;
+      lightGrey:string;
+      dullGreyBackground:string;
     }
 
     interface ThemeFonts {

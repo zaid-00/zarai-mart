@@ -16,11 +16,8 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      slideContainer: {},
       image: {
         height: heightPercentageToDP(60),
-        width: widthPercentageToDP(100),
-        // alignSelf: 'center',
         marginBottom: heightPercentageToDP(2),
       },
       heading: {
@@ -28,7 +25,29 @@ export const useStyle = () => {
         color: theme.colors.primaryText,
         fontFamily: theme.fonts.boldFont,
         fontSize: widthPercentageToDP(7.7),
+        width:widthPercentageToDP(80),
         paddingHorizontal: widthPercentageToDP(4),
+        textAlign:'center'
+      },
+      dotContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop:heightPercentageToDP(4),
+        alignSelf: 'center',
+      },
+      longDot: {
+        paddingHorizontal: widthPercentageToDP(2.7),
+        paddingVertical: heightPercentageToDP(0.4),
+        borderRadius: widthPercentageToDP(3),
+        backgroundColor: theme.colors.primaryButton,
+        marginHorizontal: widthPercentageToDP(0.3),
+      },
+      shortDot: {
+        marginHorizontal: widthPercentageToDP(0.3),
+        paddingHorizontal: widthPercentageToDP(1),
+        paddingVertical: heightPercentageToDP(0.4),
+        borderRadius: widthPercentageToDP(3),
+        backgroundColor: theme.colors.greyDot,
       },
       button: {
         marginTop:heightPercentageToDP(9),

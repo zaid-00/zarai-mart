@@ -14,6 +14,7 @@ import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
 import {useStyle} from './styles';
+import { ScrollView } from 'react-native-gesture-handler';
 const NewPassword: React.FC = () => {
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -31,7 +32,7 @@ const NewPassword: React.FC = () => {
   };
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {modalVisible && <View style={styles.overlay}></View>}
       <KeyboardAwareScrollView
         style={styles.contentContainer}
@@ -177,7 +178,7 @@ const NewPassword: React.FC = () => {
           />
         </View>
       </Modal>
-    </View>
+    </ScrollView>
   );
 };
 

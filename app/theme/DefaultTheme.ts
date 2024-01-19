@@ -13,6 +13,8 @@ export const defaultTheme = {
     textViewBackground:'#FAFAFA',
     borderColor:'#EEEEEE',
     greyDot:'#E0E0E0',
+    lightGrey:"#757575",
+    dullGreyBackground:'#F5F5F5',
   },
   fonts: {
     boldFont: 'Urbanist-Bold',

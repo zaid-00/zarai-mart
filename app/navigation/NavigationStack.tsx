@@ -7,13 +7,17 @@ import Onboard from '../screens/Onboard';
 import OtpPassword from '../screens/OtpPassword';
 import Signup from '../screens/Signup';
 import VerifySignUp from '../screens/VerifySignUp';
+import BottomTabNavigation from './BottomTabNavigation';
+import { StatusBar } from 'react-native';
+import Search from '../screens/Search';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
   
   return (
     <NavigationContainer>
-      <Stack.Navigator >
+      {/* <StatusBar backgroundColor={'white'} barStyle={'dark-content'}/> */}
+      <Stack.Navigator initialRouteName='Main'>
       <Stack.Screen name="Onboard" component={Onboard} options={{headerShown:false}}/>
       <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
@@ -21,6 +25,8 @@ function AppNavigator() {
       <Stack.Screen name='OtpPassword' component={OtpPassword} options={{headerShown:false}}/>
       <Stack.Screen name='NewPassword' component={NewPassword} options={{headerShown:false}}/>
       <Stack.Screen name='VerifySignUp' component={VerifySignUp} options={{headerShown:false}}/>
+      <Stack.Screen name='Search' component={Search} options={{headerShown:false}}/>
+      <Stack.Screen name='Main' component={BottomTabNavigation} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -22,6 +22,10 @@ export const useStyle = () => {
         width: widthPercentageToDP(70),
         alignSelf: 'center',
       },
+      icon: {
+        height: heightPercentageToDP(3),
+        width: widthPercentageToDP(6),
+      },
       controller: {marginVertical: heightPercentageToDP(2.9)},
       error: {
         color: 'red',
