@@ -17,14 +17,13 @@ export const useStyle = () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        width:widthPercentageToDP(40)
+        width:widthPercentageToDP(35)
       },
       cropImage: {
-        height: heightPercentageToDP(25),
         borderRadius:widthPercentageToDP(6),
-        width: isTablet() ? widthPercentageToDP(50) : widthPercentageToDP(45),
       },
       nameText: {
+        marginVertical:heightPercentageToDP(1),
         fontFamily: theme.fonts.boldFont,
         color: theme.colors.primaryText,
         fontSize: widthPercentageToDP(5.6),
@@ -33,10 +32,11 @@ export const useStyle = () => {
         fontFamily: theme.fonts.boldFont,
         color: theme.colors.primaryButton,
         fontSize: widthPercentageToDP(5.6),
+        marginVertical:heightPercentageToDP(1)
       },
       icon: {
         height: heightPercentageToDP(2),
-        width: widthPercentageToDP(7),
+        width: widthPercentageToDP(5),
       },
       seperatorIcon: {
         height: heightPercentageToDP(1.7),

@@ -39,7 +39,7 @@ const OtpPassword: React.FC = () => {
           inputCount={4}
           tintColor={theme.colors.primaryButton}
           offTintColor={theme.colors.borderColor}
-          ref={(e: any) => console.log(e)}
+          // ref={(e: any) => console.log(e)}
           textInputStyle={styles.otpTextInput}
           textContentType={'oneTimeCode'}
           keyboardType="numeric"

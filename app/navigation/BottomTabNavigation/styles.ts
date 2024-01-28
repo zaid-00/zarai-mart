@@ -11,14 +11,15 @@ export const useStyle = () => {
   const styles = () =>
     StyleSheet.create({
       tabbarIcon: {
+        marginBottom:heightPercentageToDP(-1),
         fontSize: widthPercentageToDP(20),
       },
       tabbar: {
         backgroundColor: theme.colors.background,
         height:
           Platform.OS == 'ios'
-            ? heightPercentageToDP(8.5)
-            : heightPercentageToDP(8),
+            ? heightPercentageToDP(8)
+            : heightPercentageToDP(7),
         paddingBottom: heightPercentageToDP(1),
         borderTopWidth:0,
         elevation:0,

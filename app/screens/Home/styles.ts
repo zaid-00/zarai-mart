@@ -18,6 +18,7 @@ export const useStyle = () => {
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),
+        paddingBottom:heightPercentageToDP(18)
       },
       title: {
         fontWeight: 'bold',
@@ -50,6 +51,11 @@ export const useStyle = () => {
         color: theme.colors.primaryText,
         fontFamily: theme.fonts.boldFont,
         fontSize:widthPercentageToDP(4.2),
+      },
+      greenText: {
+        color: theme.colors.primaryButton,
+        fontFamily: theme.fonts.boldFont,
+        fontSize:widthPercentageToDP(3.6),
       },
       subRowFlex:{
         flexDirection:'row',

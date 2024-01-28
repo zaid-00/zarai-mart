@@ -3,6 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {Pressable, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {Portal, useTheme} from 'react-native-paper';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import {useStyle} from './style';
 import {Props} from './types';
 import {useIsFocused} from '@react-navigation/native';
@@ -44,10 +48,18 @@ const CropCard: React.FC<Props> = props => {
   // };
 
   return (
-    <View style={[styles.view, props.style]}>
+    <TouchableOpacity onPress={props?.onPress} style={[styles.view, props.style]}>
       <FastImage
         source={props?.image}
-        style={styles.cropImage}
+        style={[
+          props?.isSpecialOffer
+            ? {width: widthPercentageToDP(50), height: heightPercentageToDP(25)}
+            : {
+                width: widthPercentageToDP(44.5),
+                height: heightPercentageToDP(20),
+              },
+          styles.cropImage,
+        ]}
         resizeMode="stretch"
       />
       <Text style={styles.nameText}>{props?.name}</Text>
@@ -67,10 +79,8 @@ const CropCard: React.FC<Props> = props => {
           <Text style={styles.soldText}>{props?.noOfSold} Sold</Text>
         </View>
       </View>
-      <Text style={styles.priceText}>
-        Rs {props?.price}/kg
-      </Text>
-    </View>
+      <Text style={styles.priceText}>Rs {props?.price}/kg</Text>
+    </TouchableOpacity>
   );
 };
 export default CropCard;

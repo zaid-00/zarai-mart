@@ -9,5 +9,7 @@ export interface Props {
   image?: any;
   id?: any;
   isLiked?: boolean | any;
+  isSpecialOffer?:boolean | any;
+  onPress?:()=> void;
   returnCall?: () => void;
 }

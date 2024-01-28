@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {Text, View, TouchableOpacity, Modal} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -14,7 +14,7 @@ import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
 import {useStyle} from './styles';
-import { ScrollView } from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 const NewPassword: React.FC = () => {
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -30,6 +30,7 @@ const NewPassword: React.FC = () => {
   const resetPassword = () => {
     setModalVisible(() => !modalVisible);
   };
+  const isFocused=useIsFocused();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <ScrollView style={styles.container}>
@@ -158,7 +159,7 @@ const NewPassword: React.FC = () => {
         visible={modalVisible}
         onRequestClose={() => setModalVisible(!modalVisible)}>
         <View style={styles.centeredView}>
-           <FastImage
+          <FastImage
             source={images.ForgotPassword.success}
             resizeMode="contain"
             style={styles.successImg}
@@ -168,9 +169,7 @@ const NewPassword: React.FC = () => {
             Your account is ready to use. You will be redirected to the Home
             page in a{' '}
           </Text>
-          <Text style={styles.congratsSubText}>
-          few seconds..
-          </Text>
+          <Text style={styles.congratsSubText}>few seconds..</Text>
           <FastImage
             source={images.ForgotPassword.loader}
             resizeMode="contain"
