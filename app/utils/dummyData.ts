@@ -1,4 +1,5 @@
 import images from "../config/images";
+
 const dummyCropData = [
   {
     id: '1',
@@ -81,4 +82,17 @@ const dummyCropData = [
     price: '310',
   },
 ];
-export default dummyCropData;
+
+const vegetableData = [
+  { id: 'all', name: 'All' },
+  { id: '1', name: 'Carrot' },
+  { id: '2', name: 'Broccoli' },
+  { id: '3', name: 'Spinach' },
+  { id: '4', name: 'Tomato' },
+  { id: '5', name: 'Cucumber' },
+  { id: '6', name: 'Bell Pepper' },
+  { id: '7', name: 'Onion' },
+  { id: '8', name: 'Lettuce' },
+];
+
+export { dummyCropData, vegetableData };

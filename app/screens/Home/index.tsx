@@ -17,8 +17,9 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import CropCard from '../../components/CropCard';
-import dummyCropData from '../../utils/dummyData';
+import {dummyCropData,vegetableData} from '../../utils/dummyData';
 import {ScrollView} from 'react-native-gesture-handler';
+import CropFilter from '../../components/CropFilter';
 const Home: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -45,6 +46,9 @@ const Home: React.FC = () => {
       price={item?.price}
       onPress={() => console.log(item?.name + ' Card Pressed')}
     />
+  );
+  const renderFilters=({item})=>(
+    <CropFilter name={item?.name} style={{marginRight:widthPercentageToDP(2)}}/>
   );
   return (
     <SafeAreaView style={styles.container}>
@@ -130,6 +134,15 @@ const Home: React.FC = () => {
             <TouchableOpacity>
               <Text style={styles.greenText}>Sell All</Text>
             </TouchableOpacity>
+          </View>
+          <View style={{marginBottom:heightPercentageToDP(2)}}>
+          <FlatList
+          data={vegetableData}
+          horizontal
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+          renderItem={renderFilters}
+          />
           </View>
           <FlatList
             data={dummyCropData}
