@@ -14,10 +14,10 @@ export const useStyle = () => {
       container: {
         flex: 1,
         backgroundColor: theme.colors.background,
-        paddingTop: heightPercentageToDP(7),
       },
       contentContainer: {paddingBottom: heightPercentageToDP(10)},
       Img: {
+        marginTop:heightPercentageToDP(3),
         height: heightPercentageToDP(30),
         width: widthPercentageToDP(70),
         alignSelf: 'center',

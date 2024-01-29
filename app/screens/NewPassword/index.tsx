@@ -6,6 +6,7 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import FastImage from 'react-native-fast-image';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useTheme} from 'react-native-paper';
+import Header from '../../components/Header';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -30,11 +31,19 @@ const NewPassword: React.FC = () => {
   const resetPassword = () => {
     setModalVisible(() => !modalVisible);
   };
-  const isFocused=useIsFocused();
+  const isFocused = useIsFocused();
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <ScrollView style={styles.container}>
       {modalVisible && <View style={styles.overlay}></View>}
+      <Header
+        leftIcon={images.ForgotPassword.backButton}
+        title="Create New Password"
+        style={{
+          paddingHorizontal: widthPercentageToDP(4),
+          paddingTop: heightPercentageToDP(2),
+        }}
+      />
       <KeyboardAwareScrollView
         style={styles.contentContainer}
         keyboardShouldPersistTaps="always">

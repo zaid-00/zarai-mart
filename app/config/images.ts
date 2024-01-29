@@ -1,5 +1,3 @@
-/* App config for images
- */
 const images = {
   SignUp:{
     logo:require('../assets/logo.png'),
@@ -34,12 +32,15 @@ const images = {
   Home:{
     heart:require("../assets/Home/Heart.png"),
     notification:require("../assets/Home/Notification.png"),
-    arsal:require("../assets/Home/Arsal.png"),
+    zaid:require("../assets/Home/Zaid.jpg"),
     search:require("../assets/Home/search.png"),
     filter:require("../assets/Home/Filter.png"),
     star:require("../assets/Home/Star.png"),
     crop:require("../assets/Home/Image.png"),
     separator:require("../assets/Home/separator.png"),
+  },
+  SeeAll:{
+    search:require("../assets/SeeAll/Search.png"),
   },
 };
 

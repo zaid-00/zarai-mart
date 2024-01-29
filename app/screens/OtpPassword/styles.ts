@@ -18,7 +18,7 @@ export const useStyle = () => {
       },
       contentContainer: {paddingBottom: heightPercentageToDP(3)},
       subContainer: {
-        paddingTop: heightPercentageToDP(35),
+        paddingTop: heightPercentageToDP(31.2),
         paddingHorizontal: widthPercentageToDP(4),
         alignItems:'center',
         justifyContent: 'center',

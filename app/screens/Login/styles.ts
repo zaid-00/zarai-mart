@@ -15,9 +15,9 @@ export const useStyle = () => {
       container: {
         flex: 1,
         backgroundColor: theme.colors.background,
-        paddingTop: heightPercentageToDP(3),
       },
       contentContainer: {
+        paddingTop: heightPercentageToDP(3),
         alignItems: 'center',
         paddingBottom: heightPercentageToDP(10),
       },

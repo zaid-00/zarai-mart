@@ -16,7 +16,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       contentContainer: {paddingBottom: heightPercentageToDP(10),
-      marginTop:heightPercentageToDP(7)},
+      marginTop:heightPercentageToDP(5)},
       Img: {
         height: heightPercentageToDP(30),
         width: widthPercentageToDP(60),

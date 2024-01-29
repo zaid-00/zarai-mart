@@ -6,8 +6,14 @@ import OTPTextInput from 'react-native-otp-textinput';
 import {useTheme} from 'react-native-paper';
 import PrimaryButton from '../../components/PrimaryButton';
 import {useStyle} from './styles';
+import images from '../../config/images';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Header from '../../components/Header';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 const OtpPassword: React.FC = () => {
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -30,6 +36,14 @@ const OtpPassword: React.FC = () => {
     <KeyboardAwareScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
+      <Header
+        leftIcon={images.ForgotPassword.backButton}
+        title="Forgot Password"
+        style={{
+          paddingHorizontal: widthPercentageToDP(4),
+          paddingTop: heightPercentageToDP(2),
+        }}
+      />
       <View style={styles.subContainer}>
         <Text style={styles.text2}>
           Enter OTP sent to your email for the verification process.
@@ -46,21 +60,20 @@ const OtpPassword: React.FC = () => {
           handleTextChange={setOtp}
         />
         <View style={styles.resendContainer}>
-        <Text style={styles.didntreceived}>If you don’t recieve a code!</Text>
-        <TouchableOpacity>
-        <Text style={styles.resend}>Resend it</Text>
-        </TouchableOpacity>
+          <Text style={styles.didntreceived}>If you don’t recieve a code!</Text>
+          <TouchableOpacity>
+            <Text style={styles.resend}>Resend it</Text>
+          </TouchableOpacity>
+        </View>
+        <PrimaryButton
+          style={styles.button}
+          title="Verify"
+          animating={isLoading}
+          disabledWhileAnimating
+          onPress={verifyOtpForReset}
+          disabled={otp?.length < 4 ? true : false}
+        />
       </View>
-      <PrimaryButton
-        style={styles.button}
-        title="Verify"
-        animating={isLoading}
-        disabledWhileAnimating
-        onPress={verifyOtpForReset}
-        disabled={otp?.length <4?true:false}
-      />
-      </View>
-      
     </KeyboardAwareScrollView>
   );
 };

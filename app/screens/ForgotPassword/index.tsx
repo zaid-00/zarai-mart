@@ -5,11 +5,15 @@ import {Keyboard, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useTheme} from 'react-native-paper';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
 import {useStyle} from './styles';
+import Header from '../../components/Header';
 const ForgotPassword: React.FC = () => {
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -28,6 +32,14 @@ const ForgotPassword: React.FC = () => {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="always">
+      <Header
+        leftIcon={images.ForgotPassword.backButton}
+        title="Forgot Password"
+        style={{
+          paddingHorizontal: widthPercentageToDP(4),
+          paddingTop: heightPercentageToDP(2),
+        }}
+      />
       <FastImage
         source={images.ForgotPassword.sittingPerson}
         resizeMode="contain"

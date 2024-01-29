@@ -17,7 +17,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import CropCard from '../../components/CropCard';
-import {dummyCropData,vegetableData} from '../../utils/dummyData';
+import {dummyCropData, vegetableData} from '../../utils/dummyData';
 import {ScrollView} from 'react-native-gesture-handler';
 import CropFilter from '../../components/CropFilter';
 const Home: React.FC = () => {
@@ -47,8 +47,11 @@ const Home: React.FC = () => {
       onPress={() => console.log(item?.name + ' Card Pressed')}
     />
   );
-  const renderFilters=({item})=>(
-    <CropFilter name={item?.name} style={{marginRight:widthPercentageToDP(2)}}/>
+  const renderFilters = ({item}) => (
+    <CropFilter
+      name={item?.name}
+      style={{marginRight: widthPercentageToDP(2)}}
+    />
   );
   return (
     <SafeAreaView style={styles.container}>
@@ -56,15 +59,15 @@ const Home: React.FC = () => {
         <View style={styles.rowFlex}>
           <View style={styles.subRowFlex}>
             <TouchableOpacity>
-            <FastImage
-              source={images.Home.arsal}
-              style={styles.img}
-              resizeMode="contain"
-            />
+              <FastImage
+                source={images.Home.zaid}
+                style={styles.img}
+                resizeMode="contain"
+              />
             </TouchableOpacity>
             <View>
               <Text style={styles.greetingText}>Good Morning 👋</Text>
-              <Text style={styles.nameText}>Arsal Zahid</Text>
+              <Text style={styles.nameText}>Muhammad Zaid</Text>
             </View>
           </View>
           <View style={styles.subRowFlex}>
@@ -75,7 +78,9 @@ const Home: React.FC = () => {
                 resizeMode="contain"
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('SeeAll', {title: 'My Wishlist'});
+              }}>
               <FastImage
                 source={images.Home.heart}
                 style={styles.icon}
@@ -113,7 +118,10 @@ const Home: React.FC = () => {
               {marginBottom: heightPercentageToDP(2)},
             ]}>
             <Text style={styles.nameText}>Special Offers</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SeeAll', {title: 'Special Offers'});
+              }}>
               <Text style={styles.greenText}>Sell All</Text>
             </TouchableOpacity>
           </View>
@@ -131,18 +139,20 @@ const Home: React.FC = () => {
               {marginVertical: heightPercentageToDP(2)},
             ]}>
             <Text style={styles.nameText}>Most Popular</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('SeeAll', {title: 'Most Popular'});
+              }}>
               <Text style={styles.greenText}>Sell All</Text>
             </TouchableOpacity>
           </View>
-          <View style={{marginBottom:heightPercentageToDP(2)}}>
-          <FlatList
-          data={vegetableData}
-          horizontal
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          renderItem={renderFilters}
-          />
+          <View style={{marginBottom: heightPercentageToDP(2)}}>
+            <FlatList
+              data={vegetableData}
+              horizontal
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              renderItem={renderFilters}
+            />
           </View>
           <FlatList
             data={dummyCropData}

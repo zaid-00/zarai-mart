@@ -12,11 +12,11 @@ export const useStyle = () => {
     StyleSheet.create({
       nameText: {
         fontFamily: theme.fonts.semiBoldFont,
-        fontSize: widthPercentageToDP(4),
+        fontSize: widthPercentageToDP(3.8),
       },
       greenContainer:{
-        paddingHorizontal:widthPercentageToDP(5),
-        paddingVertical:heightPercentageToDP(0.9),
+        paddingHorizontal:widthPercentageToDP(4),
+        paddingVertical:heightPercentageToDP(0.8),
         borderWidth:widthPercentageToDP(0.5),
         borderRadius:widthPercentageToDP(90),
         borderColor:theme.colors.primaryButton,
