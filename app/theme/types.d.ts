@@ -14,6 +14,9 @@ declare global {
       greyDot:string;
       lightGrey:string;
       dullGreyBackground:string;
+      transparentGreen:string;
+      dullBlack:string;
+      greyBackground:string;
     }
 
     interface ThemeFonts {

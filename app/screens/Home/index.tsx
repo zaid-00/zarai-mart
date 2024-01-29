@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       noOfSold={item?.noOfSold}
       price={item?.price}
       isSpecialOffer={true}
-      onPress={() => console.log(item?.name + ' Card Pressed')}
+      onPress={() => navigation.navigate("Crop")}
     />
   );
   const renderMostPopularCrops = ({item}) => (
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
       rating={item?.rating}
       noOfSold={item?.noOfSold}
       price={item?.price}
-      onPress={() => console.log(item?.name + ' Card Pressed')}
+      onPress={() => navigation.navigate("Crop")}
     />
   );
   const renderFilters = ({item}) => (
@@ -78,7 +78,8 @@ const Home: React.FC = () => {
                 resizeMode="contain"
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
+            <TouchableOpacity
+              onPress={() => {
                 navigation.navigate('SeeAll', {title: 'My Wishlist'});
               }}>
               <FastImage
@@ -122,7 +123,7 @@ const Home: React.FC = () => {
               onPress={() => {
                 navigation.navigate('SeeAll', {title: 'Special Offers'});
               }}>
-              <Text style={styles.greenText}>Sell All</Text>
+              <Text style={styles.greenText}>See All</Text>
             </TouchableOpacity>
           </View>
           <FlatList
@@ -139,10 +140,11 @@ const Home: React.FC = () => {
               {marginVertical: heightPercentageToDP(2)},
             ]}>
             <Text style={styles.nameText}>Most Popular</Text>
-            <TouchableOpacity onPress={() => {
+            <TouchableOpacity
+              onPress={() => {
                 navigation.navigate('SeeAll', {title: 'Most Popular'});
               }}>
-              <Text style={styles.greenText}>Sell All</Text>
+              <Text style={styles.greenText}>See All</Text>
             </TouchableOpacity>
           </View>
           <View style={{marginBottom: heightPercentageToDP(2)}}>

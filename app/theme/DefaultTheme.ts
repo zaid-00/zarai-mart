@@ -15,6 +15,9 @@ export const defaultTheme = {
     greyDot:'#E0E0E0',
     lightGrey:"#757575",
     dullGreyBackground:'#F5F5F5',
+    transparentGreen:'#01B76314',
+    dullBlack:'#424242',
+    greyBackground:'#F8F8F8'
   },
   fonts: {
     boldFont: 'Urbanist-Bold',

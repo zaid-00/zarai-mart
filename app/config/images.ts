@@ -42,6 +42,9 @@ const images = {
   SeeAll:{
     search:require("../assets/SeeAll/Search.png"),
   },
+  Crop:{
+    heart:require("../assets/Crop/Heart.png"),
+  },
 };
 
 export default images;

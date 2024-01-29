@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { ActivityIndicator, useTheme } from 'react-native-paper';
-import { useStyle } from './style';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import { Props } from './types';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
 import { isTablet } from 'react-native-device-info';
-const PrimaryButton: React.FC<Props> = (props) => {
+import { ActivityIndicator, useTheme } from 'react-native-paper';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useStyle } from './style';
+import { Props } from './types';
+const PrimaryButton: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
   return (
@@ -28,8 +28,7 @@ const PrimaryButton: React.FC<Props> = (props) => {
           (props.animating == true && props.disabledWhileAnimating == true)
         ) {
         } else props.onPress();
-      }}
-    >
+      }}>
       <View style={styles.iconContainer}>
         {props?.icon ? props.icon() : null}
         {props?.withArrow ? (
@@ -46,8 +45,7 @@ const PrimaryButton: React.FC<Props> = (props) => {
             {
               color: 'white',
             },
-          ]}
-        >
+          ]}>
           {props.title}
         </Text>
       </View>
