@@ -8,7 +8,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import CropCard from '../../components/CropCard';
-import CropFilter from '../../components/CropFilter';
+import Filter from '../../components/Filter';
 import {dummyCropData, vegetableData} from '../../utils/dummyData';
 import {useStyle} from './styles';
 import Header from '../../components/Header';
@@ -24,11 +24,11 @@ const SeeAll: React.FC = ({route}) => {
       rating={item?.rating}
       noOfSold={item?.noOfSold}
       price={item?.price}
-      onPress={() => console.log(item?.name + ' Card Pressed')}
+      onPress={() => navigation.navigate("Crop")}
     />
   );
   const renderFilters = ({item}) => (
-    <CropFilter
+    <Filter
       name={item?.name}
       style={{marginRight: widthPercentageToDP(2)}}
     />

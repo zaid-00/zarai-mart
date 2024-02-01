@@ -21,6 +21,15 @@ export const useStyle = () => {
         borderRadius:widthPercentageToDP(90),
         borderColor:theme.colors.primaryButton,
       },
+      rowContainer:{
+        flexDirection:'row',
+        alignItems:'center',
+      },
+      star:{
+        width:widthPercentageToDP(3),
+        height:heightPercentageToDP(2),
+        marginRight:widthPercentageToDP(1.5),
+      }
     });
   return React.useMemo(() => styles(), []);
 };

@@ -94,5 +94,62 @@ const vegetableData = [
   { id: '7', name: 'Onion' },
   { id: '8', name: 'Lettuce' },
 ];
-
-export { dummyCropData, vegetableData };
+const reviewFilter = [
+  { id: 'all', rating: 'All' },
+  { id: '1', rating: '5' },
+  { id: '2', rating: '4' },
+  { id: '3', rating: '3' },
+  { id: '4', rating: '2' },
+  { id: '5', rating: '1' },
+];
+const dummyReviews=[
+  {
+    "name": "Darlene Robertson",
+    "rating": 5,
+    "review": "The plant is very good, my son likes it very much and watching it every day 💯💯💯",
+    "likes": 756,
+    "postedDate": "6 days ago",
+    "isLiked": true
+  },
+  {
+    "name": "John Smith",
+    "rating": 4,
+    "review": "Impressive product, adds a nice touch to my room. Recommended! 👍",
+    "likes": 432,
+    "postedDate": "1 week ago",
+    "isLiked": false
+  },
+  {
+    "name": "Emily Davis",
+    "rating": 3,
+    "review": "Decent plant, but the color faded sooner than expected. 🌱",
+    "likes": 213,
+    "postedDate": "10 days ago",
+    "isLiked": true
+  },
+  {
+    "name": "Robert Johnson",
+    "rating": 5,
+    "review": "Absolutely fantastic! Brightens up any space effortlessly. 🌟",
+    "likes": 1024,
+    "postedDate": "2 weeks ago",
+    "isLiked": false
+  },
+  {
+    "name": "Alice Brown",
+    "rating": 2,
+    "review": "Not what I expected. Started wilting after a few days. 😕",
+    "likes": 87,
+    "postedDate": "3 weeks ago",
+    "isLiked": true
+  },
+  {
+    "name": "Carlos Rodriguez",
+    "rating": 4,
+    "review": "Great addition to my home. Low maintenance and visually pleasing. 👌",
+    "likes": 625,
+    "postedDate": "1 month ago",
+    "isLiked": true
+  }
+];
+export { dummyCropData, vegetableData,reviewFilter,dummyReviews };

@@ -45,6 +45,12 @@ const images = {
   Crop:{
     heart:require("../assets/Crop/Heart.png"),
   },
+  Review:{
+    whiteStar:require("../assets/Review/whiteStar.png"),
+    greenStar:require("../assets/Review/greenStar.png"),
+    whiteHeart:require("../assets/Review/whiteHeart.png"),
+    greenHeart:require("../assets/Review/greenHeart.png"),
+  },
 };
 
 export default images;

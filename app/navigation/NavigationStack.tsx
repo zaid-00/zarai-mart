@@ -12,6 +12,7 @@ import { StatusBar } from 'react-native';
 import Search from '../screens/Search';
 import SeeAll from '../screens/SeeAll';
 import Crop from '../screens/Crop';
+import Review from '../screens/Reviews';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -31,6 +32,7 @@ function AppNavigator() {
       <Stack.Screen name='Main' component={BottomTabNavigation} options={{headerShown:false}}/>
       <Stack.Screen name='SeeAll' component={SeeAll} options={{headerShown:false}}/>
       <Stack.Screen name='Crop' component={Crop} options={{headerShown:false}}/>
+      <Stack.Screen name='Review' component={Review} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

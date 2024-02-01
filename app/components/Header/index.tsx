@@ -31,11 +31,13 @@ const Header: React.FC<Props> = props => {
         </TouchableOpacity>
         <Text style={styles.nameText}>{props?.title}</Text>
       </View>
+      <TouchableOpacity>
       <FastImage
             source={props?.rightIcon}
             style={styles.rightImg}
             resizeMode="contain"
           />
+      </TouchableOpacity>
     </View>
   );
 };

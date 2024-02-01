@@ -10,7 +10,7 @@ import {
 import {useStyle} from './style';
 import {Props} from './types';
 import {useIsFocused} from '@react-navigation/native';
-const CropFilter: React.FC<Props> = props => {
+const Filter: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
   const [isSelected, setIsSelected] = useState(false);
@@ -26,15 +26,28 @@ const CropFilter: React.FC<Props> = props => {
             : {backgroundColor: 'white'},
           styles.greenContainer,
         ]}>
-        <Text
-          style={[
-            isSelected ? {color: 'white'} : {color: theme.colors.primaryButton},
-            styles.nameText,
-          ]}>
-          {props?.name}
-        </Text>
+        <View style={styles.rowContainer}>
+          {props?.reviewFilter ? (
+            <FastImage
+              style={styles.star}
+              resizeMode="contain"
+              source={
+                isSelected ? images.Review.whiteStar : images.Review.greenStar
+              }
+            />
+          ) : null}
+          <Text
+            style={[
+              isSelected
+                ? {color: 'white'}
+                : {color: theme.colors.primaryButton},
+              styles.nameText,
+            ]}>
+            {props?.name}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
 };
-export default CropFilter;
+export default Filter;

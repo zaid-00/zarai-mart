@@ -74,7 +74,7 @@ const Crop: React.FC = () => {
             style={styles.star}
             resizeMode="contain"
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> navigation.navigate("Review")}>
             <Text style={styles.reviewText}>4.6 (5,389 reviews)</Text>
           </TouchableOpacity>
         </View>

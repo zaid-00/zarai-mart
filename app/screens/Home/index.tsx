@@ -19,7 +19,7 @@ import {
 import CropCard from '../../components/CropCard';
 import {dummyCropData, vegetableData} from '../../utils/dummyData';
 import {ScrollView} from 'react-native-gesture-handler';
-import CropFilter from '../../components/CropFilter';
+import Filter from '../../components/Filter';
 const Home: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
     />
   );
   const renderFilters = ({item}) => (
-    <CropFilter
+    <Filter
       name={item?.name}
       style={{marginRight: widthPercentageToDP(2)}}
     />
