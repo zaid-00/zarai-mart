@@ -51,6 +51,10 @@ const images = {
     whiteHeart:require("../assets/Review/whiteHeart.png"),
     greenHeart:require("../assets/Review/greenHeart.png"),
   },
+  Search:{
+    filter:require("../assets/Search/Filter.png"),
+    notFound:require("../assets/Search/notFound.png"),
+  },
 };
 
 export default images;

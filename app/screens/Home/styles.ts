@@ -28,7 +28,7 @@ export const useStyle = () => {
         height: heightPercentageToDP(6),
         width: widthPercentageToDP(12),
         marginRight:widthPercentageToDP(3),
-        borderRadius:widthPercentageToDP(50)
+        borderRadius:widthPercentageToDP(90)
       },
       icon: {
         height: heightPercentageToDP(3.3),

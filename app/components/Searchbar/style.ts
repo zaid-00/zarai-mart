@@ -21,7 +21,7 @@ export const useStyle = () => {
       },
       search: {
         color: theme.colors.primaryText,
-        fontFamily: theme.fonts.regularFont,
+        fontFamily: theme.fonts.semiBoldFont,
         paddingLeft:widthPercentageToDP(2),
         // left: widthPercentageToDP(10),
         // position: 'absolute',
@@ -31,11 +31,10 @@ export const useStyle = () => {
         // height: 400,
       },
       searchParent: {
-        borderRadius: widthPercentageToDP(3),
+        borderRadius: widthPercentageToDP(4),
         // overflow: 'hidden',
         marginTop: heightPercentageToDP(2),
         alignSelf: 'center',
-        backgroundColor: theme.colors.dullGreyBackground,
         // zIndex: 1,
       },
       searchView: {
@@ -50,7 +49,6 @@ export const useStyle = () => {
         zIndex: -1,
       },
       rowFlex:{
-        paddingVertical:heightPercentageToDP(2),
         paddingHorizontal:widthPercentageToDP(2),
         flexDirection:'row',
         alignItems:'center',

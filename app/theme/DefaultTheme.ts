@@ -17,7 +17,8 @@ export const defaultTheme = {
     dullGreyBackground:'#F5F5F5',
     transparentGreen:'#01B76314',
     dullBlack:'#424242',
-    greyBackground:'#F8F8F8'
+    greyBackground:'#F8F8F8',
+    transparentGreenBackground:'#01B7631A',
   },
   fonts: {
     boldFont: 'Urbanist-Bold',

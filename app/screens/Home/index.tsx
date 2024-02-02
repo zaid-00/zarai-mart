@@ -62,7 +62,7 @@ const Home: React.FC = () => {
               <FastImage
                 source={images.Home.zaid}
                 style={styles.img}
-                resizeMode="contain"
+                resizeMode="stretch"
               />
             </TouchableOpacity>
             <View>
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
           placeholder="Search"
           placeholderColor={theme.colors.placeholderText}
           dummy
-          styles={{marginBottom: heightPercentageToDP(2)}}
+          styles={{marginBottom: heightPercentageToDP(2),paddingVertical:heightPercentageToDP(2)}}
           rightIcon={() => (
             <FastImage
               source={images.Home.filter}

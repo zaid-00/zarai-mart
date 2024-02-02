@@ -1,11 +1,10 @@
+import React from 'react';
 import {StyleSheet} from 'react-native';
 import {useTheme} from 'react-native-paper';
-import React from 'react';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
-import {isTablet} from 'react-native-device-info';
 
 export const useStyle = () => {
   const theme = useTheme();
@@ -16,58 +15,56 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      contentContainer: {
+      subContainer:{
+        paddingHorizontal:widthPercentageToDP(3),
+      },
+      notFoundContainer: {
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: heightPercentageToDP(10),
+        marginTop:heightPercentageToDP(16)
       },
-      title: {
-        fontWeight: 'bold',
+      noFoundImg: {
+        width: widthPercentageToDP(60),
+        height: heightPercentageToDP(27),
+      },
+      notFoundText: {
+        fontFamily: theme.fonts.boldFont,
         color: theme.colors.primaryText,
+        fontSize: widthPercentageToDP(6),
+        marginTop: heightPercentageToDP(3),
+        marginBottom: heightPercentageToDP(1),
       },
-      logo: {
-        height: heightPercentageToDP(16),
-        width: widthPercentageToDP(32),
-        alignSelf: 'center',
-        marginBottom: heightPercentageToDP(2),
-      },
-      icons: {
-        height: heightPercentageToDP(2.1),
-        width: widthPercentageToDP(4.1),
-      },
-      heading: {
-        color: theme.colors.primaryText,
+      notFoundDescription: {
         fontFamily: theme.fonts.regularFont,
-        fontSize: widthPercentageToDP(5.7),
-        alignSelf: 'flex-start',
-        paddingHorizontal: widthPercentageToDP(4),
-        marginBottom: heightPercentageToDP(0.5),
-      },
-      controller: {marginVertical: heightPercentageToDP(0.8)},
-      error: {
-        color: 'red',
-        paddingVertical: heightPercentageToDP(0.5),
-        fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
-      },
-      checkBoxText: {
-        fontFamily: theme.fonts.semiBoldFont,
         color: theme.colors.primaryText,
-        fontSize: widthPercentageToDP(3.4),
+        fontSize: widthPercentageToDP(4),
+        textAlign: 'center',
+        width: widthPercentageToDP(75),
       },
-      text: {
-        color: theme.colors.placeholderText,
-        fontFamily: theme.fonts.regularFont,
-        alignSelf: 'flex-start',
-        paddingHorizontal: widthPercentageToDP(4),
-        marginBottom: heightPercentageToDP(3),
+      resultText: {
+        fontFamily: theme.fonts.boldFont,
+        color: theme.colors.primaryText,
+        fontSize: widthPercentageToDP(4.5),
       },
-      iconStyle: {
-        borderColor: theme.colors.primaryButton,
-        borderWidth: widthPercentageToDP(0.64),
-        borderRadius: widthPercentageToDP(1.7),
+      queryText: {
+        fontFamily: theme.fonts.boldFont,
+        color: theme.colors.primaryButton,
+        fontSize: widthPercentageToDP(4.5),
       },
-      loginButton: {
-        backgroundColor: theme.colors.background,
-        marginTop: heightPercentageToDP(2),
+      rowContainer: {
+        marginTop:heightPercentageToDP(2),
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      },
+      resultTextContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+      },
+      itemText: {
+        fontFamily: theme.fonts.boldFont,
+        color: theme.colors.primaryButton,
+        fontSize: widthPercentageToDP(3.8),
       },
     });
   return React.useMemo(() => styles(), []);

@@ -5,9 +5,11 @@ export interface Props {
   value?: string;
   styles?: any;
   onFocus?: () => void;
+  onBlur?: () => void;
   placeholder?: string;
   dummy?: boolean;
   placeholderColor?: string;
   onPress?: () => void;
+  onSubmitEditing?:()=>void;
   rightIcon?: any;
 }
