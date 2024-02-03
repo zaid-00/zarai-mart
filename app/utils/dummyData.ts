@@ -94,6 +94,12 @@ const vegetableData = [
   { id: '7', name: 'Onion' },
   { id: '8', name: 'Lettuce' },
 ];
+const sortData = [
+  { id: '1', name: 'Popular' },
+  { id: '2', name: 'Most recent' },
+  { id: '3', name: 'Price high' },
+  { id: '4', name: 'Price Low' },
+];
 const reviewFilter = [
   { id: 'all', rating: 'All' },
   { id: '1', rating: '5' },
@@ -152,4 +158,4 @@ const dummyReviews=[
     "isLiked": true
   }
 ];
-export { dummyCropData, vegetableData,reviewFilter,dummyReviews };
+export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData };

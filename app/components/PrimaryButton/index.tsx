@@ -13,7 +13,6 @@ const PrimaryButton: React.FC<Props> = props => {
     <TouchableOpacity
       style={[
         styles.view,
-        props.style,
         {
           backgroundColor:
             props?.disabled == true ||
@@ -21,6 +20,7 @@ const PrimaryButton: React.FC<Props> = props => {
               ? theme.colors.inactiveButton
               : theme.colors.primaryButton,
         },
+        props.style,
       ]}
       onPress={() => {
         if (
@@ -41,10 +41,10 @@ const PrimaryButton: React.FC<Props> = props => {
         <Text
           style={[
             styles.text,
-            props.textStyle,
             {
               color: 'white',
             },
+            props.textStyle,
           ]}>
           {props.title}
         </Text>

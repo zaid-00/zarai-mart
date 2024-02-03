@@ -15,13 +15,22 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      subContainer:{
-        paddingHorizontal:widthPercentageToDP(3),
+      modalView: {
+        backgroundColor: theme.colors.background,
+        paddingHorizontal: widthPercentageToDP(3),
+        borderTopStartRadius: widthPercentageToDP(10),
+        borderTopEndRadius: widthPercentageToDP(10),
+        paddingVertical: heightPercentageToDP(3),
+        position: 'absolute',
+        bottom: 0,
+      },
+      subContainer: {
+        paddingHorizontal: widthPercentageToDP(3),
       },
       notFoundContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop:heightPercentageToDP(16)
+        marginTop: heightPercentageToDP(16),
       },
       noFoundImg: {
         width: widthPercentageToDP(60),
@@ -52,7 +61,7 @@ export const useStyle = () => {
         fontSize: widthPercentageToDP(4.5),
       },
       rowContainer: {
-        marginTop:heightPercentageToDP(2),
+        marginTop: heightPercentageToDP(2),
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -65,6 +74,53 @@ export const useStyle = () => {
         fontFamily: theme.fonts.boldFont,
         color: theme.colors.primaryButton,
         fontSize: widthPercentageToDP(3.8),
+      },
+      sortText: {
+        alignSelf: 'center',
+        fontFamily: theme.fonts.boldFont,
+        color: theme.colors.primaryText,
+        fontSize: widthPercentageToDP(5),
+      },
+      lineSeperator: {
+        backgroundColor: theme.colors.borderColor,
+        paddingVertical: heightPercentageToDP(0.065),
+        marginVertical: heightPercentageToDP(2),
+      },
+      headingText: {
+        marginVertical: heightPercentageToDP(2),
+        fontFamily: theme.fonts.boldFont,
+        color: theme.colors.primaryText,
+        fontSize: widthPercentageToDP(4),
+      },
+      resetButton: {
+        backgroundColor: theme.colors.transparentGreenBackground,
+        width: widthPercentageToDP(35),
+      },
+      applyButton: {
+        width: widthPercentageToDP(45),
+      },
+      buttonContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+      },
+      trackStyle:{
+        backgroundColor:theme.colors.borderColor,
+      },
+      recentText:{
+        fontFamily:theme.fonts.mediumFont,
+        color:theme.colors.lightGrey,
+        fontSize:widthPercentageToDP(4.3),
+      },
+      recentContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical:heightPercentageToDP(1.5),
+      },
+      removeImg:{
+        height: heightPercentageToDP(3),
+        width: widthPercentageToDP(5.5),
       },
     });
   return React.useMemo(() => styles(), []);

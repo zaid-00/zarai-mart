@@ -54,6 +54,8 @@ const images = {
   Search:{
     filter:require("../assets/Search/Filter.png"),
     notFound:require("../assets/Search/notFound.png"),
+    cursor:require("../assets/Search/cursor.png"),
+    remove:require("../assets/Search/remove.png"),
   },
 };
 

@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {Pressable, Text, TextInput, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
-import {
-  widthPercentageToDP
-} from 'react-native-responsive-screen';
+import {useTheme} from 'react-native-paper';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 import images from '../../config/images';
-import { useStyle } from './style';
-import { Props } from './types';
+import {useStyle} from './style';
+import {Props} from './types';
 const Searchbar: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => {
     setIsFocused(true);
+    if (props?.isFocused) props.isFocused(true);
   };
   const handleBlur = () => {
     setIsFocused(false);
+    if (props?.isFocused) props.isFocused(false);
   };
   const textInputRef = useRef(null);
   useEffect(() => {

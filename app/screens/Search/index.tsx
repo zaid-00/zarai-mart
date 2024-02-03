@@ -1,29 +1,59 @@
+import {Slider} from '@miblanchard/react-native-slider';
 import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import _ from 'lodash';
+import React, {useState, useMemo} from 'react';
 import {
+  FlatList,
   SafeAreaView,
   Text,
   TouchableOpacity,
   View,
-  FlatList,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import Modal from 'react-native-modal';
 import {useTheme} from 'react-native-paper';
-import CropCard from '../../components/CropCard';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
-import {dummyCropData} from '../../utils/dummyData';
+import CropCard from '../../components/CropCard';
+import Filter from '../../components/Filter';
+import PrimaryButton from '../../components/PrimaryButton';
 import Searchbar from '../../components/Searchbar';
 import images from '../../config/images';
+import {
+  dummyCropData,
+  reviewFilter,
+  sortData,
+  vegetableData,
+} from '../../utils/dummyData';
 import {useStyle} from './styles';
+
 const Search: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
   const navigation = useNavigation<any>();
   const [searchedQuery, setSearchedQuery] = useState('');
   const [showResults, setShowResults] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [low, setLow] = useState(0);
+  const [high, setHigh] = useState(1000000);
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(1000000);
+  const [isFocused, setIsFocused] = useState(true);
+  const handleIsFocused = val => {
+    setIsFocused(val);
+  };
+  const handleSliderChange = _.debounce(value => {
+    setHigh(value[0]);
+  }, 50);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const handleReset = () => {
+    setHigh(() => max);
+  };
   const handleChangeText = (txt: string) => {
     setShowResults(false);
     setSearchedQuery(txt);
@@ -42,17 +72,50 @@ const Search: React.FC = () => {
       onPress={() => navigation.navigate('Crop')}
     />
   );
+  const renderRecent = ({item}) => (
+    <View style={styles.recentContainer}>
+      <Text style={styles.recentText}>{item?.name}</Text>
+      <TouchableOpacity>
+        <FastImage
+          source={images.Search.remove}
+          style={styles.removeImg}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+  const renderFilters = ({item}) => (
+    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
+  );
+  const renderRatingFilters = ({item}) => (
+    <Filter
+      name={item?.rating}
+      style={{marginRight: widthPercentageToDP(2)}}
+      reviewFilter={true}
+    />
+  );
+  const renderThumbComponent = () => (
+    <FastImage
+      source={images.Search.cursor}
+      style={{
+        height: heightPercentageToDP(2.5),
+        width: widthPercentageToDP(5),
+      }}
+      resizeMode="contain"
+    />
+  );
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <Searchbar
+          isFocused={handleIsFocused}
           onChangeText={handleChangeText}
           onSubmitEditing={handleOnSubmitEditing}
           placeholder="Search"
           placeholderColor={theme.colors.placeholderText}
           styles={{paddingVertical: heightPercentageToDP(0.3)}}
           rightIcon={() => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={toggleModal}>
               <FastImage
                 source={images.Search.filter}
                 style={{
@@ -64,7 +127,7 @@ const Search: React.FC = () => {
             </TouchableOpacity>
           )}
         />
-        {showResults ? (
+        {showResults && !isFocused ? (
           <View>
             <View style={styles.rowContainer}>
               <View style={styles.resultTextContainer}>
@@ -87,7 +150,28 @@ const Search: React.FC = () => {
             </View>
           </View>
         ) : null}
-
+        {isFocused ? (
+          <View>
+            <View style={styles.rowContainer}>
+              <View style={styles.resultTextContainer}>
+                <Text style={styles.resultText}>Recent</Text>
+              </View>
+              <TouchableOpacity>
+                <Text style={styles.itemText}>Clear All</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.lineSeperator}></View>
+            <View style={{paddingBottom: heightPercentageToDP(33)}}>
+              <FlatList
+                data={dummyCropData}
+                keyExtractor={item => item.id}
+                renderItem={renderRecent}
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
+              />
+            </View>
+          </View>
+        ) : null}
         {/* Logic to be implemented to show if the results are not being found */}
         {/* <View style={styles.notFoundContainer}>
           <FastImage
@@ -102,6 +186,72 @@ const Search: React.FC = () => {
           </Text>
         </View> */}
       </View>
+      <Modal
+        isVisible={isModalVisible}
+        onBackButtonPress={toggleModal}
+        onBackdropPress={toggleModal}
+        onSwipeComplete={toggleModal}
+        swipeDirection={'down'}
+        style={{margin: 0}}>
+        <View style={styles.modalView}>
+          <Text style={styles.sortText}>Sort & Filter</Text>
+          <View style={styles.lineSeperator}></View>
+          <Text style={styles.headingText}>Categories</Text>
+          <FlatList
+            data={vegetableData}
+            horizontal
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            renderItem={renderFilters}
+          />
+          <View style={styles.buttonContainer}>
+            <Text style={styles.headingText}>Price Range</Text>
+            <Text style={styles.headingText}>
+              {' '}
+              {low} - {high}
+            </Text>
+          </View>
+          <Slider
+            maximumValue={max}
+            step={1000}
+            value={high}
+            renderThumbComponent={renderThumbComponent}
+            onValueChange={handleSliderChange}
+            trackStyle={styles.trackStyle}
+            minimumTrackStyle={{backgroundColor: theme.colors.primaryButton}}
+          />
+          <Text style={styles.headingText}>Sort by</Text>
+          <FlatList
+            data={sortData}
+            horizontal
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            renderItem={renderFilters}
+          />
+          <Text style={styles.headingText}>Rating</Text>
+          <FlatList
+            data={reviewFilter}
+            horizontal
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            renderItem={renderRatingFilters}
+          />
+          <View style={styles.lineSeperator}></View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton
+              onPress={handleReset}
+              style={styles.resetButton}
+              title="Reset"
+              textStyle={{color: theme.colors.primaryButton}}
+            />
+            <PrimaryButton
+              onPress={toggleModal}
+              style={styles.applyButton}
+              title="Apply"
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

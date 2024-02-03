@@ -5,6 +5,7 @@ export interface Props {
   value?: string;
   styles?: any;
   onFocus?: () => void;
+  isFocused?: (val:boolean) => void;
   onBlur?: () => void;
   placeholder?: string;
   dummy?: boolean;
