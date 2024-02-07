@@ -37,16 +37,16 @@ const Search: React.FC = () => {
   const [showResults, setShowResults] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
   const [low, setLow] = useState(0);
-  const [high, setHigh] = useState(1000000);
+  const [high, setHigh] = useState(10000);
   const [min, setMin] = useState(0);
-  const [max, setMax] = useState(1000000);
+  const [max, setMax] = useState(10000);
   const [isFocused, setIsFocused] = useState(true);
   const handleIsFocused = val => {
     setIsFocused(val);
   };
   const handleSliderChange = _.debounce(value => {
     setHigh(value[0]);
-  }, 50);
+  }, 20);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -161,7 +161,7 @@ const Search: React.FC = () => {
               </TouchableOpacity>
             </View>
             <View style={styles.lineSeperator}></View>
-            <View style={{paddingBottom: heightPercentageToDP(33)}}>
+            <View style={{paddingBottom: heightPercentageToDP(13)}}>
               <FlatList
                 data={dummyCropData}
                 keyExtractor={item => item.id}
@@ -213,7 +213,7 @@ const Search: React.FC = () => {
           </View>
           <Slider
             maximumValue={max}
-            step={1000}
+            step={100}
             value={high}
             renderThumbComponent={renderThumbComponent}
             onValueChange={handleSliderChange}
