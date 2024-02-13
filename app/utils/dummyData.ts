@@ -158,4 +158,27 @@ const dummyReviews=[
     "isLiked": true
   }
 ];
-export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData };
+const dummyOrderData = [
+  { cropName: 'Tomatoes', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?tomatoes' },
+  { cropName: 'Potatoes', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?potatoes' },
+  { cropName: 'Carrots', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?carrots' },
+  { cropName: 'Lettuce', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?lettuce' },
+  { cropName: 'Cucumbers', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?cucumbers' },
+  { cropName: 'Bell Peppers', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?bell-peppers' },
+  { cropName: 'Broccoli', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?broccoli' },
+  { cropName: 'Spinach', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?spinach' },
+  { cropName: 'Onions', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?onions' },
+  { cropName: 'Garlic', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?garlic' },
+  { cropName: 'Kale', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?kale' },
+  { cropName: 'Zucchini', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?zucchini' },
+  { cropName: 'Corn', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?corn' },
+  { cropName: 'Cabbage', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?cabbage' },
+  { cropName: 'Green Beans', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?green-beans' },
+  { cropName: 'Pumpkin', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?pumpkin' },
+  { cropName: 'Radishes', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?radishes' },
+  { cropName: 'Peas', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?peas' },
+  { cropName: 'Artichokes', status: 'pending', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?artichokes' },
+  { cropName: 'Beets', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?beets' },
+  { cropName: 'Asparagus', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?asparagus' },
+];
+export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData,dummyOrderData };

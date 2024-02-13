@@ -16,6 +16,15 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
+      subContainer:{
+        paddingHorizontal:widthPercentageToDP(3),
+      },
+      orderCardStyle:{
+        marginTop: heightPercentageToDP(2),
+        borderRadius:widthPercentageToDP(4),
+        paddingHorizontal:widthPercentageToDP(3),
+        paddingVertical:heightPercentageToDP(2),
+      },
     });
   return React.useMemo(() => styles(), []);
 };

@@ -57,6 +57,9 @@ const images = {
     cursor:require("../assets/Search/cursor.png"),
     remove:require("../assets/Search/remove.png"),
   },
+  Order:{
+    leave:require("../assets/Order/leave.png"),
+  }
 };
 
 export default images;

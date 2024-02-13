@@ -9,6 +9,7 @@ import Home from '../../screens/Home';
 import Orders from '../../screens/Orders';
 import Profile from '../../screens/Profile';
 import {widthPercentageToDP} from 'react-native-responsive-screen';
+import TopTabNavigation from '../TopTabNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -60,7 +61,7 @@ const BottomTabNavigation = () => {
       />
       <Tab.Screen
         name="Orders"
-        component={Orders}
+        component={TopTabNavigation}
         options={{
           headerShown: false,
           tabBarLabel: ({focused, color}) => (
