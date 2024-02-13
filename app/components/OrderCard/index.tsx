@@ -10,8 +10,7 @@ const OrderCard: React.FC<Props> = props => {
   const theme = useTheme();
 
   return (
-    <TouchableOpacity
-      onPress={props?.onPress}
+    <View
       style={[styles.view, props.style]}>
       <View style={styles.rowContainer}>
         <FastImage
@@ -55,7 +54,7 @@ const OrderCard: React.FC<Props> = props => {
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 export default OrderCard;
