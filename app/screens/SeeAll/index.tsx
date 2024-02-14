@@ -42,7 +42,6 @@ const SeeAll: React.FC = ({route}) => {
           paddingHorizontal: widthPercentageToDP(4),
           paddingTop: heightPercentageToDP(2),
         }}
-        rightIcon={images.SeeAll.search}
       />
       <View style={styles.subContainer}>
         <View style={{marginBottom: heightPercentageToDP(2)}}>

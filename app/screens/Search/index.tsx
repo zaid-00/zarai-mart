@@ -46,7 +46,7 @@ const Search: React.FC = () => {
   };
   const handleSliderChange = _.debounce(value => {
     setHigh(value[0]);
-  }, 20);
+  }, 15);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -194,6 +194,7 @@ const Search: React.FC = () => {
         swipeDirection={'down'}
         style={{margin: 0}}>
         <View style={styles.modalView}>
+          <View style={styles.topIndicator}></View>
           <Text style={styles.sortText}>Sort & Filter</Text>
           <View style={styles.lineSeperator}></View>
           <Text style={styles.headingText}>Categories</Text>

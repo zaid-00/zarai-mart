@@ -42,7 +42,7 @@ const OrderCard: React.FC<Props> = props => {
           </View>
           <View style={styles.flexrow}>
             <Text style={styles.priceText}>Rs {props?.price}/kg</Text>
-            <TouchableOpacity style={styles.buttonContainer}>
+            {props?.onPress?<TouchableOpacity style={styles.buttonContainer} onPress={props?.onPress}>
               <Text style={styles.buttonText}>{props?.status === 'active'
                 ? 'Track Order'
                 : props?.status === 'pending'
@@ -50,7 +50,8 @@ const OrderCard: React.FC<Props> = props => {
                 : props?.status === 'completed'
                 ? 'Leave a review'
                 : undefined}</Text>
-            </TouchableOpacity>
+            </TouchableOpacity>:null}
+            
           </View>
         </View>
       </View>

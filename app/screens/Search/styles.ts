@@ -20,9 +20,17 @@ export const useStyle = () => {
         paddingHorizontal: widthPercentageToDP(3),
         borderTopStartRadius: widthPercentageToDP(10),
         borderTopEndRadius: widthPercentageToDP(10),
-        paddingVertical: heightPercentageToDP(3),
+        paddingBottom: heightPercentageToDP(3),
+        paddingTop:heightPercentageToDP(1),
         position: 'absolute',
         bottom: 0,
+      },
+      topIndicator:{
+        borderWidth:widthPercentageToDP(0.4),
+        borderColor:theme.colors.greyDot,
+        alignSelf:'center',
+        paddingHorizontal:widthPercentageToDP(5),
+        marginBottom:heightPercentageToDP(2)
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),

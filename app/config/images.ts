@@ -59,6 +59,8 @@ const images = {
   },
   Order:{
     leave:require("../assets/Order/leave.png"),
+    ratingStar:require("../assets/Order/ratingStar.png"),
+    greenStar:require("../assets/Order/greenStar.png"),
   }
 };
 
