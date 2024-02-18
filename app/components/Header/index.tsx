@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { Pressable, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useTheme } from 'react-native-paper';
 import { useStyle } from './style';
@@ -13,25 +13,29 @@ const Header: React.FC<Props> = props => {
     navigation.goBack();
   };
   return (
-    <View style={[styles.rowContainer,props?.style]}>
+    <View style={[styles.rowContainer, props?.style]}>
       <View style={styles.subRowContainer}>
-        {props?.leftIcon?<TouchableOpacity onPress={handleBack}>
-          <FastImage
-            source={props?.leftIcon}
-            style={styles.leftImg}
-            resizeMode="contain"
-          />
-        </TouchableOpacity>:null}
-        
+        {props?.leftIcon ? (
+          <Pressable onPress={handleBack}>
+            <FastImage
+              source={props?.leftIcon}
+              style={styles.leftImg}
+              resizeMode="contain"
+            />
+          </Pressable>
+        ) : null}
+
         <Text style={styles.nameText}>{props?.title}</Text>
       </View>
-      <TouchableOpacity>
-      <FastImage
+      {props?.rightIcon ? (
+        <Pressable>
+          <FastImage
             source={props?.rightIcon}
             style={styles.rightImg}
             resizeMode="contain"
           />
-      </TouchableOpacity>
+        </Pressable>
+      ) : null}
     </View>
   );
 };

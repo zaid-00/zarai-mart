@@ -61,6 +61,15 @@ const images = {
     leave:require("../assets/Order/leave.png"),
     ratingStar:require("../assets/Order/ratingStar.png"),
     greenStar:require("../assets/Order/greenStar.png"),
+  },
+  Profile:{
+    pen:require("../assets/Profile/pen.png"),
+    next:require("../assets/Profile/next.png"),
+    profile:require("../assets/Profile/Profile.png"),
+    location:require("../assets/Profile/Location.png"),
+    wallet:require("../assets/Profile/Wallet.png"),
+    logout:require("../assets/Profile/Logout.png"),
+    delete:require("../assets/Profile/delete.png"),
   }
 };
 

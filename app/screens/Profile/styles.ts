@@ -16,58 +16,58 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      contentContainer: {
-        alignItems: 'center',
-        paddingBottom: heightPercentageToDP(10),
+      subContainer:{
+        paddingHorizontal:widthPercentageToDP(3),
       },
-      title: {
-        fontWeight: 'bold',
-        color: theme.colors.primaryText,
+      infoContainer:{
+        justifyContent:'center',
+        alignItems:'center'
       },
-      logo: {
-        height: heightPercentageToDP(16),
-        width: widthPercentageToDP(32),
-        alignSelf: 'center',
-        marginBottom: heightPercentageToDP(2),
+      img:{
+        width:widthPercentageToDP(26),
+        height:heightPercentageToDP(12.5),
+        borderRadius:widthPercentageToDP(50),
       },
-      icons: {
-        height: heightPercentageToDP(2.1),
-        width: widthPercentageToDP(4.1),
+      penIcon:{
+        top:heightPercentageToDP(-4),
+        left:widthPercentageToDP(9),
+        width:widthPercentageToDP(5),
+        position:'absolute',
+        height:heightPercentageToDP(2.5),
       },
-      heading: {
-        color: theme.colors.primaryText,
-        fontFamily: theme.fonts.regularFont,
-        fontSize: widthPercentageToDP(5.7),
-        alignSelf: 'flex-start',
-        paddingHorizontal: widthPercentageToDP(4),
-        marginBottom: heightPercentageToDP(0.5),
-      },
-      controller: {marginVertical: heightPercentageToDP(0.8)},
-      error: {
-        color: 'red',
-        paddingVertical: heightPercentageToDP(0.5),
-        fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
-      },
-      checkBoxText: {
-        fontFamily: theme.fonts.semiBoldFont,
-        color: theme.colors.primaryText,
-        fontSize: widthPercentageToDP(3.4),
-      },
-      text: {
-        color: theme.colors.placeholderText,
-        fontFamily: theme.fonts.regularFont,
-        alignSelf: 'flex-start',
-        paddingHorizontal: widthPercentageToDP(4),
-        marginBottom: heightPercentageToDP(3),
-      },
-      iconStyle: {
-        borderColor: theme.colors.primaryButton,
-        borderWidth: widthPercentageToDP(0.64),
-        borderRadius: widthPercentageToDP(1.7),
-      },
-      loginButton: {
-        backgroundColor: theme.colors.background,
+      lineSeperator: {
+        borderWidth: widthPercentageToDP(0.13),
+        borderColor: theme.colors.borderColor,
         marginTop: heightPercentageToDP(2),
+      },
+      nameText:{
+        fontFamily:theme.fonts.boldFont,
+        fontSize:widthPercentageToDP(4.8),
+        color:theme.colors.primaryText,
+      },
+      numberText:{
+        fontFamily:theme.fonts.semiBoldFont,
+        fontSize:widthPercentageToDP(3.3),
+        color:theme.colors.primaryText,
+      },
+      rowContainer:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        marginTop:heightPercentageToDP(2),
+      },
+      row:{
+        flexDirection:'row',
+        alignItems:'center',
+      },
+      icon:{
+        width:widthPercentageToDP(6),
+        height:heightPercentageToDP(2.5),
+      },
+      optionText:{
+        fontFamily:theme.fonts.semiBoldFont,
+        fontSize:widthPercentageToDP(4),
+        marginLeft:widthPercentageToDP(3),
       },
     });
   return React.useMemo(() => styles(), []);
