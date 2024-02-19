@@ -13,6 +13,7 @@ import Search from '../screens/Search';
 import SeeAll from '../screens/SeeAll';
 import Crop from '../screens/Crop';
 import Review from '../screens/Reviews';
+import EditProfile from '../screens/EditProfile';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -20,7 +21,7 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'}/>
-      <Stack.Navigator  initialRouteName='Main'>
+      <Stack.Navigator  >
       <Stack.Screen name="Onboard" component={Onboard} options={{headerShown:false}}/>
       <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
@@ -33,6 +34,7 @@ function AppNavigator() {
       <Stack.Screen name='SeeAll' component={SeeAll} options={{headerShown:false}}/>
       <Stack.Screen name='Crop' component={Crop} options={{headerShown:false}}/>
       <Stack.Screen name='Review' component={Review} options={{headerShown:false}}/>
+      <Stack.Screen name='EditProfile' component={EditProfile} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

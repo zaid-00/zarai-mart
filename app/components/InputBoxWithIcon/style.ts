@@ -29,9 +29,9 @@ export const useStyle = () => {
       },
       input: {
         width: widthPercentageToDP(67),
-        marginLeft: widthPercentageToDP(2),
+        paddingHorizontal: widthPercentageToDP(2),
         fontFamily: theme.fonts.regularFont,
-        fontSize: isTablet() ? widthPercentageToDP(2) : widthPercentageToDP(4),
+        fontSize: isTablet() ? widthPercentageToDP(2) : widthPercentageToDP(3.6),
         paddingVertical: 15,
       },
       textView: {
@@ -39,8 +39,8 @@ export const useStyle = () => {
         zIndex: -1,
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: widthPercentageToDP(0.3),
-        borderRadius: 10,
+        borderWidth: widthPercentageToDP(0.15),
+        borderRadius: widthPercentageToDP(3.4),
         borderColor:theme.colors.borderColor,
         width: widthPercentageToDP(92),
         backgroundColor: theme.colors.textViewBackground,
@@ -48,6 +48,10 @@ export const useStyle = () => {
       icons: {
         height: heightPercentageToDP(2.1),
         width: widthPercentageToDP(4.1),
+      },
+      rightIcon: {
+        height: heightPercentageToDP(2.5),
+        width: widthPercentageToDP(5),
       },
       errorMessage: {
         color: theme.colors.error,

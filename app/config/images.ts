@@ -70,6 +70,9 @@ const images = {
     wallet:require("../assets/Profile/Wallet.png"),
     logout:require("../assets/Profile/Logout.png"),
     delete:require("../assets/Profile/delete.png"),
+  },
+  EditProfile:{
+    message:require("../assets/EditProfile/Message.png"),
   }
 };
 

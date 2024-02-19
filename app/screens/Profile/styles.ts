@@ -17,6 +17,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer:{
+        paddingTop:heightPercentageToDP(5),
         paddingHorizontal:widthPercentageToDP(3),
       },
       infoContainer:{
@@ -38,7 +39,7 @@ export const useStyle = () => {
       lineSeperator: {
         borderWidth: widthPercentageToDP(0.13),
         borderColor: theme.colors.borderColor,
-        marginTop: heightPercentageToDP(2),
+        marginTop: heightPercentageToDP(3),
       },
       nameText:{
         fontFamily:theme.fonts.boldFont,
@@ -54,7 +55,7 @@ export const useStyle = () => {
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        marginTop:heightPercentageToDP(2),
+        marginTop:heightPercentageToDP(3),
       },
       row:{
         flexDirection:'row',

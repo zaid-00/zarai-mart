@@ -77,7 +77,13 @@ const InputBoxWithIcon: React.FC<Props> = props => {
       }
     }
   };
-
+  const getFontStyle = () => {
+    if (props?.value?.length > 0) {
+      return theme.fonts.semiBoldFont;
+    } else {
+      return styles.regularFont;
+    }
+  };
   return (
     <>
       <View
@@ -101,7 +107,6 @@ const InputBoxWithIcon: React.FC<Props> = props => {
                 includeFontPadding: false,
                 color: 'grey',
                 textAlign: 'left',
-                // marginTop: heightPercentageToDP(0.4),
               },
             ]}>
             {props?.value}
@@ -124,7 +129,7 @@ const InputBoxWithIcon: React.FC<Props> = props => {
                   ? props?.width - widthPercentageToDP(8)
                   : widthPercentageToDP(67),
                 includeFontPadding: false,
-
+                // fontFamily: getFontStyle(),
                 // marginTop: heightPercentageToDP(0.4),
               },
               props?.inputStyle,
@@ -156,12 +161,21 @@ const InputBoxWithIcon: React.FC<Props> = props => {
         {props.type === 'password' && (
           <TouchableOpacity onPress={togglePassword} style={styles.eye}>
             <FastImage
-                  source={isPaswordVisible?images.SignUp.eye:images.SignUp.eyeCrossed}
-                  style={styles.icons}
-                  resizeMode="contain"
-                  tintColor={theme.colors.placeholderText}
-                />
+              source={
+                isPaswordVisible ? images.SignUp.eye : images.SignUp.eyeCrossed
+              }
+              style={styles.icons}
+              resizeMode="contain"
+              tintColor={theme.colors.placeholderText}
+            />
           </TouchableOpacity>
+        )}
+        {props.rightIcon && (
+          <FastImage
+            source={props?.rightIcon}
+            style={styles.rightIcon}
+            resizeMode="contain"
+          />
         )}
       </View>
       {errorMessage != '' && (

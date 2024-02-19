@@ -191,6 +191,7 @@ const Search: React.FC = () => {
         onBackButtonPress={toggleModal}
         onBackdropPress={toggleModal}
         onSwipeComplete={toggleModal}
+        swipeThreshold={230}
         swipeDirection={'down'}
         style={{margin: 0}}>
         <View style={styles.modalView}>

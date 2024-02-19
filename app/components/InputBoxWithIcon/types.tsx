@@ -19,5 +19,6 @@ export interface Props {
   disabled?: boolean;
   allowClear?: boolean;
   rightButton?: () => void;
+  rightIcon?:any;
   onBlur?: () => void;
 }

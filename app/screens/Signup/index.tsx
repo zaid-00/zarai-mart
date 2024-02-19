@@ -281,7 +281,6 @@ const Signup: React.FC = () => {
       <PrimaryButton
         title="Sign up"
         style={{marginTop:heightPercentageToDP(0.8)}}
-        // disabled={formState.isValid?false:true}
         disabledWhileAnimating
         onPress={handleSubmit(signUp)}
         animating={isLoading}

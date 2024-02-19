@@ -1,16 +1,18 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
-import {Pressable, SafeAreaView, View, Text} from 'react-native';
+import React, {useState} from 'react';
+import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {useTheme} from 'react-native-paper';
 import images from '../../config/images';
 import {useStyle} from './styles';
 const Profile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
+  const [selectedImg, setSelectedImg] = useState('');
   const navigation = useNavigation<any>();
   const Option = props => (
-    <Pressable style={styles.rowContainer}>
+    <Pressable style={styles.rowContainer} onPress={props?.onPress}>
       <View style={styles.row}>
         <FastImage
           source={props?.leftIcon}
@@ -34,16 +36,28 @@ const Profile: React.FC = () => {
       />
     </Pressable>
   );
+  const handleSelectImage = async () => {
+    try {
+      const response = await launchImageLibrary({mediaType: 'photo'});
+      if (!response.didCancel) {
+        if (response.assets && response.assets.length > 0) {
+          setSelectedImg(response.assets[0].uri);
+        }
+      }
+    } catch (error) {
+      console.error('ImagePicker Error: ', error);
+    }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <View style={styles.infoContainer}>
           <FastImage
-            source={images.Home.zaid}
+            source={selectedImg?{uri:selectedImg}:images.Home.zaid}
             style={styles.img}
             resizeMode="stretch"
           />
-          <Pressable>
+          <Pressable onPress={handleSelectImage}>
             <FastImage
               source={images.Profile.pen}
               style={styles.penIcon}
@@ -58,6 +72,9 @@ const Profile: React.FC = () => {
           leftIcon={images.Profile.profile}
           title="Edit Profile"
           rightIcon={images.Profile.next}
+          onPress={() => {
+            navigation.navigate('EditProfile');
+          }}
         />
         <Option
           leftIcon={images.Profile.location}
