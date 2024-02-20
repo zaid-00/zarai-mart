@@ -20,7 +20,7 @@ export const useStyle = () => {
         paddingTop:heightPercentageToDP(2),
         paddingHorizontal:widthPercentageToDP(4),
       },
-      controller: {marginTop: heightPercentageToDP(3)},
+      controller: {marginTop: heightPercentageToDP(3.5)},
       error: {
         color: 'red',
         paddingVertical: heightPercentageToDP(0.5),

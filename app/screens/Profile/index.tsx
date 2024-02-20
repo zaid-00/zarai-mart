@@ -6,11 +6,16 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import {useTheme} from 'react-native-paper';
 import images from '../../config/images';
 import {useStyle} from './styles';
+import Modal from 'react-native-modal';
+import PrimaryButton from '../../components/PrimaryButton';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 const Profile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
   const [selectedImg, setSelectedImg] = useState('');
   const navigation = useNavigation<any>();
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [whichModal, setWhichModal] = useState('');
   const Option = props => (
     <Pressable style={styles.rowContainer} onPress={props?.onPress}>
       <View style={styles.row}>
@@ -48,12 +53,23 @@ const Profile: React.FC = () => {
       console.error('ImagePicker Error: ', error);
     }
   };
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const handleLogout = () => {
+    setWhichModal(() => 'Logout');
+    toggleModal();
+  };
+  const handleDeleteAccount = () => {
+    setWhichModal(() => 'Delete');
+    toggleModal();
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <View style={styles.infoContainer}>
           <FastImage
-            source={selectedImg?{uri:selectedImg}:images.Home.zaid}
+            source={selectedImg ? {uri: selectedImg} : images.Home.zaid}
             style={styles.img}
             resizeMode="stretch"
           />
@@ -86,13 +102,57 @@ const Profile: React.FC = () => {
           title="Payment"
           rightIcon={images.Profile.next}
         />
-        <Option leftIcon={images.Profile.logout} allRed title="Logout" />
+        <Option
+          leftIcon={images.Profile.logout}
+          allRed
+          title="Logout"
+          onPress={handleLogout}
+        />
         <Option
           leftIcon={images.Profile.delete}
           allRed
+          onPress={handleDeleteAccount}
           title="Delete Account"
         />
       </View>
+      <Modal
+        isVisible={isModalVisible}
+        onBackButtonPress={toggleModal}
+        onBackdropPress={toggleModal}
+        style={{margin: 0}}>
+        <View style={styles.modalView}>
+          <View style={styles.topIndicator}></View>
+          <Text style={styles.heading}>
+            {whichModal === 'Logout' ? 'Logout' : 'Delete Account'}
+          </Text>
+          <View style={styles.lineSeperator}></View>
+          <Text style={styles.secHeading}>
+            {whichModal === 'Logout'
+              ? 'Are you sure you want to log out?'
+              : 'Are you sure you want to delete the account?'}
+          </Text>
+          <View style={styles.rowContainer}>
+            <PrimaryButton
+              title="Cancel"
+              textStyle={{color: theme.colors.primaryButton}}
+              onPress={toggleModal}
+              style={styles.cancelButton}
+            />
+            <PrimaryButton
+              title={
+                whichModal === 'Logout' ? 'Yes, Logout' : 'Yes, Delete Account'
+              }
+              onPress={toggleModal}
+              style={[
+                styles.submitButton,
+                whichModal === 'Logout'
+                  ? {width: widthPercentageToDP(40)}
+                  : {width: widthPercentageToDP(50)},
+              ]}
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

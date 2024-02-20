@@ -70,6 +70,44 @@ export const useStyle = () => {
         fontSize:widthPercentageToDP(4),
         marginLeft:widthPercentageToDP(3),
       },
+      modalView: {
+        backgroundColor: theme.colors.background,
+        paddingHorizontal: widthPercentageToDP(6),
+        width: widthPercentageToDP(100),
+        borderTopStartRadius: widthPercentageToDP(10),
+        borderTopEndRadius: widthPercentageToDP(10),
+        paddingBottom: heightPercentageToDP(3),
+        paddingTop: heightPercentageToDP(1),
+        position: 'absolute',
+        bottom: 0,
+      },
+      topIndicator: {
+        borderWidth: widthPercentageToDP(0.4),
+        borderColor: theme.colors.greyDot,
+        alignSelf: 'center',
+        paddingHorizontal: widthPercentageToDP(5),
+        marginBottom: heightPercentageToDP(2),
+      },
+      cancelButton:{
+        backgroundColor: theme.colors.transparentGreenBackground,
+        width: widthPercentageToDP(33),
+      },
+      submitButton:{
+        width: widthPercentageToDP(40),
+      },
+      heading: {
+        color: '#F75555',
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(4.9),
+        alignSelf: 'center',
+      },
+      secHeading: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.semiBoldFont,
+        fontSize: widthPercentageToDP(4),
+        alignSelf: 'center',
+        marginTop:heightPercentageToDP(2),
+      },
     });
   return React.useMemo(() => styles(), []);
 };

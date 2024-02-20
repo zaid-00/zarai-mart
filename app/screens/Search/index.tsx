@@ -46,7 +46,7 @@ const Search: React.FC = () => {
   };
   const handleSliderChange = _.debounce(value => {
     setHigh(value[0]);
-  }, 15);
+  }, 17);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -191,7 +191,7 @@ const Search: React.FC = () => {
         onBackButtonPress={toggleModal}
         onBackdropPress={toggleModal}
         onSwipeComplete={toggleModal}
-        swipeThreshold={230}
+        swipeThreshold={270}
         swipeDirection={'down'}
         style={{margin: 0}}>
         <View style={styles.modalView}>

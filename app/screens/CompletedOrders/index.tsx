@@ -48,9 +48,6 @@ const CompletedOrders: React.FC = () => {
           isVisible={isModalVisible}
           onBackButtonPress={toggleModal}
           onBackdropPress={toggleModal}
-          onSwipeComplete={toggleModal}
-          swipeDirection={'down'}
-          swipeThreshold={230}
           style={{margin: 0}}>
           <View style={styles.modalView}>
             <View style={styles.topIndicator}></View>
