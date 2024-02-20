@@ -29,6 +29,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
+            defaultValue={"Muhammad Zaid"}
             rules={{
               required: true,
             }}
@@ -57,6 +58,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
+            defaultValue={"zaidtayyab1@gmail.com"}
             rules={{
               required: 'Email is required',
               pattern: {
@@ -92,6 +94,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
+            defaultValue={"03208551378"}
             rules={{
               required: 'Phone is required',
               minLength: {
@@ -126,7 +129,7 @@ const EditProfile: React.FC = () => {
         </View>
         <PrimaryButton
           title="Update"
-          style={{marginTop: heightPercentageToDP(4),alignSelf:'center'}}
+          style={{marginTop: heightPercentageToDP(4), alignSelf: 'center'}}
           disabledWhileAnimating
           onPress={handleSubmit(() => {})}
           animating={isLoading}

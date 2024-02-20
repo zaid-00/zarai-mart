@@ -1,14 +1,14 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Pressable, SafeAreaView, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Pressable, SafeAreaView, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {launchImageLibrary} from 'react-native-image-picker';
-import {useTheme} from 'react-native-paper';
-import images from '../../config/images';
-import {useStyle} from './styles';
+import { launchImageLibrary } from 'react-native-image-picker';
 import Modal from 'react-native-modal';
+import { useTheme } from 'react-native-paper';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 import PrimaryButton from '../../components/PrimaryButton';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import images from '../../config/images';
+import { useStyle } from './styles';
 const Profile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
