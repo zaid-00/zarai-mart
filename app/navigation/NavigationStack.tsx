@@ -14,6 +14,7 @@ import SeeAll from '../screens/SeeAll';
 import Crop from '../screens/Crop';
 import Review from '../screens/Reviews';
 import EditProfile from '../screens/EditProfile';
+import Address from '../screens/Address';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -35,6 +36,7 @@ function AppNavigator() {
       <Stack.Screen name='Crop' component={Crop} options={{headerShown:false}}/>
       <Stack.Screen name='Review' component={Review} options={{headerShown:false}}/>
       <Stack.Screen name='EditProfile' component={EditProfile} options={{headerShown:false}}/>
+      <Stack.Screen name='Address' component={Address} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

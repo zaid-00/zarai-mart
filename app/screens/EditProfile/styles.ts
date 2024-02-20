@@ -30,6 +30,7 @@ export const useStyle = () => {
         paddingVertical: heightPercentageToDP(1.5),
         width: widthPercentageToDP(83),
       },
+      button:{ alignSelf: 'center',position:'absolute',bottom:heightPercentageToDP(3)},
     });
   return React.useMemo(() => styles(), []);
 };

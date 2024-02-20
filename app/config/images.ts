@@ -73,7 +73,11 @@ const images = {
   },
   EditProfile:{
     message:require("../assets/EditProfile/Message.png"),
-  }
+  },
+  Address:{
+    location:require("../assets/Address/location.png"),
+    edit:require("../assets/Address/Edit.png"),
+  },
 };
 
 export default images;

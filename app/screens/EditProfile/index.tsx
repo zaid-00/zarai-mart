@@ -127,14 +127,14 @@ const EditProfile: React.FC = () => {
             </Text>
           )}
         </View>
-        <PrimaryButton
+      </View>
+      <PrimaryButton
           title="Update"
-          style={{marginTop: heightPercentageToDP(4), alignSelf: 'center'}}
+          style={styles.button}
           disabledWhileAnimating
           onPress={handleSubmit(() => {})}
           animating={isLoading}
         />
-      </View>
     </SafeAreaView>
   );
 };

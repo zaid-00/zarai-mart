@@ -96,6 +96,7 @@ const Profile: React.FC = () => {
           leftIcon={images.Profile.location}
           title="Address"
           rightIcon={images.Profile.next}
+          onPress={()=>{navigation.navigate("Address")}}
         />
         <Option
           leftIcon={images.Profile.wallet}
