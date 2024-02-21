@@ -181,4 +181,45 @@ const dummyOrderData = [
   { cropName: 'Beets', status: 'completed', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?beets' },
   { cropName: 'Asparagus', status: 'active', quantity: Math.floor(Math.random() * 100) + 1, price: parseInt((Math.random() * 10000).toFixed(2)), imageUrl: 'https://source.unsplash.com/400x300/?asparagus' },
 ];
-export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData,dummyOrderData };
+const messages = [
+  {
+    id: 1,
+    leftIcon: images.Message.user,
+    user: "Zaid",
+    message: "61480 Sunbrook Park, PC 5679",
+    unread: 5,
+    date: "Yesterday"
+  },
+  {
+    id: 2,
+    leftIcon: images.Message.user,
+    user: "John",
+    message: "Hey, how's it going?",
+    date: "Today"
+  },
+  {
+    id: 3,
+    leftIcon: images.Message.user,
+    user: "Emma",
+    message: "Sure! See you then.",
+    unread: 2,
+    date: "2 days ago"
+  },
+  {
+    id: 4,
+    leftIcon: images.Message.user,
+    user: "Alex",
+    message: "What time are we meeting?",
+    unread: 3,
+    date: "3 days ago"
+  },
+  {
+    id: 5,
+    leftIcon: images.Message.user,
+    user: "Sarah",
+    message: "Can you please send me the file?",
+    date: "4 days ago"
+  },
+];
+
+export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData,dummyOrderData,messages };

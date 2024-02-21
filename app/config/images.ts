@@ -80,6 +80,9 @@ const images = {
     location:require("../assets/Address/location.png"),
     edit:require("../assets/Address/Edit.png"),
   },
+  Message:{
+    user:require("../assets/Message/user.png"),
+  },
 };
 
 export default images;

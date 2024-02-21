@@ -1,15 +1,15 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
+import { Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {useTheme} from 'react-native-paper';
-import {useStyle} from './styles';
+import { useTheme } from 'react-native-paper';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 import images from '../../config/images';
-import {Text} from 'react-native';
 import Home from '../../screens/Home';
-import Orders from '../../screens/Orders';
 import Profile from '../../screens/Profile';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
 import TopTabNavigation from '../TopTabNavigation';
+import { useStyle } from './styles';
+import Inbox from '../../screens/Inbox';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,7 +61,7 @@ const BottomTabNavigation = () => {
       />
       <Tab.Screen
         name="Message"
-        component={Home}
+        component={Inbox}
         options={{
           headerShown: false,
           tabBarLabel: ({focused, color}) => (

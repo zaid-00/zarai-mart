@@ -46,7 +46,7 @@ const Search: React.FC = () => {
   };
   const handleSliderChange = _.debounce(value => {
     setHigh(value[0]);
-  }, 17);
+  }, 16);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
