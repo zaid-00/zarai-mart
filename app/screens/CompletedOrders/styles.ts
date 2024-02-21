@@ -14,7 +14,7 @@ export const useStyle = () => {
     StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.greyBackground,
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),
@@ -24,6 +24,7 @@ export const useStyle = () => {
         borderRadius: widthPercentageToDP(4),
         paddingHorizontal: widthPercentageToDP(3),
         paddingVertical: heightPercentageToDP(2),
+        backgroundColor:theme.colors.background,
       },
       modalView: {
         backgroundColor: theme.colors.background,

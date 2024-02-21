@@ -28,6 +28,8 @@ const images = {
     focusedOrders:require("../assets/BottomBar/focusedOrders.png"),
     unfocusedProfile:require("../assets/BottomBar/unfocusedProfile.png"),
     focusedProfile:require("../assets/BottomBar/focusedProfile.png"),
+    unfocusedMessage:require("../assets/BottomBar/unfocusedMessage.png"),
+    focusedMessage:require("../assets/BottomBar/focusedMessage.png"),
   },
   Home:{
     heart:require("../assets/Home/Heart.png"),

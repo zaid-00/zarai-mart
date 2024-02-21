@@ -60,6 +60,28 @@ const BottomTabNavigation = () => {
         }}
       />
       <Tab.Screen
+        name="Message"
+        component={Home}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({focused, color}) => (
+            <CustomTabLabel focused={focused} label="Messages" color={color} />
+          ),
+          tabBarIcon: ({color, size, focused}) => (
+            <FastImage
+              source={
+                focused
+                  ? images.BottomBar.focusedMessage
+                  : images.BottomBar.unfocusedMessage
+              }
+              tintColor={color}
+              style={{width: size, height: size}}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Orders"
         component={TopTabNavigation}
         options={{
