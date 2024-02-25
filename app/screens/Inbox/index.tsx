@@ -11,8 +11,10 @@ import { useTheme } from 'react-native-paper';
 import Header from '../../components/Header';
 import { messages } from '../../utils/dummyData';
 import { useStyle } from './styles';
+import { useNavigation } from '@react-navigation/native';
 const Inbox: React.FC = () => {
   const styles = useStyle();
+  const navigation=useNavigation();
   const theme = useTheme();
   const Message = props => (
     <TouchableOpacity style={styles.rowContainer} onPress={props?.onPress}>
@@ -46,6 +48,7 @@ const Inbox: React.FC = () => {
       message={item?.message}
       unread={item?.unread}
       date={item?.date}
+      onPress={()=>{navigation.navigate("Chat");}}
     />
   );
   return (

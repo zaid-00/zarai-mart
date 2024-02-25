@@ -3,6 +3,7 @@ import React, {useRef, useState} from 'react';
 import {
   FlatList,
   SafeAreaView,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
@@ -30,7 +31,7 @@ const Crop: React.FC = () => {
     />
   );
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={{height: heightPercentageToDP(52)}}>
         <FlatList
           data={dummyCropData}
@@ -74,8 +75,21 @@ const Crop: React.FC = () => {
             style={styles.star}
             resizeMode="contain"
           />
-          <TouchableOpacity onPress={()=> navigation.navigate("Review")}>
+          <TouchableOpacity onPress={() => navigation.navigate('Review')}>
             <Text style={styles.reviewText}>4.6 (5,389 reviews)</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.sellerContainer}>
+          <View style={styles.row}>
+            <FastImage
+              source={images.Home.zaid}
+              style={styles.sellerImg}
+              resizeMode="contain"
+            />
+            <Text style={styles.headingText}>Zaid</Text>
+          </View>
+          <TouchableOpacity style={styles.messageContainer} onPress={()=>{navigation.navigate("Chat")}}>
+            <Text style={styles.messageText}>Message</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.lineSeparator}></View>
@@ -104,7 +118,7 @@ const Crop: React.FC = () => {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 

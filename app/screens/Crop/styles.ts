@@ -17,6 +17,7 @@ export const useStyle = () => {
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(4),
+        paddingBottom:heightPercentageToDP(2)
       },
       img: {
         height: heightPercentageToDP(52),
@@ -29,6 +30,12 @@ export const useStyle = () => {
       star: {
         height: heightPercentageToDP(3),
         width: widthPercentageToDP(5),
+      },
+      sellerImg:{
+        height: heightPercentageToDP(5),
+        width: widthPercentageToDP(10),
+        borderRadius:widthPercentageToDP(50),
+        marginRight:widthPercentageToDP(3),
       },
       nameText: {
         color: theme.colors.primaryText,
@@ -86,6 +93,19 @@ export const useStyle = () => {
         borderRadius: widthPercentageToDP(9),
         backgroundColor: theme.colors.greyBackground,
       },
+      messageContainer:{
+          paddingHorizontal:widthPercentageToDP(1.5),
+          paddingVertical:heightPercentageToDP(0.4),
+          borderWidth:widthPercentageToDP(0.4),
+          borderRadius:widthPercentageToDP(1.4),
+          borderColor:theme.colors.dullGreyBackground,
+          backgroundColor:theme.colors.dullGreyBackground
+      },
+      messageText: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.semiBoldFont,
+        fontSize: widthPercentageToDP(3),
+      },
       quantityContainer: {
         marginTop: heightPercentageToDP(1.5),
         flexDirection: 'row',
@@ -124,6 +144,17 @@ export const useStyle = () => {
         alignItems: 'center',
         marginTop: heightPercentageToDP(1),
         alignSelf: 'center',
+      },
+      sellerContainer: {
+        marginTop:heightPercentageToDP(0.5),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent:'space-between',
+        marginBottom:heightPercentageToDP(2)
+      },
+      row: {
+        flexDirection: 'row',
+        alignItems: 'center',
       },
       longDot: {
         paddingHorizontal: widthPercentageToDP(2.7),
