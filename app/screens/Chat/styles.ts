@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {StyleSheet} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -19,68 +19,43 @@ export const useStyle = () => {
         paddingTop: heightPercentageToDP(2),
         paddingHorizontal: widthPercentageToDP(3),
       },
-      infoContainer: {
-        marginLeft: widthPercentageToDP(2),
-        flex: 1,
+      bubbleWrapperStyle: {
+        left: {
+          backgroundColor: theme.colors.dullGreyBackground,
+        },
+        right: {
+          backgroundColor: theme.colors.dullGreyBackground,
+        },
       },
-      rowContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: heightPercentageToDP(2),
-        borderRadius: widthPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(2.5),
-        paddingVertical: heightPercentageToDP(1.5),
-        backgroundColor: theme.colors.dullGreyBackground,
-      },
-      row: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      },
-      messageContainer: {
-        marginTop: heightPercentageToDP(0.5),
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      },
-      flexRow: {
-        flexDirection: 'row',
-        alignItems: 'center',
-      },
-      leftIcon: {
-        width: widthPercentageToDP(14),
-        height: heightPercentageToDP(7),
-      },
-      titleText: {
-        fontFamily: theme.fonts.boldFont,
-        fontSize: widthPercentageToDP(4.3),
-        color: theme.colors.primaryText,
-      },
-      greenContainer: {
-        backgroundColor: theme.colors.primaryButton,
-        paddingHorizontal: widthPercentageToDP(2.2),
-        paddingVertical: heightPercentageToDP(0.4),
-        borderRadius: widthPercentageToDP(8),
+      timeTextStyle: {
+        left: {
+          color: theme.colors.dullBlack,
+          fontFamily: theme.fonts.regularFont,
+        },
+        right: {
+          color: theme.colors.dullBlack,
+          fontFamily: theme.fonts.regularFont,
+        },
       },
       messageText: {
-        fontFamily: theme.fonts.mediumFont,
-        fontSize: widthPercentageToDP(3.45),
-        color: theme.colors.grey700,
-        width: widthPercentageToDP(50),
+        left: {
+          color: theme.colors.primaryText,
+          fontFamily: theme.fonts.mediumFont,
+        },
+        right: {
+          color: theme.colors.primaryText,
+          fontFamily: theme.fonts.mediumFont,
+        },
       },
-      dateText: {
-        fontFamily: theme.fonts.mediumFont,
-        fontSize: widthPercentageToDP(3.45),
-        color: theme.colors.grey700,
-      },
-      unreadText: {
+      chatContainer: {height: heightPercentageToDP(90.3)},
+      sendButtonText: {
+        color: theme.colors.primaryButton,
         fontFamily: theme.fonts.semiBoldFont,
-        fontSize: widthPercentageToDP(3.45),
-        color: 'white',
+        fontSize: widthPercentageToDP(4),
       },
-      FlatListContainer:{
-        height:heightPercentageToDP(83),
-      }
+      sendButton: {
+        alignSelf: 'center',
+      },
     });
   return React.useMemo(() => styles(), []);
 };
