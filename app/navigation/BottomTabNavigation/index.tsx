@@ -10,6 +10,7 @@ import Profile from '../../screens/Profile';
 import TopTabNavigation from '../TopTabNavigation';
 import { useStyle } from './styles';
 import Inbox from '../../screens/Inbox';
+import Cart from '../../screens/Cart';
 
 const Tab = createBottomTabNavigator();
 
@@ -59,13 +60,13 @@ const BottomTabNavigation = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Message"
+      {/* <Tab.Screen
+        name="Inbox"
         component={Inbox}
         options={{
           headerShown: false,
           tabBarLabel: ({focused, color}) => (
-            <CustomTabLabel focused={focused} label="Messages" color={color} />
+            <CustomTabLabel focused={focused} label="Inbox" color={color} />
           ),
           tabBarIcon: ({color, size, focused}) => (
             <FastImage
@@ -73,6 +74,28 @@ const BottomTabNavigation = () => {
                 focused
                   ? images.BottomBar.focusedMessage
                   : images.BottomBar.unfocusedMessage
+              }
+              tintColor={color}
+              style={{width: size, height: size}}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      /> */}
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({focused, color}) => (
+            <CustomTabLabel focused={focused} label="Cart" color={color} />
+          ),
+          tabBarIcon: ({color, size, focused}) => (
+            <FastImage
+              source={
+                focused
+                  ? images.BottomBar.focusedBag
+                  : images.BottomBar.unfocusedBag
               }
               tintColor={color}
               style={{width: size, height: size}}

@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View
-} from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { Bubble, GiftedChat, MessageText } from 'react-native-gifted-chat';
 import { useTheme } from 'react-native-paper';
 import Header from '../../components/Header';
@@ -94,20 +89,22 @@ const Chat: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <Header title="Zaid" leftIcon={images.ForgotPassword.backButton} />
-        <View style={styles.chatContainer}>
-          <GiftedChat
-            messages={messages}
-            renderBubble={renderBubble}
-            renderMessageText={renderMessageText}
-            loadEarlier
-            renderSend={renderSend}
-            onSend={newMessages => onSend(newMessages)}
-            user={{
-              _id: 1,
-            }}
-          />
-        </View>
       </View>
+      {/* <KeyboardAwareScrollView contentContainerStyle={{paddingBottom:heightPercentageToDP(5)}}> */}
+      {/* <View style={styles.chatContainer}> */}
+      <GiftedChat
+        messages={messages}
+        renderBubble={renderBubble}
+        renderMessageText={renderMessageText}
+        loadEarlier
+        renderSend={renderSend}
+        onSend={newMessages => onSend(newMessages)}
+        user={{
+          _id: 1,
+        }}
+      />
+      {/* </View> */}
+      {/* </KeyboardAwareScrollView> */}
     </SafeAreaView>
   );
 };

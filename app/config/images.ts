@@ -30,6 +30,8 @@ const images = {
     focusedProfile:require("../assets/BottomBar/focusedProfile.png"),
     unfocusedMessage:require("../assets/BottomBar/unfocusedMessage.png"),
     focusedMessage:require("../assets/BottomBar/focusedMessage.png"),
+    unfocusedBag:require("../assets/BottomBar/unfocusedBag.png"),
+    focusedBag:require("../assets/BottomBar/focusedBag.png"),
   },
   Home:{
     heart:require("../assets/Home/Heart.png"),
@@ -82,6 +84,9 @@ const images = {
   },
   Message:{
     user:require("../assets/Message/user.png"),
+  },
+  Cart:{
+    delete:require("../assets/Cart/Delete.png"),
   },
 };
 

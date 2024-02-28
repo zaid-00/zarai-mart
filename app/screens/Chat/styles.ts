@@ -55,6 +55,7 @@ export const useStyle = () => {
       },
       sendButton: {
         alignSelf: 'center',
+        marginRight:widthPercentageToDP(3),
       },
     });
   return React.useMemo(() => styles(), []);
