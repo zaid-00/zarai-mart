@@ -36,8 +36,8 @@ export const useStyle = () => {
         marginRight:widthPercentageToDP(2),
       },
       chatIcon: {
-        height: heightPercentageToDP(3),
-        width: widthPercentageToDP(7),
+        height: heightPercentageToDP(3.3),
+        width: widthPercentageToDP(6.8),
       },
       heading: {
         color: theme.colors.primaryText,
