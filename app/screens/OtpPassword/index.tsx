@@ -1,7 +1,7 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import OTPTextInput from 'react-native-otp-textinput';
 import {useTheme} from 'react-native-paper';
 import PrimaryButton from '../../components/PrimaryButton';
@@ -36,40 +36,44 @@ const OtpPassword: React.FC = () => {
     <KeyboardAwareScrollView
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
-      <Header
-        leftIcon={images.ForgotPassword.backButton}
-        title="Forgot Password"
-        style={styles.header}
-      />
-      <View style={styles.subContainer}>
-        <Text style={styles.text2}>
-          Enter OTP sent to your email for the verification process.
-        </Text>
-        <OTPTextInput
-          containerStyle={styles.containerStyle}
-          inputCount={4}
-          tintColor={theme.colors.primaryButton}
-          offTintColor={theme.colors.borderColor}
-          textInputStyle={styles.otpTextInput}
-          textContentType={'oneTimeCode'}
-          keyboardType="numeric"
-          handleTextChange={setOtp}
+      <SafeAreaView>
+        <Header
+          leftIcon={images.ForgotPassword.backButton}
+          title="Forgot Password"
+          style={styles.header}
         />
-        <View style={styles.resendContainer}>
-          <Text style={styles.didntreceived}>If you don’t recieve a code!</Text>
-          <TouchableOpacity>
-            <Text style={styles.resend}>Resend it</Text>
-          </TouchableOpacity>
+        <View style={styles.subContainer}>
+          <Text style={styles.text2}>
+            Enter OTP sent to your email for the verification process.
+          </Text>
+          <OTPTextInput
+            containerStyle={styles.containerStyle}
+            inputCount={4}
+            tintColor={theme.colors.primaryButton}
+            offTintColor={theme.colors.borderColor}
+            textInputStyle={styles.otpTextInput}
+            textContentType={'oneTimeCode'}
+            keyboardType="numeric"
+            handleTextChange={setOtp}
+          />
+          <View style={styles.resendContainer}>
+            <Text style={styles.didntreceived}>
+              If you don’t recieve a code!
+            </Text>
+            <TouchableOpacity>
+              <Text style={styles.resend}>Resend it</Text>
+            </TouchableOpacity>
+          </View>
+          <PrimaryButton
+            style={styles.button}
+            title="Verify"
+            animating={isLoading}
+            disabledWhileAnimating
+            onPress={verifyOtpForReset}
+            disabled={otp?.length < 4 ? true : false}
+          />
         </View>
-        <PrimaryButton
-          style={styles.button}
-          title="Verify"
-          animating={isLoading}
-          disabledWhileAnimating
-          onPress={verifyOtpForReset}
-          disabled={otp?.length < 4 ? true : false}
-        />
-      </View>
+      </SafeAreaView>
     </KeyboardAwareScrollView>
   );
 };

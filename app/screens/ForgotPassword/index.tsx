@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Keyboard, Text, View } from 'react-native';
+import { Keyboard, SafeAreaView, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useTheme } from 'react-native-paper';
@@ -31,7 +31,7 @@ const ForgotPassword: React.FC = () => {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="always">
-      <View style={styles.subContainer}>
+      <SafeAreaView style={styles.subContainer}>
         <Header
           leftIcon={images.ForgotPassword.backButton}
           title="Forgot Password"
@@ -93,7 +93,7 @@ const ForgotPassword: React.FC = () => {
           animating={isLoading}
           onPress={handleSubmit(forgetPassword)}
         />
-      </View>
+      </SafeAreaView>
     </KeyboardAwareScrollView>
   );
 };

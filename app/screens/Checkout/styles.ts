@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import React from 'react';
 import {
@@ -17,6 +17,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
+        paddingTop: Platform.OS ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
       orderCardStyle: {
@@ -29,7 +30,7 @@ export const useStyle = () => {
       },
       button: {
         width: widthPercentageToDP(90),
-        alignSelf:'center'
+        alignSelf: 'center',
       },
       priceText: {
         marginTop: heightPercentageToDP(0.6),

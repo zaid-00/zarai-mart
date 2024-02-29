@@ -1,7 +1,7 @@
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {Controller, useForm} from 'react-hook-form';
-import {Text, View, TouchableOpacity, Modal} from 'react-native';
+import {Text, View, TouchableOpacity, Modal, SafeAreaView} from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import FastImage from 'react-native-fast-image';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -39,7 +39,7 @@ const NewPassword: React.FC = () => {
       keyboardShouldPersistTaps="always"
       style={styles.container}>
       {modalVisible && <View style={styles.overlay}></View>}
-      <View style={styles.subContainer}>
+      <SafeAreaView style={styles.subContainer}>
         <Header
           leftIcon={images.ForgotPassword.backButton}
           title="Create New Password"
@@ -158,7 +158,7 @@ const NewPassword: React.FC = () => {
           animating={isLoading}
           onPress={handleSubmit(resetPassword)}
         />
-      </View>
+      </SafeAreaView>
 
       <Modal
         animationType="slide"
