@@ -1,10 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import { FlatList, SafeAreaView, View } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {FlatList, SafeAreaView, View} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import OrderCard from '../../components/OrderCard';
-import { dummyOrderData } from '../../utils/dummyData';
-import { useStyle } from './styles';
+import {dummyOrderData} from '../../utils/dummyData';
+import {useStyle} from './styles';
+import images from '../../config/images';
 const ActiveOrders: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -15,19 +16,21 @@ const ActiveOrders: React.FC = () => {
       imageUrl={{uri: item?.imageUrl}}
       cropName={item?.cropName}
       price={item?.price}
-      status={item?.status}
+      status={'active'}
       quantity={item?.quantity}
       onPress={() => {}}
+      sellerName="Zaid"
+      sellerImg={images.Home.zaid}
     />
   );
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-      <FlatList
-        data={dummyOrderData}
-        renderItem={renderOrders}
-        showsVerticalScrollIndicator={false}
-      />
+        <FlatList
+          data={dummyOrderData}
+          renderItem={renderOrders}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </SafeAreaView>
   );

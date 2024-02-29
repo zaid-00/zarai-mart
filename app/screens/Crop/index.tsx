@@ -60,11 +60,6 @@ const Crop: React.FC = () => {
       <View style={styles.subContainer}>
         <View style={styles.rowFlex}>
           <Text style={styles.nameText}>Potato</Text>
-          <FastImage
-            resizeMode="stretch"
-            source={images.Crop.heart}
-            style={styles.icon}
-          />
         </View>
         <View style={styles.reviewContainer}>
           <View style={styles.greenContainer}>

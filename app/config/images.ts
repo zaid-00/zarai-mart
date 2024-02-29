@@ -42,6 +42,7 @@ const images = {
     star:require("../assets/Home/Star.png"),
     crop:require("../assets/Home/Image.png"),
     separator:require("../assets/Home/separator.png"),
+    message:require("../assets/Home/Message.png"),
   },
   SeeAll:{
     search:require("../assets/SeeAll/Search.png"),

@@ -32,7 +32,7 @@ export const useStyle = () => {
         height:heightPercentageToDP(13)
       },
       deleteImage: {
-        width:widthPercentageToDP(5.5),
+        width:widthPercentageToDP(6),
         height:heightPercentageToDP(3)
       },
       nameText: {

@@ -31,9 +31,11 @@ const CompletedOrders: React.FC = () => {
       imageUrl={{uri: item?.imageUrl}}
       cropName={item?.cropName}
       price={item?.price}
-      status={item?.status}
+      status={'completed'}
       quantity={item?.quantity}
       onPress={toggleModal}
+      sellerName="Zaid"
+      sellerImg={images.Home.zaid}
     />
   );
   return (
@@ -60,6 +62,9 @@ const CompletedOrders: React.FC = () => {
               price={parseInt((Math.random() * 10000).toFixed(2))}
               status="completed"
               quantity={Math.floor(Math.random() * 100) + 1}
+              sellerName="Zaid"
+              sellerImg={images.Home.zaid}
+              fromModal
             />
             <View style={styles.lineSeperator}></View>
             <Text style={styles.secHeading}>How was your order?</Text>

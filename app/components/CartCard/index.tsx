@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {Pressable, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import images from '../../config/images';
-import { useStyle } from './style';
-import { Props } from './types';
+import {useStyle} from './style';
+import {Props} from './types';
 const CartCard: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
@@ -25,13 +25,13 @@ const CartCard: React.FC<Props> = props => {
               <Text style={styles.qtText}>{props?.quantity} Kg</Text>
             </View>
             {props?.editable && (
-              <TouchableOpacity onPress={props?.onPress}>
-              <FastImage
-                source={images.Cart.delete}
-                style={styles.deleteImage}
-                resizeMode="contain"
-              />
-              </TouchableOpacity>
+              <Pressable onPress={props?.onPress}>
+                <FastImage
+                  source={images.Cart.delete}
+                  style={styles.deleteImage}
+                  resizeMode="contain"
+                />
+              </Pressable>
             )}
           </View>
         </View>

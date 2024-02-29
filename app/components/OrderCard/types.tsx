@@ -8,5 +8,9 @@ export interface Props {
   status?: string;
   quantity?: any;
   imageUrl?: any;
+  pending?:boolean;
+  sellerName?:string;
+  sellerImg?:any;
+  fromModal?:boolean;
   onPress?:()=> void;
 }

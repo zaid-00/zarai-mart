@@ -33,7 +33,11 @@ export const useStyle = () => {
       icon: {
         height: heightPercentageToDP(3.3),
         width: widthPercentageToDP(6.8),
-        marginHorizontal:widthPercentageToDP(1),
+        marginRight:widthPercentageToDP(2),
+      },
+      chatIcon: {
+        height: heightPercentageToDP(3),
+        width: widthPercentageToDP(7),
       },
       heading: {
         color: theme.colors.primaryText,

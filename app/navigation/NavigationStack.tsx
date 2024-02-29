@@ -1,21 +1,22 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'react-native';
+import Address from '../screens/Address';
+import Chat from '../screens/Chat';
+import Crop from '../screens/Crop';
+import EditProfile from '../screens/EditProfile';
 import ForgotPassword from '../screens/ForgotPassword';
+import Inbox from '../screens/Inbox';
 import Login from '../screens/Login';
 import NewPassword from '../screens/NewPassword';
 import Onboard from '../screens/Onboard';
 import OtpPassword from '../screens/OtpPassword';
+import Review from '../screens/Reviews';
+import Search from '../screens/Search';
+import SeeAll from '../screens/SeeAll';
 import Signup from '../screens/Signup';
 import VerifySignUp from '../screens/VerifySignUp';
 import BottomTabNavigation from './BottomTabNavigation';
-import { StatusBar } from 'react-native';
-import Search from '../screens/Search';
-import SeeAll from '../screens/SeeAll';
-import Crop from '../screens/Crop';
-import Review from '../screens/Reviews';
-import EditProfile from '../screens/EditProfile';
-import Address from '../screens/Address';
-import Chat from '../screens/Chat';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -38,6 +39,7 @@ function AppNavigator() {
       <Stack.Screen name='Review' component={Review} options={{headerShown:false}}/>
       <Stack.Screen name='EditProfile' component={EditProfile} options={{headerShown:false}}/>
       <Stack.Screen name='Address' component={Address} options={{headerShown:false}}/>
+      <Stack.Screen name='Inbox' component={Inbox} options={{headerShown:false}}/>
       <Stack.Screen name='Chat' component={Chat} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>

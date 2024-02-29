@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   FlatList,
+  Pressable,
   SafeAreaView,
   Text,
   TouchableOpacity,
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
       noOfSold={item?.noOfSold}
       price={item?.price}
       isSpecialOffer={true}
-      onPress={() => navigation.navigate("Crop")}
+      onPress={() => navigation.navigate('Crop')}
     />
   );
   const renderMostPopularCrops = ({item}) => (
@@ -44,50 +45,45 @@ const Home: React.FC = () => {
       rating={item?.rating}
       noOfSold={item?.noOfSold}
       price={item?.price}
-      onPress={() => navigation.navigate("Crop")}
+      onPress={() => navigation.navigate('Crop')}
     />
   );
   const renderFilters = ({item}) => (
-    <Filter
-      name={item?.name}
-      style={{marginRight: widthPercentageToDP(2)}}
-    />
+    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
   );
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <View style={styles.rowFlex}>
           <View style={styles.subRowFlex}>
-            <TouchableOpacity>
-              <FastImage
-                source={images.Home.zaid}
-                style={styles.img}
-                resizeMode="stretch"
-              />
-            </TouchableOpacity>
+            <FastImage
+              source={images.Home.zaid}
+              style={styles.img}
+              resizeMode="stretch"
+            />
             <View>
               <Text style={styles.greetingText}>Good Morning 👋</Text>
               <Text style={styles.nameText}>Muhammad Zaid</Text>
             </View>
           </View>
           <View style={styles.subRowFlex}>
-            <TouchableOpacity>
+            <Pressable>
               <FastImage
                 source={images.Home.notification}
                 style={styles.icon}
                 resizeMode="contain"
               />
-            </TouchableOpacity>
-            <TouchableOpacity
+            </Pressable>
+            <Pressable
               onPress={() => {
-                navigation.navigate('SeeAll', {title: 'My Wishlist'});
+                navigation.navigate('Inbox');
               }}>
               <FastImage
-                source={images.Home.heart}
-                style={styles.icon}
+                source={images.Home.message}
+                style={styles.chatIcon}
                 resizeMode="contain"
               />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
         <Searchbar
@@ -95,7 +91,10 @@ const Home: React.FC = () => {
           placeholder="Search"
           placeholderColor={theme.colors.placeholderText}
           dummy
-          styles={{marginBottom: heightPercentageToDP(2),paddingVertical:heightPercentageToDP(2)}}
+          styles={{
+            marginBottom: heightPercentageToDP(2),
+            paddingVertical: heightPercentageToDP(2),
+          }}
           rightIcon={() => (
             <FastImage
               source={images.Home.filter}

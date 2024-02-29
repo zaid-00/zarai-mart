@@ -1,14 +1,14 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { FlatList, SafeAreaView, Text, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {FlatList, SafeAreaView, Text, View} from 'react-native';
 import Modal from 'react-native-modal';
-import { useTheme } from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import CartCard from '../../components/CartCard';
 import Header from '../../components/Header';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import { dummyOrderData } from '../../utils/dummyData';
-import { useStyle } from './styles';
+import {dummyOrderData} from '../../utils/dummyData';
+import {useStyle} from './styles';
 const Cart: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -17,7 +17,7 @@ const Cart: React.FC = () => {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const renderOrders = ({item}) => (
+  const renderCarts = ({item}) => (
     <CartCard
       style={styles.orderCardStyle}
       imageUrl={{uri: item?.imageUrl}}
@@ -38,7 +38,7 @@ const Cart: React.FC = () => {
       <View style={styles.subContainer}>
         <FlatList
           data={dummyOrderData}
-          renderItem={renderOrders}
+          renderItem={renderCarts}
           showsVerticalScrollIndicator={false}
         />
       </View>

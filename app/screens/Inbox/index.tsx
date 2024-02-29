@@ -12,6 +12,7 @@ import Header from '../../components/Header';
 import { messages } from '../../utils/dummyData';
 import { useStyle } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import images from '../../config/images';
 const Inbox: React.FC = () => {
   const styles = useStyle();
   const navigation=useNavigation();
@@ -54,7 +55,7 @@ const Inbox: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header title="Inbox" />
+        <Header title="Inbox" leftIcon={images.ForgotPassword.backButton}/>
         <View style={styles.FlatListContainer}>
           <FlatList renderItem={renderChat} data={messages} />
         </View>

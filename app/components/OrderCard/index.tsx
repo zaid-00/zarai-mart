@@ -1,17 +1,17 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Pressable, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {useTheme} from 'react-native-paper';
+import images from '../../config/images';
 import {useStyle} from './style';
 import {Props} from './types';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
 const OrderCard: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
 
   return (
-    <View
-      style={[styles.view, props.style]}>
+    <View style={[styles.view, props.style]}>
       <View style={styles.rowContainer}>
         <FastImage
           source={props?.imageUrl}
@@ -21,37 +21,43 @@ const OrderCard: React.FC<Props> = props => {
         <View style={styles.txtContainer}>
           <Text style={styles.nameText}>{props?.cropName}</Text>
           <Text style={styles.qtText}>Qty = {props?.quantity}</Text>
-          <View
-            style={[
-              props?.status === 'active'
-                ? {width: widthPercentageToDP(18)}
-                : props?.status === 'pending'
-                ? {width: widthPercentageToDP(15)}
-                : {width: widthPercentageToDP(19)},
-              styles.greenContainer,
-            ]}>
-            <Text style={styles.statusText}>
-              {props?.status === 'active'
-                ? 'In delivery'
-                : props?.status === 'pending'
-                ? 'Pending'
-                : props?.status === 'completed'
-                ? 'Completed'
-                : undefined}
-            </Text>
+          <View style={styles.sellerContainer}>
+            <View style={styles.row}>
+              <FastImage
+                source={props?.sellerImg}
+                style={styles.sellerImg}
+                resizeMode="contain"
+              />
+              <Text style={styles.headingText}>{props?.sellerName}</Text>
+            </View>
           </View>
           <View style={styles.flexrow}>
-            <Text style={styles.priceText}>Rs {props?.price}/kg</Text>
-            {props?.onPress?<TouchableOpacity style={styles.buttonContainer} onPress={props?.onPress}>
-              <Text style={styles.buttonText}>{props?.status === 'active'
-                ? 'Track Order'
-                : props?.status === 'pending'
-                ? 'Check Response'
-                : props?.status === 'completed'
-                ? 'Leave a review'
-                : undefined}</Text>
-            </TouchableOpacity>:null}
-            
+            <Text
+              style={[
+                props?.fromModal && {marginTop: heightPercentageToDP(0.5)},
+                styles.priceText,
+              ]}>
+              Rs {props?.price}/kg
+            </Text>
+            {props?.pending ? (
+              <Pressable onPress={props?.onPress}>
+                <FastImage
+                  source={images.Cart.delete}
+                  style={styles.cancelImg}
+                  resizeMode="contain"
+                />
+              </Pressable>
+            ) : !props?.fromModal ? (
+              <TouchableOpacity
+                style={styles.buttonContainer}
+                onPress={props?.onPress}>
+                <Text style={styles.buttonText}>
+                  {props?.status === 'active'
+                    ? 'Track Order'
+                    : 'Leave a review'}
+                </Text>
+              </TouchableOpacity>
+            ) : undefined}
           </View>
         </View>
       </View>
