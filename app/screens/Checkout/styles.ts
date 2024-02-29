@@ -22,6 +22,12 @@ export const useStyle = () => {
       },
       orderCardStyle: {
         marginTop: heightPercentageToDP(2),
+        backgroundColor:theme.colors.textViewBackground,
+      },
+      lineSeperator: {
+        borderWidth: widthPercentageToDP(0.15),
+        borderColor: theme.colors.borderColor,
+        marginTop: heightPercentageToDP(2),
       },
       rowContainer: {
         flexDirection: 'row',
@@ -37,6 +43,12 @@ export const useStyle = () => {
         color: theme.colors.primaryText,
         fontFamily: theme.fonts.boldFont,
         fontSize: widthPercentageToDP(5.2),
+      },
+      addressText: {
+        marginTop: heightPercentageToDP(3),
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(4.5),
       },
     });
   return React.useMemo(() => styles(), []);

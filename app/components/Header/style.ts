@@ -12,7 +12,7 @@ export const useStyle = () => {
     StyleSheet.create({
       nameText: {
         fontFamily: theme.fonts.boldFont,
-        fontSize: widthPercentageToDP(5),
+        fontSize: widthPercentageToDP(5.6),
         color:theme.colors.primaryText,
       },
       leftImg:{

@@ -21,10 +21,6 @@ export const useStyle = () => {
       },
       orderCardStyle: {
         marginTop: heightPercentageToDP(2),
-        borderRadius: widthPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(3),
-        paddingVertical: heightPercentageToDP(2),
-        backgroundColor:theme.colors.background,
       },
       modalView: {
         backgroundColor: theme.colors.background,

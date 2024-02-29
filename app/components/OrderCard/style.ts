@@ -11,7 +11,10 @@ export const useStyle = () => {
   const styles = () =>
     StyleSheet.create({
       view: {
-        backgroundColor: theme.colors.textViewBackground,
+        borderRadius:widthPercentageToDP(4),
+        paddingHorizontal:widthPercentageToDP(3),
+        paddingVertical:heightPercentageToDP(2),
+        backgroundColor:theme.colors.background,
       },
       flexrow: {
         flexDirection: 'row',
