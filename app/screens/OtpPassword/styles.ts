@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {StyleSheet, Platform} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -17,10 +16,15 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       contentContainer: {paddingBottom: heightPercentageToDP(3)},
+      header: {
+        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        paddingHorizontal: widthPercentageToDP(3),
+      },
       subContainer: {
-        paddingTop: heightPercentageToDP(31.2),
-        paddingHorizontal: widthPercentageToDP(4),
-        alignItems:'center',
+        paddingTop: heightPercentageToDP(27.2),
+        paddingHorizontal: widthPercentageToDP(3),
+        flex:1,
+        alignItems: 'center',
         justifyContent: 'center',
       },
       text2: {
@@ -29,18 +33,18 @@ export const useStyle = () => {
         fontSize: widthPercentageToDP(3.5),
       },
       button: {
-        marginTop: heightPercentageToDP(24.7),
+        marginTop: heightPercentageToDP(24.5),
       },
       resendContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
       },
       containerStyle: {
-        marginVertical:heightPercentageToDP(5),
+        marginVertical: heightPercentageToDP(5),
       },
       otpTextInput: {
         fontSize: widthPercentageToDP(4.3),
-        marginHorizontal:widthPercentageToDP(3),
+        marginHorizontal: widthPercentageToDP(3),
         width: widthPercentageToDP(18),
         color: theme.colors.primaryText5,
         borderRadius: widthPercentageToDP(3.5),

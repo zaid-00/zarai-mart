@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet,Platform} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import React from 'react';
 import {
@@ -17,7 +17,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
-        paddingTop: heightPercentageToDP(2),
+        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
       infoContainer: {

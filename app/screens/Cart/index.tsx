@@ -50,7 +50,9 @@ const Cart: React.FC = () => {
         <PrimaryButton
           style={styles.button}
           title="Checkout"
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('Checkout');
+          }}
         />
       </View>
       <Modal
@@ -63,7 +65,6 @@ const Cart: React.FC = () => {
           <Text style={styles.reviewHeading}>Remove From Cart?</Text>
           <View style={styles.lineSeperator}></View>
           <CartCard
-            style={styles.modelCartStyle}
             imageUrl={{uri: 'https://source.unsplash.com/400x300/?tomatoes'}}
             cropName="Tomatoes"
             price={parseInt((Math.random() * 10000).toFixed(2))}

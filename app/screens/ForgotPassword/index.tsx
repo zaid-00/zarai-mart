@@ -1,19 +1,18 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Controller, useForm} from 'react-hook-form';
-import {Keyboard, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { Keyboard, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useTheme} from 'react-native-paper';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useTheme } from 'react-native-paper';
 import {
-  heightPercentageToDP,
-  widthPercentageToDP,
+  widthPercentageToDP
 } from 'react-native-responsive-screen';
+import Header from '../../components/Header';
 import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import {useStyle} from './styles';
-import Header from '../../components/Header';
+import { useStyle } from './styles';
 const ForgotPassword: React.FC = () => {
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -32,20 +31,16 @@ const ForgotPassword: React.FC = () => {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="always">
-      <Header
-        leftIcon={images.ForgotPassword.backButton}
-        title="Forgot Password"
-        style={{
-          paddingHorizontal: widthPercentageToDP(4),
-          paddingTop: heightPercentageToDP(2),
-        }}
-      />
-      <FastImage
-        source={images.ForgotPassword.sittingPerson}
-        resizeMode="contain"
-        style={styles.Img}
-      />
       <View style={styles.subContainer}>
+        <Header
+          leftIcon={images.ForgotPassword.backButton}
+          title="Forgot Password"
+        />
+        <FastImage
+          source={images.ForgotPassword.sittingPerson}
+          resizeMode="contain"
+          style={styles.Img}
+        />
         <Text style={styles.text}>
           Enter your email so that we can send you an otp code to reset your
           password.
@@ -65,6 +60,7 @@ const ForgotPassword: React.FC = () => {
                 onChangeText={onChange}
                 numberOfCharacter={30}
                 value={value}
+                style={{width:widthPercentageToDP(94)}}
                 placeholder="Email"
                 renderIcon={() => (
                   <FastImage

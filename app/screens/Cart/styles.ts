@@ -19,7 +19,7 @@ export const useStyle = () => {
       headerStyle: {
         paddingHorizontal: widthPercentageToDP(3),
         paddingTop: heightPercentageToDP(2),
-        paddingBottom:heightPercentageToDP(0.4),
+        paddingBottom: heightPercentageToDP(0.4),
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),
@@ -27,15 +27,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.greyBackground,
       },
       orderCardStyle: {
-        borderRadius: widthPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(3),
-        paddingVertical: heightPercentageToDP(2),
         marginTop: heightPercentageToDP(2),
-      },
-      modelCartStyle: {
-        borderRadius: widthPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(3),
-        paddingVertical: heightPercentageToDP(2),
       },
       modalView: {
         backgroundColor: theme.colors.greyBackground,

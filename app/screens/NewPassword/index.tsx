@@ -34,134 +34,132 @@ const NewPassword: React.FC = () => {
   const isFocused = useIsFocused();
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <ScrollView style={styles.container}>
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.contentContainer}
+      keyboardShouldPersistTaps="always"
+      style={styles.container}>
       {modalVisible && <View style={styles.overlay}></View>}
-      <Header
-        leftIcon={images.ForgotPassword.backButton}
-        title="Create New Password"
-        style={{
-          paddingHorizontal: widthPercentageToDP(4),
-          paddingTop: heightPercentageToDP(2),
-        }}
-      />
-      <KeyboardAwareScrollView
-        style={styles.contentContainer}
-        keyboardShouldPersistTaps="always">
+      <View style={styles.subContainer}>
+        <Header
+          leftIcon={images.ForgotPassword.backButton}
+          title="Create New Password"
+        />
         <FastImage
           source={images.ForgotPassword.newPassword}
           resizeMode="contain"
           style={styles.Img}
         />
-        <View style={styles.subContainer}>
-          <Text style={styles.text}>Create Your New Password</Text>
-          <View style={styles.controller}>
-            <Controller
-              control={control}
-              rules={{
-                required: true,
-                minLength: {
-                  value: 8,
-                  message: 'Password must contain 8 characters',
-                },
-              }}
-              render={({field: {onChange, value}}) => (
-                <InputBoxWithIcon
-                  onChangeText={text => {
-                    onChange(text);
-                    updatePassword(text);
-                  }}
-                  numberOfCharacter={30}
-                  value={value}
-                  placeholder="Password"
-                  type="password"
-                  renderIcon={() => (
-                    <FastImage
-                      source={images.SignUp.lock}
-                      style={styles.icons}
-                      resizeMode="contain"
-                      tintColor={theme.colors.placeholderText}
-                    />
-                  )}
-                />
-              )}
-              name="password"
-            />
+        <Text style={styles.text}>Create Your New Password</Text>
+        <View style={styles.controller}>
+          <Controller
+            control={control}
+            rules={{
+              required: true,
+              minLength: {
+                value: 8,
+                message: 'Password must contain 8 characters',
+              },
+            }}
+            render={({field: {onChange, value}}) => (
+              <InputBoxWithIcon
+                onChangeText={text => {
+                  onChange(text);
+                  updatePassword(text);
+                }}
+                numberOfCharacter={30}
+                value={value}
+                style={{width: widthPercentageToDP(94)}}
+                placeholder="Password"
+                type="password"
+                renderIcon={() => (
+                  <FastImage
+                    source={images.SignUp.lock}
+                    style={styles.icons}
+                    resizeMode="contain"
+                    tintColor={theme.colors.placeholderText}
+                  />
+                )}
+              />
+            )}
+            name="password"
+          />
 
-            {formState.errors.password && (
-              <Text
-                style={[
-                  styles.error,
-                  {maxWidth: widthPercentageToDP(43), alignSelf: 'flex-end'},
-                ]}>
-                {formState.errors.password.type == 'required'
-                  ? 'Password is required'
-                  : 'Password must contain 8 characters'}
-              </Text>
-            )}
-          </View>
-          <View style={styles.controller}>
-            <Controller
-              control={control}
-              rules={{
-                required: 'Confirm Password is required',
-                validate: value =>
-                  value === watchedPassword || 'Passwords do not match',
-              }}
-              render={({field: {onChange, value}}) => (
-                <InputBoxWithIcon
-                  onChangeText={onChange}
-                  numberOfCharacter={30}
-                  value={value}
-                  placeholder="Confirm Password"
-                  type="password"
-                  renderIcon={() => (
-                    <FastImage
-                      source={images.SignUp.lock}
-                      style={styles.icons}
-                      resizeMode="contain"
-                      tintColor={theme.colors.placeholderText}
-                    />
-                  )}
-                />
-              )}
-              name="confirmPassword"
-            />
-            {formState.errors.confirmPassword && (
-              <Text
-                style={[
-                  styles.error,
-                  {maxWidth: widthPercentageToDP(43), alignSelf: 'flex-end'},
-                ]}>
-                {formState.errors.confirmPassword.message}
-              </Text>
-            )}
-          </View>
-          <BouncyCheckbox
-            size={20}
-            unfillColor="transparent"
-            fillColor={theme.colors.primaryButton}
-            text="Remember me"
-            useNativeDriver
-            iconStyle={styles.iconStyle}
-            style={{
-              marginVertical: heightPercentageToDP(2),
-              alignSelf: 'center',
-            }}
-            textStyle={styles.checkBoxText}
-            isChecked={rememberMe}
-            onPress={(isChecked: boolean) => {
-              setRememberMe(isChecked);
-            }}
-          />
-          <PrimaryButton
-            style={styles.button}
-            title="Continue"
-            disabledWhileAnimating
-            animating={isLoading}
-            onPress={handleSubmit(resetPassword)}
-          />
+          {formState.errors.password && (
+            <Text
+              style={[
+                styles.error,
+                {maxWidth: widthPercentageToDP(43), alignSelf: 'flex-end'},
+              ]}>
+              {formState.errors.password.type == 'required'
+                ? 'Password is required'
+                : 'Password must contain 8 characters'}
+            </Text>
+          )}
         </View>
-      </KeyboardAwareScrollView>
+        <View style={styles.controller}>
+          <Controller
+            control={control}
+            rules={{
+              required: 'Confirm Password is required',
+              validate: value =>
+                value === watchedPassword || 'Passwords do not match',
+            }}
+            render={({field: {onChange, value}}) => (
+              <InputBoxWithIcon
+                onChangeText={onChange}
+                numberOfCharacter={30}
+                value={value}
+                style={{width: widthPercentageToDP(94)}}
+                placeholder="Confirm Password"
+                type="password"
+                renderIcon={() => (
+                  <FastImage
+                    source={images.SignUp.lock}
+                    style={styles.icons}
+                    resizeMode="contain"
+                    tintColor={theme.colors.placeholderText}
+                  />
+                )}
+              />
+            )}
+            name="confirmPassword"
+          />
+          {formState.errors.confirmPassword && (
+            <Text
+              style={[
+                styles.error,
+                {maxWidth: widthPercentageToDP(43), alignSelf: 'flex-end'},
+              ]}>
+              {formState.errors.confirmPassword.message}
+            </Text>
+          )}
+        </View>
+        <BouncyCheckbox
+          size={20}
+          unfillColor="transparent"
+          fillColor={theme.colors.primaryButton}
+          text="Remember me"
+          useNativeDriver
+          iconStyle={styles.iconStyle}
+          style={{
+            marginVertical: heightPercentageToDP(2),
+            alignSelf: 'center',
+          }}
+          textStyle={styles.checkBoxText}
+          isChecked={rememberMe}
+          onPress={(isChecked: boolean) => {
+            setRememberMe(isChecked);
+          }}
+        />
+        <PrimaryButton
+          style={styles.button}
+          title="Continue"
+          disabledWhileAnimating
+          animating={isLoading}
+          onPress={handleSubmit(resetPassword)}
+        />
+      </View>
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -186,7 +184,7 @@ const NewPassword: React.FC = () => {
           />
         </View>
       </Modal>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 

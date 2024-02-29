@@ -39,10 +39,7 @@ const OtpPassword: React.FC = () => {
       <Header
         leftIcon={images.ForgotPassword.backButton}
         title="Forgot Password"
-        style={{
-          paddingHorizontal: widthPercentageToDP(4),
-          paddingTop: heightPercentageToDP(2),
-        }}
+        style={styles.header}
       />
       <View style={styles.subContainer}>
         <Text style={styles.text2}>
@@ -53,7 +50,6 @@ const OtpPassword: React.FC = () => {
           inputCount={4}
           tintColor={theme.colors.primaryButton}
           offTintColor={theme.colors.borderColor}
-          // ref={(e: any) => console.log(e)}
           textInputStyle={styles.otpTextInput}
           textContentType={'oneTimeCode'}
           keyboardType="numeric"

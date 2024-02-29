@@ -1,8 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { SafeAreaView, Text, View } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {Controller, useForm} from 'react-hook-form';
+import {SafeAreaView, Text, View} from 'react-native';
+import {useTheme} from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import { useStyle } from './styles';
+import {useStyle} from './styles';
 const EditProfile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -29,7 +29,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
-            defaultValue={"Muhammad Zaid"}
+            defaultValue={'Muhammad Zaid'}
             rules={{
               required: true,
             }}
@@ -37,6 +37,7 @@ const EditProfile: React.FC = () => {
               <InputBoxWithIcon
                 onChangeText={onChange}
                 inputStyle={styles.inputStyle}
+                style={{width:widthPercentageToDP(94)}}
                 numberOfCharacter={30}
                 value={value}
                 placeholder="Full Name"
@@ -58,7 +59,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
-            defaultValue={"zaidtayyab1@gmail.com"}
+            defaultValue={'zaidtayyab1@gmail.com'}
             rules={{
               required: 'Email is required',
               pattern: {
@@ -70,6 +71,7 @@ const EditProfile: React.FC = () => {
               <InputBoxWithIcon
                 onChangeText={onChange}
                 numberOfCharacter={30}
+                style={{width:widthPercentageToDP(94)}}
                 value={value}
                 inputStyle={styles.inputStyle}
                 showError={!!formState.errors.email}
@@ -94,7 +96,7 @@ const EditProfile: React.FC = () => {
         <View style={styles.controller}>
           <Controller
             control={control}
-            defaultValue={"03208551378"}
+            defaultValue={'03208551378'}
             rules={{
               required: 'Phone is required',
               minLength: {
@@ -107,6 +109,7 @@ const EditProfile: React.FC = () => {
                 onChangeText={onChange}
                 numberOfCharacter={11}
                 value={value}
+                style={{width:widthPercentageToDP(94)}}
                 inputStyle={styles.inputStyle}
                 placeholder="Phone Number"
                 keyboardType="dialpad"
@@ -129,12 +132,12 @@ const EditProfile: React.FC = () => {
         </View>
       </View>
       <PrimaryButton
-          title="Update"
-          style={styles.button}
-          disabledWhileAnimating
-          onPress={handleSubmit(() => {})}
-          animating={isLoading}
-        />
+        title="Update"
+        style={styles.button}
+        disabledWhileAnimating
+        onPress={handleSubmit(() => {})}
+        animating={isLoading}
+      />
     </SafeAreaView>
   );
 };

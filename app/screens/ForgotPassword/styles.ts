@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Platform } from 'react-native';
 import { isTablet } from 'react-native-device-info';
 import { useTheme } from 'react-native-paper';
 import {
@@ -33,8 +33,8 @@ export const useStyle = () => {
         fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
       },
       subContainer: {
-        paddingTop: heightPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(4),
+        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        paddingHorizontal: widthPercentageToDP(3),
       },
       text: {
         paddingTop: heightPercentageToDP(3),

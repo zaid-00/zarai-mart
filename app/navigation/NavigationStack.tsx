@@ -17,6 +17,7 @@ import SeeAll from '../screens/SeeAll';
 import Signup from '../screens/Signup';
 import VerifySignUp from '../screens/VerifySignUp';
 import BottomTabNavigation from './BottomTabNavigation';
+import Checkout from '../screens/Checkout';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -24,7 +25,7 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'}/>
-      <Stack.Navigator  initialRouteName='Main'>
+      <Stack.Navigator  >
       <Stack.Screen name="Onboard" component={Onboard} options={{headerShown:false}}/>
       <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
@@ -41,6 +42,7 @@ function AppNavigator() {
       <Stack.Screen name='Address' component={Address} options={{headerShown:false}}/>
       <Stack.Screen name='Inbox' component={Inbox} options={{headerShown:false}}/>
       <Stack.Screen name='Chat' component={Chat} options={{headerShown:false}}/>
+      <Stack.Screen name='Checkout' component={Checkout} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

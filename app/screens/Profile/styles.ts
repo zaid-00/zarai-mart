@@ -17,10 +17,11 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer:{
-        paddingTop:heightPercentageToDP(3),
+        paddingTop:heightPercentageToDP(2),
         paddingHorizontal:widthPercentageToDP(3),
       },
       infoContainer:{
+        marginTop:heightPercentageToDP(2),
         justifyContent:'center',
         alignItems:'center'
       },

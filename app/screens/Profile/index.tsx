@@ -1,14 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { Pressable, SafeAreaView, Text, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { launchImageLibrary } from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import Modal from 'react-native-modal';
-import { useTheme } from 'react-native-paper';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import {useTheme} from 'react-native-paper';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import { useStyle } from './styles';
+import Header from '../../components/Header';
+import {useStyle} from './styles';
 const Profile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -67,6 +68,7 @@ const Profile: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
+        <Header title="Profile" leftIcon={images.Order.leave} />
         <View style={styles.infoContainer}>
           <FastImage
             source={selectedImg ? {uri: selectedImg} : images.Home.zaid}
@@ -96,7 +98,9 @@ const Profile: React.FC = () => {
           leftIcon={images.Profile.location}
           title="Address"
           rightIcon={images.Profile.next}
-          onPress={()=>{navigation.navigate("Address")}}
+          onPress={() => {
+            navigation.navigate('Address');
+          }}
         />
         <Option
           leftIcon={images.Profile.wallet}

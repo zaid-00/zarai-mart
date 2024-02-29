@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {isTablet} from 'react-native-device-info';
 import {useTheme} from 'react-native-paper';
 import {
@@ -15,10 +15,12 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      contentContainer: {paddingBottom: heightPercentageToDP(10),
-      marginTop:heightPercentageToDP(5)},
+      contentContainer: {
+        paddingBottom: heightPercentageToDP(10),
+      },
       Img: {
         height: heightPercentageToDP(30),
+        marginTop:heightPercentageToDP(5.1),
         width: widthPercentageToDP(60),
         alignSelf: 'center',
       },
@@ -29,8 +31,8 @@ export const useStyle = () => {
         fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
       },
       subContainer: {
-        paddingTop: heightPercentageToDP(4),
-        paddingHorizontal: widthPercentageToDP(4),
+        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        paddingHorizontal: widthPercentageToDP(3),
       },
       text: {
         color: theme.colors.primaryText,
@@ -57,19 +59,19 @@ export const useStyle = () => {
         color: theme.colors.primaryText,
         fontSize: widthPercentageToDP(3.4),
       },
-      centeredView:{
-        marginHorizontal:widthPercentageToDP(9),
-        backgroundColor:'white',
-        borderRadius:widthPercentageToDP(10),
-        marginTop:heightPercentageToDP(20),
-        justifyContent:'center',
-        alignItems:'center',
-        paddingHorizontal:widthPercentageToDP(7),
-        paddingVertical:heightPercentageToDP(3),
+      centeredView: {
+        marginHorizontal: widthPercentageToDP(9),
+        backgroundColor: 'white',
+        borderRadius: widthPercentageToDP(10),
+        marginTop: heightPercentageToDP(20),
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: widthPercentageToDP(7),
+        paddingVertical: heightPercentageToDP(3),
       },
       congratsText: {
         fontFamily: theme.fonts.boldFont,
-        paddingVertical:heightPercentageToDP(2),
+        paddingVertical: heightPercentageToDP(2),
         color: theme.colors.primaryText,
         fontSize: widthPercentageToDP(5.5),
       },
@@ -77,26 +79,26 @@ export const useStyle = () => {
         fontFamily: theme.fonts.regularFont,
         color: theme.colors.primaryText,
         fontSize: widthPercentageToDP(4),
-        alignSelf:'center'
+        alignSelf: 'center',
       },
       successImg: {
         height: heightPercentageToDP(21),
         width: widthPercentageToDP(42),
-        marginVertical:heightPercentageToDP(2)
+        marginVertical: heightPercentageToDP(2),
       },
       overlay: {
-        position: 'absolute', 
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        zIndex: 2, 
+        zIndex: 2,
       },
       loaderImg: {
         height: heightPercentageToDP(8),
         width: widthPercentageToDP(16),
-        marginTop:heightPercentageToDP(4)
+        marginTop: heightPercentageToDP(4),
       },
     });
   return React.useMemo(() => styles(), []);

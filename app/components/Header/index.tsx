@@ -1,10 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
-import { useStyle } from './style';
-import { Props } from './types';
+import {useTheme} from 'react-native-paper';
+import {useStyle} from './style';
+import {Props} from './types';
+import images from '../../config/images';
 const Header: React.FC<Props> = props => {
   const styles = useStyle();
   const theme = useTheme();
@@ -16,7 +17,12 @@ const Header: React.FC<Props> = props => {
     <View style={[styles.rowContainer, props?.style]}>
       <View style={styles.subRowContainer}>
         {props?.leftIcon ? (
-          <Pressable onPress={handleBack}>
+          <Pressable
+            onPress={
+              props?.leftIcon === images.ForgotPassword.backButton
+                ? handleBack
+                : undefined
+            }>
             <FastImage
               source={props?.leftIcon}
               style={styles.leftImg}

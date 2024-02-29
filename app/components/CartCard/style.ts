@@ -12,6 +12,9 @@ export const useStyle = () => {
     StyleSheet.create({
       view: {
         backgroundColor: theme.colors.background,
+        borderRadius: widthPercentageToDP(4),
+        paddingHorizontal: widthPercentageToDP(3),
+        paddingVertical: heightPercentageToDP(2),
       },
       flexrow: {
         flexDirection: 'row',

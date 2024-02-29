@@ -24,24 +24,18 @@ const SeeAll: React.FC = ({route}) => {
       rating={item?.rating}
       noOfSold={item?.noOfSold}
       price={item?.price}
-      onPress={() => navigation.navigate("Crop")}
+      onPress={() => navigation.navigate('Crop')}
     />
   );
   const renderFilters = ({item}) => (
-    <Filter
-      name={item?.name}
-      style={{marginRight: widthPercentageToDP(2)}}
-    />
+    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
   );
   return (
     <SafeAreaView style={styles.container}>
       <Header
         leftIcon={images.ForgotPassword.backButton}
         title={route?.params?.title}
-        style={{
-          paddingHorizontal: widthPercentageToDP(4),
-          paddingTop: heightPercentageToDP(2),
-        }}
+        style={styles.header}
       />
       <View style={styles.subContainer}>
         <View style={{marginBottom: heightPercentageToDP(2)}}>

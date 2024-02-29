@@ -1,4 +1,4 @@
-import {StyleSheet,Platform} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import React from 'react';
 import {
@@ -17,20 +17,26 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
-        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
-      controller: {marginTop: heightPercentageToDP(3.5)},
-      error: {
-        color: 'red',
-        paddingVertical: heightPercentageToDP(0.5),
-        fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
+      orderCardStyle: {
+        marginTop: heightPercentageToDP(2),
       },
-      inputStyle:{
-        paddingVertical: heightPercentageToDP(1.5),
-        width: widthPercentageToDP(83),
+      rowContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
       },
-      button:{ alignSelf: 'center',position:'absolute',bottom:heightPercentageToDP(3)},
+      button: {
+        width: widthPercentageToDP(90),
+        alignSelf:'center'
+      },
+      priceText: {
+        marginTop: heightPercentageToDP(0.6),
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.2),
+      },
     });
   return React.useMemo(() => styles(), []);
 };

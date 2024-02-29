@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   FlatList,
@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -16,11 +16,8 @@ import {
 import Filter from '../../components/Filter';
 import Header from '../../components/Header';
 import images from '../../config/images';
-import {
-  dummyReviews,
-  reviewFilter
-} from '../../utils/dummyData';
-import { useStyle } from './styles';
+import {dummyReviews, reviewFilter} from '../../utils/dummyData';
+import {useStyle} from './styles';
 const Review: React.FC = ({route}) => {
   const styles = useStyle();
   const theme = useTheme();
@@ -82,10 +79,7 @@ const Review: React.FC = ({route}) => {
       <Header
         leftIcon={images.ForgotPassword.backButton}
         title="4.6 (5,389 reviews)"
-        style={{
-          paddingHorizontal: widthPercentageToDP(4),
-          paddingTop: heightPercentageToDP(2),
-        }}
+        style={styles.header}
       />
       <View style={styles.subContainer}>
         <View style={{marginBottom: heightPercentageToDP(2)}}>
