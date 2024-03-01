@@ -3,4 +3,5 @@ export interface Props{
     style?:any;
     onPress?:()=> void;
     reviewFilter?: boolean;
+    isSelected?:boolean;
 }

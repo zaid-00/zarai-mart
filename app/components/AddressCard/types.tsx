@@ -6,4 +6,6 @@ export interface Props{
     default?:boolean;
     address?:any;
     onPress?:()=>void;
+    selection?:boolean;
+    isSelected?:boolean;
 }

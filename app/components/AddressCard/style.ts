@@ -57,6 +57,19 @@ export const useStyle = () => {
         fontSize: widthPercentageToDP(3.45),
         color: theme.colors.grey700,
       },
+      outerCircle:{
+        paddingHorizontal:widthPercentageToDP(1.8),
+        paddingVertical:heightPercentageToDP(0.9),
+        borderRadius:widthPercentageToDP(50),
+        borderColor:theme.colors.primaryButton,
+        borderWidth:widthPercentageToDP(0.6)
+      },
+      innerCircle:{
+        paddingHorizontal:widthPercentageToDP(1.4),
+        paddingVertical:heightPercentageToDP(0.7),
+        borderRadius:widthPercentageToDP(50),
+        backgroundColor:theme.colors.primaryButton,
+      }
     });
   return React.useMemo(() => styles(), []);
 };

@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   Pressable,
@@ -25,6 +25,10 @@ const Home: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
   const navigation = useNavigation<any>();
+  const [selectedFilterIndex, setSelectedFilterIndex] = useState(-1);
+  const handleSelectFilter = (index: number) => {
+    setSelectedFilterIndex(index === selectedFilterIndex ? -1 : index);
+  };
   const renderSpecialCrops = ({item}) => (
     <CropCard
       style={{marginRight: widthPercentageToDP(5)}}
@@ -48,8 +52,13 @@ const Home: React.FC = () => {
       onPress={() => navigation.navigate('Crop')}
     />
   );
-  const renderFilters = ({item}) => (
-    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
+  const renderFilters = ({item, index}) => (
+    <Filter
+      name={item?.name}
+      style={{marginRight: widthPercentageToDP(2)}}
+      isSelected={index === selectedFilterIndex}
+      onPress={() => handleSelectFilter(index)}
+    />
   );
   return (
     <SafeAreaView style={styles.container}>

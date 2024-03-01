@@ -24,7 +24,7 @@ export const useStyle = () => {
           backgroundColor: theme.colors.dullGreyBackground,
         },
         right: {
-          backgroundColor: theme.colors.dullGreyBackground,
+          backgroundColor: theme.colors.primaryButton,
         },
       },
       timeTextStyle: {
@@ -33,7 +33,7 @@ export const useStyle = () => {
           fontFamily: theme.fonts.regularFont,
         },
         right: {
-          color: theme.colors.dullBlack,
+          color: 'white',
           fontFamily: theme.fonts.regularFont,
         },
       },
@@ -43,7 +43,7 @@ export const useStyle = () => {
           fontFamily: theme.fonts.mediumFont,
         },
         right: {
-          color: theme.colors.primaryText,
+          color: 'white',
           fontFamily: theme.fonts.mediumFont,
         },
       },

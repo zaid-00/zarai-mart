@@ -22,7 +22,7 @@ export const useStyle = () => {
       },
       orderCardStyle: {
         marginTop: heightPercentageToDP(2),
-        backgroundColor:theme.colors.textViewBackground,
+        backgroundColor: theme.colors.textViewBackground,
       },
       lineSeperator: {
         borderWidth: widthPercentageToDP(0.15),
@@ -35,7 +35,8 @@ export const useStyle = () => {
         alignItems: 'center',
       },
       button: {
-        width: widthPercentageToDP(90),
+        bottom: heightPercentageToDP(3),
+        position: 'absolute',
         alignSelf: 'center',
       },
       priceText: {
@@ -50,6 +51,32 @@ export const useStyle = () => {
         fontFamily: theme.fonts.boldFont,
         fontSize: widthPercentageToDP(4.5),
       },
+      priceContainer: {
+        backgroundColor: theme.colors.textViewBackground,
+        paddingHorizontal: widthPercentageToDP(3),
+        paddingVertical: heightPercentageToDP(2),
+        marginTop: heightPercentageToDP(2),
+        borderRadius: widthPercentageToDP(3),
+      },
+      amountText: {
+        color: theme.colors.grey700,
+        fontFamily: theme.fonts.mediumFont,
+        fontSize: widthPercentageToDP(3.5),
+      },
+      totalText: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.semiBoldFont,
+        fontSize: widthPercentageToDP(3.8),
+      },
+      buttonTop: {
+        paddingVertical: heightPercentageToDP(0.6),
+        width:widthPercentageToDP(100),
+        bottom: heightPercentageToDP(9.4),
+        borderTopStartRadius:widthPercentageToDP(4),
+        borderTopEndRadius:widthPercentageToDP(4),
+        position: 'absolute',
+      },
+      scrollView: {height: heightPercentageToDP(61)},
     });
   return React.useMemo(() => styles(), []);
 };

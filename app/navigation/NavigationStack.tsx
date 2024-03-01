@@ -18,6 +18,7 @@ import Signup from '../screens/Signup';
 import VerifySignUp from '../screens/VerifySignUp';
 import BottomTabNavigation from './BottomTabNavigation';
 import Checkout from '../screens/Checkout';
+import ShippingAddress from '../screens/ShippingAddress';
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -43,6 +44,7 @@ function AppNavigator() {
       <Stack.Screen name='Inbox' component={Inbox} options={{headerShown:false}}/>
       <Stack.Screen name='Chat' component={Chat} options={{headerShown:false}}/>
       <Stack.Screen name='Checkout' component={Checkout} options={{headerShown:false}} />
+      <Stack.Screen name='ShippingAddress' component={ShippingAddress} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

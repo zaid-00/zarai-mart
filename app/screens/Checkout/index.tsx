@@ -1,16 +1,15 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import Modal from 'react-native-modal';
 import {useTheme} from 'react-native-paper';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
+import AddressCard from '../../components/AddressCard';
 import CartCard from '../../components/CartCard';
 import Header from '../../components/Header';
 import PrimaryButton from '../../components/PrimaryButton';
-import AddressCard from '../../components/AddressCard';
 import images from '../../config/images';
 import {dummyOrderData} from '../../utils/dummyData';
 import {useStyle} from './styles';
-import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 const Checkout: React.FC = () => {
   const styles = useStyle();
@@ -23,7 +22,7 @@ const Checkout: React.FC = () => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
         <Header title="Checkout" leftIcon={images.ForgotPassword.backButton} />
         <Text style={styles.addressText}>Shipping Address</Text>
@@ -33,24 +32,42 @@ const Checkout: React.FC = () => {
           address="21833 Clyde Gallagher, PC 4662"
           rightIcon={images.Address.edit}
           style={{marginTop: heightPercentageToDP(2)}}
+          onPress={() => {
+            navigation.navigate('ShippingAddress');
+          }}
         />
         <View style={styles.lineSeperator}></View>
-        <Text style={styles.addressText}>Order List</Text>
-        {dummyOrderData.map((item, index) => (
-          <CartCard
-            key={index}
-            style={styles.orderCardStyle}
-            imageUrl={{uri: item?.imageUrl}}
-            cropName={item?.cropName}
-            price={item?.price}
-            quantity={item?.quantity}
-            onPress={toggleModal}
-          />
-        ))}
-        <View style={styles.lineSeperator}></View>
-        
+        <ScrollView
+          style={styles.scrollView}
+          showsVerticalScrollIndicator={false}>
+          <Text style={styles.addressText}>Order List</Text>
+          {dummyOrderData.map((item, index) => (
+            <CartCard
+              key={index}
+              style={styles.orderCardStyle}
+              imageUrl={{uri: item?.imageUrl}}
+              cropName={item?.cropName}
+              price={item?.price}
+              quantity={item?.quantity}
+              onPress={toggleModal}
+            />
+          ))}
+          <View style={styles.lineSeperator}></View>
+          <View style={styles.priceContainer}>
+            <View style={styles.rowContainer}>
+              <Text style={styles.amountText}>Total</Text>
+              <Text style={styles.totalText}>Rs18000</Text>
+            </View>
+          </View>
+        </ScrollView>
       </View>
-    </ScrollView>
+      <View style={styles.buttonTop}></View>
+      <PrimaryButton
+        style={styles.button}
+        title="Continue to Payment"
+        onPress={() => {}}
+      />
+    </SafeAreaView>
   );
 };
 

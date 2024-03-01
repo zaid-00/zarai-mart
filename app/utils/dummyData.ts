@@ -221,5 +221,26 @@ const messages = [
     date: "4 days ago"
   },
 ];
-
-export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData,dummyOrderData,messages };
+const addressData = [
+  {
+    id: '1',
+    title: 'Home',
+    address: '61480 Sunbrook Park, PC 5679',
+  },
+  {
+    id: '2',
+    title: 'Office',
+    address: '6993 Meadow Valley Terra, PC 3637',
+  },
+  {
+    id: '3',
+    title: 'Apartment',
+    address: '21833 Clyde Gallagher, PC 4662',
+  },
+  {
+    id: '4',
+    title: "Parent's House",
+    address: '61480 Sunbrook Park, PC 5679',
+  },
+];
+export { dummyCropData, vegetableData,reviewFilter,dummyReviews,sortData,dummyOrderData,messages,addressData };

@@ -74,7 +74,6 @@ export const useStyle = () => {
         fontSize: widthPercentageToDP(2.9),
       },
       daysText: {
-        marginLeft:widthPercentageToDP(3),
         fontFamily: theme.fonts.semiBoldFont,
         fontSize: widthPercentageToDP(2.9),
         color: theme.colors.grey700

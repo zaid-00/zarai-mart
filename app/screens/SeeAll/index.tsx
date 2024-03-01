@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, SafeAreaView, View} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import images from '../../config/images';
@@ -16,6 +16,10 @@ const SeeAll: React.FC = ({route}) => {
   const styles = useStyle();
   const theme = useTheme();
   const navigation = useNavigation<any>();
+  const [selectedFilterIndex, setSelectedFilterIndex] = useState(-1);
+  const handleSelectFilter = (index: number) => {
+    setSelectedFilterIndex(index === selectedFilterIndex ? -1 : index);
+  };
   const renderMostPopularCrops = ({item}) => (
     <CropCard
       style={{marginRight: widthPercentageToDP(5)}}
@@ -27,8 +31,13 @@ const SeeAll: React.FC = ({route}) => {
       onPress={() => navigation.navigate('Crop')}
     />
   );
-  const renderFilters = ({item}) => (
-    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
+  const renderFilters = ({item, index}) => (
+    <Filter
+      name={item?.name}
+      style={{marginRight: widthPercentageToDP(2)}}
+      isSelected={index === selectedFilterIndex}
+      onPress={() => handleSelectFilter(index)}
+    />
   );
   return (
     <SafeAreaView style={styles.container}>

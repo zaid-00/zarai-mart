@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -22,6 +22,10 @@ const Review: React.FC = ({route}) => {
   const styles = useStyle();
   const theme = useTheme();
   const navigation = useNavigation<any>();
+  const [selectedFilterIndex, setSelectedFilterIndex] = useState(-1);
+  const handleSelectFilter = (index: number) => {
+    setSelectedFilterIndex(index === selectedFilterIndex ? -1 : index);
+  };
   const renderReviews = ({item}) => (
     <View style={styles.marginBottom}>
       <View style={styles.rowFlex}>
@@ -42,36 +46,16 @@ const Review: React.FC = ({route}) => {
         </View>
       </View>
       <Text style={styles.reviewText}>{item?.review}</Text>
-      <View style={styles.rowContainer}>
-        <TouchableOpacity style={styles.rowContainer}>
-          <FastImage
-            style={styles.heart}
-            resizeMode="contain"
-            source={
-              item?.isLiked
-                ? images.Review.greenHeart
-                : images.Review.whiteHeart
-            }
-          />
-          <Text
-            style={[
-              item?.isLiked
-                ? {color: theme.colors.primaryButton}
-                : {color: theme.colors.primaryText},
-              styles.likesText,
-            ]}>
-            {item?.likes}
-          </Text>
-        </TouchableOpacity>
         <Text style={styles.daysText}>{item?.postedDate}</Text>
-      </View>
     </View>
   );
-  const renderFilters = ({item}) => (
+  const renderFilters = ({item, index}) => (
     <Filter
       name={item?.rating}
       style={{marginRight: widthPercentageToDP(2)}}
       reviewFilter={true}
+      isSelected={index === selectedFilterIndex}
+      onPress={() => handleSelectFilter(index)}
     />
   );
   return (
