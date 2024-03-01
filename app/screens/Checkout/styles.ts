@@ -70,13 +70,13 @@ export const useStyle = () => {
       },
       buttonTop: {
         paddingVertical: heightPercentageToDP(0.6),
-        width:widthPercentageToDP(100),
+        paddingHorizontal:widthPercentageToDP(50),
         bottom: heightPercentageToDP(9.4),
         borderTopStartRadius:widthPercentageToDP(4),
         borderTopEndRadius:widthPercentageToDP(4),
         position: 'absolute',
       },
-      scrollView: {height: heightPercentageToDP(61)},
+      scrollView: {height: heightPercentageToDP(64.2)},
     });
   return React.useMemo(() => styles(), []);
 };

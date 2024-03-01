@@ -23,7 +23,7 @@ export const useStyle = () => {
       },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),
-        height: heightPercentageToDP(74),
+        height: heightPercentageToDP(77),
         backgroundColor: theme.colors.greyBackground,
       },
       orderCardStyle: {
@@ -84,7 +84,7 @@ export const useStyle = () => {
       priceContainer: {
         paddingHorizontal: widthPercentageToDP(3),
         backgroundColor: theme.colors.background,
-        marginTop: heightPercentageToDP(3),
+        marginTop: heightPercentageToDP(1.5),
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
