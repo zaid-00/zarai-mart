@@ -41,6 +41,24 @@ const Search: React.FC = () => {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(10000);
   const [isFocused, setIsFocused] = useState(true);
+  const [selectedPopularFilterIndex, setSelectedPopularFilterIndex] =
+    useState(-1);
+  const handleSelectPopularFilter = (index: number) => {
+    setSelectedPopularFilterIndex(
+      index === selectedPopularFilterIndex ? -1 : index,
+    );
+  };
+  const [selectedCropFilterIndex, setSelectedCropFilterIndex] = useState(-1);
+  const handleSelectCropFilter = (index: number) => {
+    setSelectedCropFilterIndex(index === selectedCropFilterIndex ? -1 : index);
+  };
+  const [selectedReviewFilterIndex, setSelectedReviewFilterIndex] =
+    useState(-1);
+  const handleSelectReviewFilter = (index: number) => {
+    setSelectedReviewFilterIndex(
+      index === selectedReviewFilterIndex ? -1 : index,
+    );
+  };
   const handleIsFocused = val => {
     setIsFocused(val);
   };
@@ -84,14 +102,29 @@ const Search: React.FC = () => {
       </TouchableOpacity>
     </View>
   );
-  const renderFilters = ({item}) => (
-    <Filter name={item?.name} style={{marginRight: widthPercentageToDP(2)}} />
+  const renderCropFilters = ({item, index}) => (
+    <Filter
+      name={item?.name}
+      style={{marginRight: widthPercentageToDP(2)}}
+      isSelected={index === selectedCropFilterIndex}
+      onPress={() => handleSelectCropFilter(index)}
+    />
   );
-  const renderRatingFilters = ({item}) => (
+  const renderPopularityFilters = ({item, index}) => (
+    <Filter
+      name={item?.name}
+      style={{marginRight: widthPercentageToDP(2)}}
+      isSelected={index === selectedPopularFilterIndex}
+      onPress={() => handleSelectPopularFilter(index)}
+    />
+  );
+  const renderRatingFilters = ({item, index}) => (
     <Filter
       name={item?.rating}
       style={{marginRight: widthPercentageToDP(2)}}
       reviewFilter={true}
+      isSelected={index === selectedReviewFilterIndex}
+      onPress={() => handleSelectReviewFilter(index)}
     />
   );
   const renderThumbComponent = () => (
@@ -204,7 +237,7 @@ const Search: React.FC = () => {
             horizontal
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
-            renderItem={renderFilters}
+            renderItem={renderCropFilters}
           />
           <View style={styles.buttonContainer}>
             <Text style={styles.headingText}>Price Range</Text>
@@ -228,7 +261,7 @@ const Search: React.FC = () => {
             horizontal
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
-            renderItem={renderFilters}
+            renderItem={renderPopularityFilters}
           />
           <Text style={styles.headingText}>Rating</Text>
           <FlatList
