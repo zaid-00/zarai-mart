@@ -32,6 +32,8 @@ const images = {
     focusedMessage:require("../assets/BottomBar/focusedMessage.png"),
     unfocusedBag:require("../assets/BottomBar/unfocusedBag.png"),
     focusedBag:require("../assets/BottomBar/focusedBag.png"),
+    unfocusedSell:require("../assets/BottomBar/unfocusedSell.png"),
+    focusedSell:require("../assets/BottomBar/focusedSell.png"),
   },
   Home:{
     heart:require("../assets/Home/Heart.png"),

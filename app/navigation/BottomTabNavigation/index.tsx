@@ -1,14 +1,14 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import {useTheme} from 'react-native-paper';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 import images from '../../config/images';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
 import TopTabNavigation from '../TopTabNavigation';
-import { useStyle } from './styles';
+import {useStyle} from './styles';
 import Inbox from '../../screens/Inbox';
 import Cart from '../../screens/Cart';
 
@@ -96,6 +96,28 @@ const BottomTabNavigation = () => {
                 focused
                   ? images.BottomBar.focusedBag
                   : images.BottomBar.unfocusedBag
+              }
+              tintColor={color}
+              style={{width: size, height: size}}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Sell"
+        component={Cart}
+        options={{
+          headerShown: false,
+          tabBarLabel: ({focused, color}) => (
+            <CustomTabLabel focused={focused} label="Sell" color={color} />
+          ),
+          tabBarIcon: ({color, size, focused}) => (
+            <FastImage
+              source={
+                focused
+                  ? images.BottomBar.focusedSell
+                  : images.BottomBar.unfocusedSell
               }
               tintColor={color}
               style={{width: size, height: size}}
