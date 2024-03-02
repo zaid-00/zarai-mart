@@ -72,7 +72,29 @@ export const useStyle = () => {
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between'
-      }
+      },
+      greenDot:{
+        backgroundColor:theme.colors.primaryButton,
+        paddingVertical:heightPercentageToDP(0.5),
+        paddingHorizontal:widthPercentageToDP(1),
+        borderRadius:widthPercentageToDP(50),
+        position:'absolute',
+        right:0,
+        top:0
+      },
+      greenDotNotification:{
+        backgroundColor:theme.colors.primaryButton,
+        paddingVertical:heightPercentageToDP(0.5),
+        paddingHorizontal:widthPercentageToDP(1),
+        borderRadius:widthPercentageToDP(50),
+        position:'absolute',
+        right:widthPercentageToDP(3),
+        top:0
+      },
+      row:{
+        flexDirection:'row',
+        alignItems:'center'
+      },
     });
   return React.useMemo(() => styles(), []);
 };

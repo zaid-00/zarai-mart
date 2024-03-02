@@ -82,8 +82,10 @@ const Home: React.FC = () => {
                 style={styles.icon}
                 resizeMode="contain"
               />
+              <View style={styles.greenDotNotification}></View>
             </Pressable>
             <Pressable
+              style={styles.row}
               onPress={() => {
                 navigation.navigate('Inbox');
               }}>
@@ -92,6 +94,7 @@ const Home: React.FC = () => {
                 style={styles.chatIcon}
                 resizeMode="contain"
               />
+              <View style={styles.greenDot}></View>
             </Pressable>
           </View>
         </View>
