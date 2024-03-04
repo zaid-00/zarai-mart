@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { isTablet } from 'react-native-device-info';
 import { useTheme } from 'react-native-paper';
 import {
   heightPercentageToDP,

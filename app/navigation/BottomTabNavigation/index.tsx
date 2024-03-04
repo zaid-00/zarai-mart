@@ -11,6 +11,7 @@ import TopTabNavigation from '../TopTabNavigation';
 import {useStyle} from './styles';
 import Inbox from '../../screens/Inbox';
 import Cart from '../../screens/Cart';
+import Sell from '../../screens/Sell';
 
 const Tab = createBottomTabNavigator();
 
@@ -106,7 +107,7 @@ const BottomTabNavigation = () => {
       />
       <Tab.Screen
         name="Sell"
-        component={Cart}
+        component={Sell}
         options={{
           headerShown: false,
           tabBarLabel: ({focused, color}) => (

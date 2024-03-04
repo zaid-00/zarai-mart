@@ -42,7 +42,7 @@ export const useStyle = () => {
         paddingBottom: heightPercentageToDP(3),
       },
       button: {
-        marginTop: heightPercentageToDP(8.9),
+        marginTop: heightPercentageToDP(8.3),
         alignSelf: 'center',
       },
       icons: {

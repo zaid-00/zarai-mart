@@ -90,7 +90,7 @@ const InputBoxWithIcon: React.FC<Props> = props => {
         style={[
           styles.textView,
           {
-            width: props?.width ? props.width : widthPercentageToDP(92),
+            width: props?.width ? props.width : widthPercentageToDP(94),
           },
           props.style,
         ]}

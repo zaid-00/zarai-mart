@@ -26,7 +26,7 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'}/>
-      <Stack.Navigator  initialRouteName='Main'>
+      <Stack.Navigator initialRouteName='Main' >
       <Stack.Screen name="Onboard" component={Onboard} options={{headerShown:false}}/>
       <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>

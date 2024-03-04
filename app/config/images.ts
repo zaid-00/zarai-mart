@@ -91,6 +91,9 @@ const images = {
   Cart:{
     delete:require("../assets/Cart/Delete.png"),
   },
+  Sell:{
+    image:require("../assets/Sell/image.png"),
+  }
 };
 
 export default images;

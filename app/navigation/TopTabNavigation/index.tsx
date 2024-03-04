@@ -1,11 +1,16 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import * as React from 'react';
-import { useTheme } from 'react-native-paper';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import {useTheme} from 'react-native-paper';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import ActiveOrders from '../../screens/ActiveOrders';
 import CompletedOrders from '../../screens/CompletedOrders';
 import PendingOrders from '../../screens/PendingOrders';
-import { useStyle } from './styles';
+import {useStyle} from './styles';
+import Header from '../../components/Header';
+import images from '../../config/images';
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigation = () => {
@@ -23,13 +28,21 @@ const TopTabNavigation = () => {
   };
 
   return (
-      <Tab.Navigator
-        screenOptions={tabBarOptions}
-        >
+    <>
+      <Header
+        title="My Orders"
+        leftIcon={images.Order.leave}
+        style={{
+          paddingHorizontal: widthPercentageToDP(3),
+          paddingTop: heightPercentageToDP(2),
+        }}
+      />
+      <Tab.Navigator screenOptions={tabBarOptions}>
         <Tab.Screen name="Active" component={ActiveOrders} />
         <Tab.Screen name="Pending" component={PendingOrders} />
         <Tab.Screen name="Completed" component={CompletedOrders} />
       </Tab.Navigator>
+    </>
   );
 };
 
