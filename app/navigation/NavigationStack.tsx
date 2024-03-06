@@ -1,6 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {StatusBar} from 'react-native';
+import React from 'react';
+
 import Address from '../screens/Address';
 import Chat from '../screens/Chat';
 import Crop from '../screens/Crop';
@@ -19,33 +21,119 @@ import VerifySignUp from '../screens/VerifySignUp';
 import BottomTabNavigation from './BottomTabNavigation';
 import Checkout from '../screens/Checkout';
 import ShippingAddress from '../screens/ShippingAddress';
+
 const Stack = createStackNavigator();
 
+function AuthNavigator() {
+  return (
+    <Stack.Navigator initialRouteName="Onboard">
+      <Stack.Screen
+        name="Onboard"
+        component={Onboard}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="OtpPassword"
+        component={OtpPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="NewPassword"
+        component={NewPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="VerifySignUp"
+        component={VerifySignUp}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function MainNavigator() {
+  return (
+    <Stack.Navigator initialRouteName="Main">
+      <Stack.Screen
+        name="Main"
+        component={BottomTabNavigation}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SeeAll"
+        component={SeeAll}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Crop"
+        component={Crop}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Review"
+        component={Review}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Address"
+        component={Address}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Inbox"
+        component={Inbox}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ShippingAddress"
+        component={ShippingAddress}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function AppNavigator() {
-  
+  const isLoggedIn = true;
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor={'white'} barStyle={'dark-content'}/>
-      <Stack.Navigator initialRouteName='Main' >
-      <Stack.Screen name="Onboard" component={Onboard} options={{headerShown:false}}/>
-      <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
-      <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
-      <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{headerShown:false}}/>
-      <Stack.Screen name='OtpPassword' component={OtpPassword} options={{headerShown:false}}/>
-      <Stack.Screen name='NewPassword' component={NewPassword} options={{headerShown:false}}/>
-      <Stack.Screen name='VerifySignUp' component={VerifySignUp} options={{headerShown:false}}/>
-      <Stack.Screen name='Search' component={Search} options={{headerShown:false}}/>
-      <Stack.Screen name='Main' component={BottomTabNavigation} options={{headerShown:false}}/>
-      <Stack.Screen name='SeeAll' component={SeeAll} options={{headerShown:false}}/>
-      <Stack.Screen name='Crop' component={Crop} options={{headerShown:false}}/>
-      <Stack.Screen name='Review' component={Review} options={{headerShown:false}}/>
-      <Stack.Screen name='EditProfile' component={EditProfile} options={{headerShown:false}}/>
-      <Stack.Screen name='Address' component={Address} options={{headerShown:false}}/>
-      <Stack.Screen name='Inbox' component={Inbox} options={{headerShown:false}}/>
-      <Stack.Screen name='Chat' component={Chat} options={{headerShown:false}}/>
-      <Stack.Screen name='Checkout' component={Checkout} options={{headerShown:false}} />
-      <Stack.Screen name='ShippingAddress' component={ShippingAddress} options={{headerShown:false}} />
-      </Stack.Navigator>
+      <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
+      {isLoggedIn ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }
