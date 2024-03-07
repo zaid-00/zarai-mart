@@ -33,29 +33,97 @@ export const useStyle = () => {
       addImg: {
         width: widthPercentageToDP(30),
         height: heightPercentageToDP(15),
+        alignSelf:'center',
+      },
+      imgPlaceholder: {
+        width: widthPercentageToDP(12),
+        height: heightPercentageToDP(6),
+      },
+      removeImg: {
+        width: widthPercentageToDP(4.4),
+        height: heightPercentageToDP(2.5),
+        position: 'absolute',
+        left: heightPercentageToDP(-1.2),
+        top: heightPercentageToDP(-0.8),
+      },
+      selectedImg: {
+        width: widthPercentageToDP(16),
+        height: heightPercentageToDP(8),
+        borderRadius: widthPercentageToDP(3),
       },
       inputContainer: {
         paddingTop: heightPercentageToDP(3),
-        justifyContent: 'center',
-        alignItems: 'center',
       },
       imgContainer: {
         backgroundColor: theme.colors.textViewBackground,
         paddingHorizontal: widthPercentageToDP(26),
         paddingVertical: heightPercentageToDP(11),
         borderRadius: widthPercentageToDP(4),
-        justifyContent: 'center',
-        alignItems: 'center',
+        alignSelf: 'center',
+      },
+      subImgContainer: {
+        backgroundColor: theme.colors.textViewBackground,
+        paddingHorizontal: widthPercentageToDP(3),
+        paddingVertical: heightPercentageToDP(1.5),
+        borderRadius: widthPercentageToDP(3),
       },
       imgTxt: {
         fontSize: widthPercentageToDP(4),
         fontFamily: theme.fonts.semiBoldFont,
         color: theme.colors.primaryText,
+        alignSelf:'center',
       },
       button: {
-        marginTop:heightPercentageToDP(3),
+        marginVertical: heightPercentageToDP(3),
         alignSelf: 'center',
       },
+      row: {
+        paddingTop: widthPercentageToDP(7),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      },
+      selectedImgContainer: {
+        flexDirection: 'row',
+      },
+
+      dropdown: {
+        marginTop:heightPercentageToDP(3.5),
+        paddingVertical:heightPercentageToDP(1),
+        borderColor: theme.colors.borderColor,
+        borderWidth: widthPercentageToDP(0.2),
+        borderRadius: widthPercentageToDP(3),
+        paddingHorizontal: widthPercentageToDP(4),
+        backgroundColor:theme.colors.textViewBackground,
+      },
+      placeholderStyle: {
+        color:theme.colors.placeholderText,
+        fontFamily:theme.fonts.regularFont,
+        fontSize:widthPercentageToDP(3.5),
+      },
+      selectedTextStyle: {
+        color:theme.colors.primaryText,
+        fontFamily:theme.fonts.regularFont,
+        fontSize:widthPercentageToDP(3.7),
+      },
+      iconStyle: {
+        width:widthPercentageToDP(5),
+        height:heightPercentageToDP(2.5),
+      },
+      inputSearchStyle: {
+        color:theme.colors.primaryText,
+        fontFamily:theme.fonts.regularFont,
+        fontSize:widthPercentageToDP(3.7),
+        borderRadius: widthPercentageToDP(2),
+      },
+      containerStyle: {
+        borderRadius: widthPercentageToDP(3),
+        height:heightPercentageToDP(22),
+      },
+      unitContainerStyle:{
+        borderRadius: widthPercentageToDP(3),
+        height:heightPercentageToDP(29),
+      }
     });
   return React.useMemo(() => styles(), []);
 };

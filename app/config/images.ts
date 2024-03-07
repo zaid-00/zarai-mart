@@ -93,6 +93,7 @@ const images = {
   },
   Sell:{
     image:require("../assets/Sell/image.png"),
+    remove:require("../assets/Sell/remove.png"),
   }
 };
 
