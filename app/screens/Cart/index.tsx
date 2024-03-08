@@ -1,14 +1,18 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {FlatList, SafeAreaView, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect, useState } from 'react';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Modal from 'react-native-modal';
-import {useTheme} from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import CartCard from '../../components/CartCard';
-import Header from '../../components/Header';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import {dummyOrderData} from '../../utils/dummyData';
-import {useStyle} from './styles';
+import { dummyOrderData } from '../../utils/dummyData';
+import { useStyle } from './styles';
 const Cart: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -28,13 +32,39 @@ const Cart: React.FC = () => {
       onPress={toggleModal}
     />
   );
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: 'My Cart',
+      headerShown: true,
+      headerStyle: {
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 0,
+        shadowOpacity: 0,
+        elevation: 0,
+      },
+      headerLeft: () => {
+        return (
+          <FastImage
+            source={images.Order.leave}
+            style={{
+              height: heightPercentageToDP(4),
+              width: widthPercentageToDP(6),
+              marginLeft: widthPercentageToDP(3),
+            }}
+            resizeMode="contain"
+          />
+        );
+      },
+      headerTitleStyle: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.6),
+      },
+      headerTransparent: false,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        title="My Cart"
-        leftIcon={images.Order.leave}
-        style={styles.headerStyle}
-      />
       <View style={styles.subContainer}>
         <FlatList
           data={dummyOrderData}

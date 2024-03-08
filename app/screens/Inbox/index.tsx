@@ -55,7 +55,6 @@ const Inbox: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header title="Inbox" leftIcon={images.ForgotPassword.backButton}/>
         <View style={styles.FlatListContainer}>
           <FlatList renderItem={renderChat} data={messages} />
         </View>

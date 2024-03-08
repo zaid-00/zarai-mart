@@ -16,7 +16,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
-        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        paddingTop: heightPercentageToDP(1),
         paddingHorizontal: widthPercentageToDP(3),
       },
       infoContainer: {
@@ -26,7 +26,7 @@ export const useStyle = () => {
       rowContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: heightPercentageToDP(2),
+        marginBottom: heightPercentageToDP(2),
         borderRadius: widthPercentageToDP(4),
         paddingHorizontal: widthPercentageToDP(2.5),
         paddingVertical: heightPercentageToDP(1.5),

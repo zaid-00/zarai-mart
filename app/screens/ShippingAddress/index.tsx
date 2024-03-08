@@ -26,7 +26,7 @@ const ShippingAddress: React.FC = () => {
       <AddressCard
         leftIcon={images.Address.location}
         title={item.title}
-        style={{marginTop: heightPercentageToDP(3)}}
+        style={{marginBottom: heightPercentageToDP(3)}}
         address={item.address}
         rightIcon={images.Address.edit}
         selection
@@ -39,10 +39,6 @@ const ShippingAddress: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header
-          title="Shipping Address"
-          leftIcon={images.ForgotPassword.backButton}
-        />
         <FlatList
           data={addressData}
           renderItem={renderAddressCard}

@@ -16,11 +16,6 @@ export const useStyle = () => {
         flex: 1,
         backgroundColor: theme.colors.background,
       },
-      headerStyle: {
-        paddingHorizontal: widthPercentageToDP(3),
-        paddingTop: heightPercentageToDP(2),
-        paddingBottom: heightPercentageToDP(0.4),
-      },
       subContainer: {
         paddingHorizontal: widthPercentageToDP(3),
         height: heightPercentageToDP(78),

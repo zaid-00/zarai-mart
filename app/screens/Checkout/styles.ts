@@ -17,7 +17,6 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
-        paddingTop: Platform.OS ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
       orderCardStyle: {
@@ -46,7 +45,7 @@ export const useStyle = () => {
         fontSize: widthPercentageToDP(5.2),
       },
       addressText: {
-        marginTop: heightPercentageToDP(3),
+        marginTop: heightPercentageToDP(1),
         color: theme.colors.primaryText,
         fontFamily: theme.fonts.boldFont,
         fontSize: widthPercentageToDP(4.5),

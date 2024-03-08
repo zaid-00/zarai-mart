@@ -40,10 +40,6 @@ const NewPassword: React.FC = () => {
       style={styles.container}>
       {modalVisible && <View style={styles.overlay}></View>}
       <SafeAreaView style={styles.subContainer}>
-        <Header
-          leftIcon={images.ForgotPassword.backButton}
-          title="Create New Password"
-        />
         <FastImage
           source={images.ForgotPassword.newPassword}
           resizeMode="contain"

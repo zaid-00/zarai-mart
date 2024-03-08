@@ -144,7 +144,7 @@ const Login: React.FC = () => {
         onPress={handleSubmit(login)}
         animating={isLoading}
       />
-      <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Forgot Password')}>
         <Text
           style={[
             {

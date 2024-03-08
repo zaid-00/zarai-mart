@@ -22,11 +22,7 @@ const EditProfile: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header
-          title="Edit Profile"
-          leftIcon={images.ForgotPassword.backButton}
-        />
-        <View style={styles.controller}>
+        <View >
           <Controller
             control={control}
             defaultValue={'Muhammad Zaid'}

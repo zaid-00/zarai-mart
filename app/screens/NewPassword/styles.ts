@@ -20,7 +20,7 @@ export const useStyle = () => {
       },
       Img: {
         height: heightPercentageToDP(30),
-        marginTop:heightPercentageToDP(5.1),
+        marginTop: heightPercentageToDP(5.1),
         width: widthPercentageToDP(60),
         alignSelf: 'center',
       },
@@ -31,7 +31,7 @@ export const useStyle = () => {
         fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
       },
       subContainer: {
-        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        // paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
       text: {

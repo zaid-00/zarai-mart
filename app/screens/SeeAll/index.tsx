@@ -1,8 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {FlatList, SafeAreaView, View} from 'react-native';
+import React, {useState, useLayoutEffect} from 'react';
+import {FlatList, SafeAreaView, View, Pressable} from 'react-native';
 import {useTheme} from 'react-native-paper';
 import images from '../../config/images';
+import FastImage from 'react-native-fast-image';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -39,13 +40,42 @@ const SeeAll: React.FC = ({route}) => {
       onPress={() => handleSelectFilter(index)}
     />
   );
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: route?.params?.title,
+      headerShown: true,
+      headerStyle: {
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 0,
+        shadowOpacity: 0,
+        elevation: 0,
+      },
+      headerLeft: () => {
+        return (
+          <Pressable
+            onPress={() => navigation.goBack()}
+            style={{paddingLeft: widthPercentageToDP(3)}}>
+            <FastImage
+              source={images.ForgotPassword.backButton}
+              style={{
+                height: heightPercentageToDP(4),
+                width: widthPercentageToDP(6),
+              }}
+              resizeMode="contain"
+            />
+          </Pressable>
+        );
+      },
+      headerTitleStyle: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.6),
+      },
+      headerTransparent: false,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        leftIcon={images.ForgotPassword.backButton}
-        title={route?.params?.title}
-        style={styles.header}
-      />
       <View style={styles.subContainer}>
         <View style={{marginBottom: heightPercentageToDP(2)}}>
           <FlatList

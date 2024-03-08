@@ -21,20 +21,25 @@ export const useStyle = () => {
         paddingHorizontal: widthPercentageToDP(3),
       },
       subContainer: {
-        marginTop:heightPercentageToDP(3),
+        marginTop:heightPercentageToDP(1),
         paddingHorizontal: widthPercentageToDP(3),
-        paddingBottom:heightPercentageToDP(12),
+        paddingBottom:heightPercentageToDP(6),
       },
       img: {
-        height: heightPercentageToDP(5.8),
+        height: heightPercentageToDP(6),
         width: widthPercentageToDP(12),
-        // marginRight:widthPercentageToDP(3),
         borderRadius:widthPercentageToDP(50)
       },
       nameText: {
         fontFamily: theme.fonts.semiBoldFont,
         fontSize: widthPercentageToDP(3.5),
         color: theme.colors.primaryButton
+      },
+      personName: {
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(3.9),
+        marginLeft:widthPercentageToDP(3),
+        color: theme.colors.primaryText,
       },
       greenContainer:{
         paddingHorizontal:widthPercentageToDP(3),

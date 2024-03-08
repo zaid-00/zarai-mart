@@ -33,7 +33,7 @@ export const useStyle = () => {
         fontSize: isTablet() ? widthPercentageToDP(2) : undefined,
       },
       subContainer: {
-        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        // paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
         paddingHorizontal: widthPercentageToDP(3),
       },
       text: {

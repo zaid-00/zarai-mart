@@ -1,23 +1,22 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect, useState } from 'react';
 import {
   FlatList,
+  Pressable,
   SafeAreaView,
   Text,
-  TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {useTheme} from 'react-native-paper';
+import { useTheme } from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import Filter from '../../components/Filter';
-import Header from '../../components/Header';
 import images from '../../config/images';
-import {dummyReviews, reviewFilter} from '../../utils/dummyData';
-import {useStyle} from './styles';
+import { dummyReviews, reviewFilter } from '../../utils/dummyData';
+import { useStyle } from './styles';
 const Review: React.FC = ({route}) => {
   const styles = useStyle();
   const theme = useTheme();
@@ -29,11 +28,14 @@ const Review: React.FC = ({route}) => {
   const renderReviews = ({item}) => (
     <View style={styles.marginBottom}>
       <View style={styles.rowFlex}>
+        <View style={styles.rowContainer}>
         <FastImage
           source={images.Home.zaid}
           style={styles.img}
           resizeMode="contain"
         />
+        <Text style={styles.personName}>{item?.name}</Text>
+        </View>
         <View style={styles.greenContainer}>
           <View style={styles.rowContainer}>
             <FastImage
@@ -58,13 +60,42 @@ const Review: React.FC = ({route}) => {
       onPress={() => handleSelectFilter(index)}
     />
   );
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: "4.6 (5,389 reviews)",
+      headerShown: true,
+      headerStyle: {
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 0,
+        shadowOpacity: 0,
+        elevation: 0,
+      },
+      headerLeft: () => {
+        return (
+          <Pressable
+            onPress={() => navigation.goBack()}
+            style={{paddingLeft: widthPercentageToDP(3)}}>
+            <FastImage
+              source={images.ForgotPassword.backButton}
+              style={{
+                height: heightPercentageToDP(4),
+                width: widthPercentageToDP(6),
+              }}
+              resizeMode="contain"
+            />
+          </Pressable>
+        );
+      },
+      headerTitleStyle: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.6),
+      },
+      headerTransparent: false,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        leftIcon={images.ForgotPassword.backButton}
-        title="4.6 (5,389 reviews)"
-        style={styles.header}
-      />
       <View style={styles.subContainer}>
         <View style={{marginBottom: heightPercentageToDP(2)}}>
           <FlatList

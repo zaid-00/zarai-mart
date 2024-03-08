@@ -1,16 +1,19 @@
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import * as React from 'react';
-import {useTheme} from 'react-native-paper';
+import FastImage from 'react-native-fast-image';
+import { useTheme } from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
+import Header from '../../components/Header';
+import { useNavigation } from '@react-navigation/native';
+import images from '../../config/images';
 import ActiveOrders from '../../screens/ActiveOrders';
 import CompletedOrders from '../../screens/CompletedOrders';
 import PendingOrders from '../../screens/PendingOrders';
-import {useStyle} from './styles';
-import Header from '../../components/Header';
-import images from '../../config/images';
+import { useStyle } from './styles';
+import { Pressable } from 'react-native';
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigation = () => {
@@ -26,7 +29,37 @@ const TopTabNavigation = () => {
       shadowOpacity: 0,
     },
   };
-
+  const navigation = useNavigation();
+  const commonOptions = ({route}) => ({
+    headerShown: true,
+    headerStyle: {
+      backgroundColor: theme.colors.background,
+      borderBottomWidth: 0,
+      shadowOpacity: 0,
+      elevation: 0,
+    },
+    headerLeft: () => (
+      <Pressable
+        onPress={() => navigation.goBack()}
+        style={{paddingLeft: widthPercentageToDP(3)}}>
+        <FastImage
+          source={images.ForgotPassword.backButton}
+          style={{
+            height: heightPercentageToDP(4),
+            width: widthPercentageToDP(6),
+          }}
+          resizeMode="contain"
+        />
+      </Pressable>
+    ),
+    headerTitleStyle: {
+      color: theme.colors.primaryText,
+      fontFamily: theme.fonts.boldFont,
+      fontSize: widthPercentageToDP(5.6),
+    },
+    headerTransparent: false,
+    title: 'My Orders',
+  });
   return (
     <>
       <Header
@@ -34,7 +67,7 @@ const TopTabNavigation = () => {
         leftIcon={images.Order.leave}
         style={{
           paddingHorizontal: widthPercentageToDP(3),
-          paddingTop: heightPercentageToDP(2),
+          paddingTop: heightPercentageToDP(1),
         }}
       />
       <Tab.Navigator screenOptions={tabBarOptions}>

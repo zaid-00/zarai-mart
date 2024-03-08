@@ -1,15 +1,17 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Pressable, SafeAreaView, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect, useState } from 'react';
+import { Pressable, SafeAreaView, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import Modal from 'react-native-modal';
-import {useTheme} from 'react-native-paper';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import { useTheme } from 'react-native-paper';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import Header from '../../components/Header';
-import {useStyle} from './styles';
+import { useStyle } from './styles';
 const Profile: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -65,10 +67,40 @@ const Profile: React.FC = () => {
     setWhichModal(() => 'Delete');
     toggleModal();
   };
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: 'Profile',
+      headerShown: true,
+      headerStyle: {
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 0,
+        shadowOpacity: 0,
+        elevation: 0,
+      },
+      headerLeft: () => {
+        return (
+          <FastImage
+            source={images.Order.leave}
+            style={{
+              height: heightPercentageToDP(4),
+              width: widthPercentageToDP(6),
+              marginLeft: widthPercentageToDP(3),
+            }}
+            resizeMode="contain"
+          />
+        );
+      },
+      headerTitleStyle: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.6),
+      },
+      headerTransparent: false,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header title="Profile" leftIcon={images.Order.leave} />
         <View style={styles.infoContainer}>
           <FastImage
             source={selectedImg ? {uri: selectedImg} : images.Home.zaid}
@@ -91,7 +123,7 @@ const Profile: React.FC = () => {
           title="Edit Profile"
           rightIcon={images.Profile.next}
           onPress={() => {
-            navigation.navigate('EditProfile');
+            navigation.navigate('Edit Profile');
           }}
         />
         <Option

@@ -23,7 +23,7 @@ const ForgotPassword: React.FC = () => {
 
   const forgetPassword = () => {
     Keyboard.dismiss();
-    navigation.navigate('OtpPassword');
+    navigation.navigate('One Time Password');
   };
 
   return (
@@ -32,10 +32,6 @@ const ForgotPassword: React.FC = () => {
       contentContainerStyle={styles.contentContainer}
       keyboardShouldPersistTaps="always">
       <SafeAreaView style={styles.subContainer}>
-        <Header
-          leftIcon={images.ForgotPassword.backButton}
-          title="Forgot Password"
-        />
         <FastImage
           source={images.ForgotPassword.sittingPerson}
           resizeMode="contain"

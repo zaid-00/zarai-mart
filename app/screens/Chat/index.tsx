@@ -1,12 +1,24 @@
-import React, {useState} from 'react';
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React, {useLayoutEffect, useState} from 'react';
+import {
+  Pressable,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import FastImage from 'react-native-fast-image';
 import {Bubble, GiftedChat, MessageText} from 'react-native-gifted-chat';
 import {useTheme} from 'react-native-paper';
-import Header from '../../components/Header';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import images from '../../config/images';
 import {useStyle} from './styles';
 const Chat: React.FC = () => {
   const styles = useStyle();
+  const navigation = useNavigation();
   const theme = useTheme();
   const [messages, setMessages] = useState([
     {
@@ -85,11 +97,42 @@ const Chat: React.FC = () => {
       </TouchableOpacity>
     );
   };
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: 'Zaid',
+      headerShown: true,
+      headerStyle: {
+        backgroundColor: theme.colors.background,
+        borderBottomWidth: 0,
+        shadowOpacity: 0,
+        elevation: 0,
+      },
+      headerLeft: () => {
+        return (
+          <Pressable
+            onPress={() => navigation.goBack()}
+            style={{paddingLeft: widthPercentageToDP(3)}}>
+            <FastImage
+              source={images.ForgotPassword.backButton}
+              style={{
+                height: heightPercentageToDP(4),
+                width: widthPercentageToDP(6),
+              }}
+              resizeMode="contain"
+            />
+          </Pressable>
+        );
+      },
+      headerTitleStyle: {
+        color: theme.colors.primaryText,
+        fontFamily: theme.fonts.boldFont,
+        fontSize: widthPercentageToDP(5.6),
+      },
+      headerTransparent: false,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.subContainer}>
-        <Header title="Zaid" leftIcon={images.ForgotPassword.backButton} />
-      </View>
       <GiftedChat
         messages={messages}
         renderBubble={renderBubble}

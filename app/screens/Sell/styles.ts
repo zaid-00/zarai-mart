@@ -17,7 +17,7 @@ export const useStyle = () => {
         backgroundColor: theme.colors.background,
       },
       subContainer: {
-        paddingTop: Platform.OS === 'android' ? heightPercentageToDP(2) : 0,
+        paddingTop: heightPercentageToDP(1),
         paddingHorizontal: widthPercentageToDP(3),
       },
       controller: {marginTop: heightPercentageToDP(3.5)},
@@ -50,9 +50,6 @@ export const useStyle = () => {
         width: widthPercentageToDP(16),
         height: heightPercentageToDP(8),
         borderRadius: widthPercentageToDP(3),
-      },
-      inputContainer: {
-        paddingTop: heightPercentageToDP(3),
       },
       imgContainer: {
         backgroundColor: theme.colors.textViewBackground,

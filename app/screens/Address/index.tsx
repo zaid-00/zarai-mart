@@ -14,11 +14,9 @@ const Address: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header title="Address" leftIcon={images.ForgotPassword.backButton} />
         <AddressCard
           leftIcon={images.Address.location}
           title="Home"
-          style={{marginTop: heightPercentageToDP(3)}}
           address="61480 Sunbrook Park, PC 5679"
           rightIcon={images.Address.edit}
           default

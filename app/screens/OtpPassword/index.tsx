@@ -29,7 +29,7 @@ const OtpPassword: React.FC = () => {
   }, [otp]);
 
   const verifyOtpForReset = () => {
-    navigation.navigate('NewPassword');
+    navigation.navigate('Create New Password');
   };
 
   return (
@@ -37,11 +37,6 @@ const OtpPassword: React.FC = () => {
       style={styles.container}
       contentContainerStyle={styles.contentContainer}>
       <SafeAreaView>
-        <Header
-          leftIcon={images.ForgotPassword.backButton}
-          title="Forgot Password"
-          style={styles.header}
-        />
         <View style={styles.subContainer}>
           <Text style={styles.text2}>
             Enter OTP sent to your email for the verification process.

@@ -1,16 +1,14 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
-import {useTheme} from 'react-native-paper';
-import {heightPercentageToDP} from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useTheme } from 'react-native-paper';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 import AddressCard from '../../components/AddressCard';
 import CartCard from '../../components/CartCard';
-import Header from '../../components/Header';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import {dummyOrderData} from '../../utils/dummyData';
-import {useStyle} from './styles';
-
+import { dummyOrderData } from '../../utils/dummyData';
+import { useStyle } from './styles';
 const Checkout: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -20,11 +18,10 @@ const Checkout: React.FC = () => {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.subContainer}>
-        <Header title="Checkout" leftIcon={images.ForgotPassword.backButton} />
         <Text style={styles.addressText}>Shipping Address</Text>
         <AddressCard
           leftIcon={images.Address.location}
@@ -33,7 +30,7 @@ const Checkout: React.FC = () => {
           rightIcon={images.Address.edit}
           style={{marginTop: heightPercentageToDP(2)}}
           onPress={() => {
-            navigation.navigate('ShippingAddress');
+            navigation.navigate('Shipping Address');
           }}
         />
         <View style={styles.lineSeperator}></View>
