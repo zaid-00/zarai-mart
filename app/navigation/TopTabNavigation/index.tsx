@@ -1,19 +1,19 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import * as React from 'react';
 import FastImage from 'react-native-fast-image';
-import { useTheme } from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import Header from '../../components/Header';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import images from '../../config/images';
 import ActiveOrders from '../../screens/ActiveOrders';
 import CompletedOrders from '../../screens/CompletedOrders';
 import PendingOrders from '../../screens/PendingOrders';
-import { useStyle } from './styles';
-import { Pressable } from 'react-native';
+import {useStyle} from './styles';
+import {Pressable} from 'react-native';
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigation = () => {

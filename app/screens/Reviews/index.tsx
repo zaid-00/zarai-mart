@@ -32,7 +32,7 @@ const Review: React.FC = ({route}) => {
         <FastImage
           source={images.Home.zaid}
           style={styles.img}
-          resizeMode="contain"
+          resizeMode="stretch"
         />
         <Text style={styles.personName}>{item?.name}</Text>
         </View>
