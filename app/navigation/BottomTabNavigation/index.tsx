@@ -1,24 +1,26 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {useTheme} from 'react-native-paper';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import { useTheme } from 'react-native-paper';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 import images from '../../config/images';
+import Cart from '../../screens/Cart';
 import Home from '../../screens/Home';
 import Profile from '../../screens/Profile';
-import TopTabNavigation from '../TopTabNavigation';
-import {useStyle} from './styles';
-import Inbox from '../../screens/Inbox';
-import Cart from '../../screens/Cart';
 import Sell from '../../screens/Sell';
-
+import TopTabNavigation from '../TopTabNavigation';
+import { useStyle } from './styles';
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigation = () => {
   const theme = useTheme();
   const style = useStyle();
-
+  const navigation = useNavigation();
   const CustomTabLabel = ({focused, label, color}) => (
     <Text
       style={{
@@ -131,7 +133,31 @@ const BottomTabNavigation = () => {
         name="Orders"
         component={TopTabNavigation}
         options={{
-          headerShown: false,
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.colors.background,
+            borderBottomWidth: 0,
+            shadowOpacity: 0,
+            elevation: 0,
+          },
+          headerLeft: () => (
+            <FastImage
+              source={images.Order.leave}
+              style={{
+                height: heightPercentageToDP(4),
+                width: widthPercentageToDP(6),
+                marginLeft: widthPercentageToDP(3),
+              }}
+              resizeMode="contain"
+            />
+          ),
+          headerTitleStyle: {
+            color: theme.colors.primaryText,
+            fontFamily: theme.fonts.boldFont,
+            fontSize: widthPercentageToDP(5.6),
+          },
+          headerTransparent: false,
+          title: 'My Orders',
           tabBarLabel: ({focused, color}) => (
             <CustomTabLabel focused={focused} label="Orders" color={color} />
           ),

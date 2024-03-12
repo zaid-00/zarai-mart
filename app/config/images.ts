@@ -94,6 +94,9 @@ const images = {
     image: require('../assets/Sell/image.png'),
     remove: require('../assets/Sell/remove.png'),
   },
+  Notification: {
+    update: require('../assets/Notification/refresh.png'),
+  },
 };
 
 export default images;

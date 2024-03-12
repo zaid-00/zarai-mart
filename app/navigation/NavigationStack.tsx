@@ -27,6 +27,7 @@ import ShippingAddress from '../screens/ShippingAddress';
 import Signup from '../screens/Signup';
 import VerifySignUp from '../screens/VerifySignUp';
 import BottomTabNavigation from './BottomTabNavigation';
+import Notification from '../screens/Notification';
 const Stack = createStackNavigator();
 function AuthNavigator() {
   const theme = useTheme();
@@ -186,6 +187,11 @@ function MainNavigator() {
       <Stack.Screen
         name="Shipping Address"
         component={ShippingAddress}
+        options={commonOptions}
+      />
+      <Stack.Screen
+        name="Notification"
+        component={Notification}
         options={commonOptions}
       />
     </Stack.Navigator>

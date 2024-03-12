@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import {
   FlatList,
   Pressable,
@@ -8,19 +8,19 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTheme} from 'react-native-paper';
-import {useStyle} from './styles';
 import FastImage from 'react-native-fast-image';
-import images from '../../config/images';
-import Searchbar from '../../components/Searchbar';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useTheme } from 'react-native-paper';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import CropCard from '../../components/CropCard';
-import {dummyCropData, vegetableData} from '../../utils/dummyData';
-import {ScrollView} from 'react-native-gesture-handler';
 import Filter from '../../components/Filter';
+import Searchbar from '../../components/Searchbar';
+import images from '../../config/images';
+import { dummyCropData, vegetableData } from '../../utils/dummyData';
+import { useStyle } from './styles';
 const Home: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
             </View>
           </View>
           <View style={styles.subRowFlex}>
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate('Notification')}>
               <FastImage
                 source={images.Home.notification}
                 style={styles.icon}

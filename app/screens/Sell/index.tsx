@@ -1,21 +1,20 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState, useLayoutEffect} from 'react';
-import {Controller, useForm} from 'react-hook-form';
-import {Pressable, ScrollView, Text, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { Pressable, ScrollView, Text, View } from 'react-native';
+import { Dropdown } from 'react-native-element-dropdown';
 import FastImage from 'react-native-fast-image';
-import {launchImageLibrary} from 'react-native-image-picker';
-import {useTheme} from 'react-native-paper';
+import { launchImageLibrary } from 'react-native-image-picker';
+import { useTheme } from 'react-native-paper';
 import {
-  widthPercentageToDP,
   heightPercentageToDP,
+  widthPercentageToDP,
 } from 'react-native-responsive-screen';
-import Header from '../../components/Header';
 import InputBoxWithIcon from '../../components/InputBoxWithIcon';
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
-import {useStyle} from './styles';
-import {Dropdown} from 'react-native-element-dropdown';
-import {unitsData, cropCategories} from '../../utils/dummyData';
+import { cropCategories, unitsData } from '../../utils/dummyData';
+import { useStyle } from './styles';
 const Sell: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
