@@ -14,7 +14,6 @@ import {
 import PrimaryButton from '../../components/PrimaryButton';
 import images from '../../config/images';
 import { useStyle } from './styles';
-
 const Onboard: React.FC = () => {
   const styles = useStyle();
   const theme = useTheme();
@@ -47,6 +46,7 @@ const Onboard: React.FC = () => {
       <FastImage
         source={imageSource()}
         style={styles.image}
+        resizeMode='contain'
       />
       <Text style={styles.heading}>{getParagraph()}</Text>
       <View style={styles.dotContainer}>

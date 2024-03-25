@@ -345,7 +345,7 @@ const Sell: React.FC = () => {
             render={({field: {onChange, value}}) => (
               <InputBoxWithIcon
                 onChangeText={onChange}
-                numberOfCharacter={11}
+                numberOfCharacter={40}
                 value={value}
                 style={{width: widthPercentageToDP(94)}}
                 inputStyle={styles.inputStyle}
@@ -362,7 +362,7 @@ const Sell: React.FC = () => {
               ]}>
               {formState.errors.description.type === 'required'
                 ? 'Description is required'
-                : 'Description must be 11 characters'}
+                : 'Description must be 20 characters'}
             </Text>
           )}
         </View>

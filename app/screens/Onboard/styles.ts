@@ -19,6 +19,10 @@ export const useStyle = () => {
       image: {
         height: heightPercentageToDP(60),
         marginBottom: heightPercentageToDP(2),
+        width:widthPercentageToDP(100),
+      },
+      imageContainer:{
+        flex:1
       },
       heading: {
         alignSelf: 'center',

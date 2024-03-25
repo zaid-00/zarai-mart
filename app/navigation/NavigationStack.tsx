@@ -69,36 +69,6 @@ function AuthNavigator() {
         component={Onboard}
         options={{headerShown: false}}
       />
-      <Stack.Screen
-        name="Signup"
-        component={Signup}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Forgot Password"
-        component={ForgotPassword}
-        options={commonOptions}
-      />
-      <Stack.Screen
-        name="One Time Password"
-        component={OtpPassword}
-        options={commonOptions}
-      />
-      <Stack.Screen
-        name="Create New Password"
-        component={NewPassword}
-        options={commonOptions}
-      />
-      <Stack.Screen
-        name="VerifySignUp"
-        component={VerifySignUp}
-        options={{headerShown: false}}
-      />
     </Stack.Navigator>
   );
 }
@@ -137,7 +107,37 @@ function MainNavigator() {
     title: route?.params?.name,
   });
   return (
-    <Stack.Navigator initialRouteName="Main">
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Forgot Password"
+        component={ForgotPassword}
+        options={commonOptions}
+      />
+      <Stack.Screen
+        name="One Time Password"
+        component={OtpPassword}
+        options={commonOptions}
+      />
+      <Stack.Screen
+        name="Create New Password"
+        component={NewPassword}
+        options={commonOptions}
+      />
+      <Stack.Screen
+        name="VerifySignUp"
+        component={VerifySignUp}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="Main"
         component={BottomTabNavigation}
@@ -199,11 +199,11 @@ function MainNavigator() {
 }
 
 function AppNavigator() {
-  const isLoggedIn = true;
+  const isFirstRun = true;
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
-      {isLoggedIn ? <MainNavigator /> : <AuthNavigator />}
+      {isFirstRun ? <MainNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }
